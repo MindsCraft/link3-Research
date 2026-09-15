@@ -1,0 +1,128 @@
+:root {
+  /* ==========================================================================
+     PRIMARY BRAND ACCENT
+     Change these root values to update the accent theme across the entire application.
+     ========================================================================== */
+  --brand-primary: #014ea1;
+  --brand-primary-hover: #013f83;
+  --brand-primary-subtle: #edf2f9;
+  --brand-primary-light: #f4f8fd;
+  --brand-primary-dark: #002f62;
+  --brand-primary-border: #d1dfed;
+  --brand-primary-shadow: 0 4px 18px rgba(1, 78, 161, 0.28);
+
+  /* Semantic Aliases (automatically inherit from --brand-primary) */
+  --color-primary: var(--brand-primary);
+  --color-primary-hover: var(--brand-primary-hover);
+  --color-primary-subtle: var(--brand-primary-subtle);
+  --color-primary-light: var(--brand-primary-light);
+  --color-primary-dark: var(--brand-primary-dark);
+  --color-primary-border: var(--brand-primary-border);
+  --color-primary-shadow: var(--brand-primary-shadow);
+
+  /* Legacy & Compatibility Aliases */
+  --accent-blue: var(--brand-primary);
+  --accent-blue-hover: var(--brand-primary-hover);
+  --accent-blue-subtle: var(--brand-primary-subtle);
+  --accent-blue-text: var(--brand-primary);
+
+  --color-blue: var(--brand-primary);
+  --color-blue-hover: var(--brand-primary-hover);
+  --color-blue-subtle: var(--brand-primary-subtle);
+  --color-blue-light: var(--brand-primary-light);
+  --color-blue-dark: var(--brand-primary-dark);
+
+  --color-pink: var(--brand-primary);
+  --color-pink-hover: var(--brand-primary-hover);
+  --color-pink-subtle: var(--brand-primary-subtle);
+  --color-pink-light: var(--brand-primary-light);
+  --color-pink-dark: var(--brand-primary-dark);
+
+  --shadow-blue: var(--brand-primary-shadow);
+  --shadow-pink: var(--brand-primary-shadow);
+
+  /* ==========================================================================
+     SURFACE & CARD BACKGROUNDS
+     ========================================================================== */
+  --bg: #ffffff;
+  --bg-subtle: #f7f8fa;
+  --bg-card: #ffffff;
+  --bg-card-hover: #fcfcfd;
+  --bg-card-subtle: #ECEEF1;
+  --bg-card-subtle-hover: #E2E5E9;
+  --bg-time-card: var(--bg-card-subtle);
+  --bg-time-card-hover: var(--bg-card-subtle-hover);
+  --bg-inverse: #0a0a0a;
+
+  /* ==========================================================================
+     TEXT COLORS
+     ========================================================================== */
+  --text: #0a0a0a;
+  --text-muted: #555555;
+  --text-subtle: #888888;
+  --text-inverse: #ffffff;
+
+  /* ==========================================================================
+     BORDERS
+     ========================================================================== */
+  --border: #e2e4e8;
+  --border-subtle: #eeeeee;
+  --border-strong: #0a0a0a;
+  --border-card-subtle: #D5D8DD;
+
+  /* ==========================================================================
+     SECONDARY & SEGMENT ACCENTS
+     ========================================================================== */
+  --color-yellow: #FFD800;
+  --color-yellow-hover: #e6c300;
+  --color-yellow-subtle: #FFFBE6;
+
+  --color-purple: #9C60FF;
+  --color-purple-dark: #6C22D6;
+  --color-purple-subtle: #F3ECFF;
+
+  --color-cyan: #00C4DF;
+  --color-cyan-dark: #0093A8;
+  --color-cyan-subtle: #E6F9FC;
+
+  --color-wholesale: #141414;
+  --color-wholesale-subtle: #242424;
+
+  /* ==========================================================================
+     RADII
+     ========================================================================== */
+  --radius-sm: 4px;
+  --radius: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 28px;
+  --radius-pill: 9999px;
+  
+  /* ==========================================================================
+     TYPOGRAPHY FONTS & WEIGHTS
+     Figtree for header and display content, Inter for details and body text
+     ========================================================================== */
+  --font-display: 'Figtree', var(--font-figtree), system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extrabold: 800;
+  --font-black: 900;
+
+  /* ==========================================================================
+     SHADOWS
+     ========================================================================== */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.06);
+  --shadow-card-hover: 0 8px 30px rgba(0, 0, 0, 0.1);
+
+  /* ==========================================================================
+     LAYOUT & SPACING
+     ========================================================================== */
+  --container-max: 1280px;
+  --header-height: 72px;
+  --segment-bar-height: 38px;
+}
