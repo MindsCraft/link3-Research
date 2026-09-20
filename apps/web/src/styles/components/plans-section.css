@@ -1,0 +1,359 @@
+/* ==========================================================================
+   PLANS SECTION COMPONENT STYLES
+   ========================================================================== */
+
+.plans-section-root {
+  padding-top: 24px;
+  padding-bottom: 64px;
+}
+
+.plans-toggle-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.plans-toggle-group {
+  display: inline-flex;
+  padding: 4px;
+  background-color: var(--bg-card-subtle);
+  border-radius: var(--radius-pill);
+  gap: 4px;
+  overflow-x: auto;
+}
+
+.plans-toggle-btn {
+  padding: 10px 24px;
+  border-radius: var(--radius-pill);
+  border: 2px solid transparent;
+  background-color: transparent;
+  color: var(--text-muted);
+  font-weight: var(--font-bold);
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: none;
+  transition: all 0.15s ease;
+}
+
+.plans-toggle-btn-active {
+  border-color: var(--brand-primary);
+  background-color: #ffffff;
+  color: var(--text);
+  box-shadow: var(--shadow-sm);
+}
+
+.plans-toggle-subtext-active {
+  font-size: 11px;
+  font-weight: var(--font-bold);
+  margin-top: 2px;
+}
+
+.plans-toggle-subtext {
+  font-size: 11px;
+  font-weight: var(--font-regular);
+  margin-top: 2px;
+}
+
+.plans-banner-promo {
+  max-width: 820px;
+  margin: 0 auto 36px;
+  background-color: var(--brand-primary-subtle);
+  border: 1px solid var(--brand-primary-border);
+  border-radius: var(--radius-lg);
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.plans-promo-icon-box {
+  width: 44px;
+  height: 32px;
+  background-color: #ffffff;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid #0a0a0a;
+  flex-shrink: 0;
+}
+
+.plans-promo-icon {
+  color: #0a0a0a;
+}
+
+.plans-promo-content {
+  flex: 1;
+  font-size: 13px;
+}
+
+.plans-promo-badge {
+  margin-right: 8px;
+  display: inline-block;
+}
+
+.plans-promo-text {
+  color: #1f2937;
+  font-weight: var(--font-medium);
+}
+
+.plans-promo-link {
+  font-weight: var(--font-bold);
+  text-decoration: underline;
+}
+
+.plans-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+.plan-card-root {
+  background-color: #ffffff;
+  border-radius: var(--radius-2xl);
+  border: 1px solid var(--border);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.plan-card-root:hover {
+  box-shadow: var(--shadow-card-hover);
+}
+
+.plan-card-featured {
+  border: 2px solid #9C27B0;
+  box-shadow: 0 12px 32px rgba(156, 39, 176, 0.12);
+}
+
+.plan-featured-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #3C096C;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: var(--font-bold);
+  padding: 4px 16px;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.plan-header-row {
+  margin-bottom: 8px;
+}
+
+.plan-speed-text {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: var(--font-bold);
+  color: var(--text);
+}
+
+.plan-price-block {
+  min-height: 62px;
+  margin-bottom: 16px;
+}
+
+.plan-price-promo {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: var(--font-black);
+  color: var(--brand-primary);
+  line-height: 1.15;
+}
+
+.plan-price-original {
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.plan-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.plan-price-regular {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: var(--font-black);
+  color: var(--brand-primary);
+}
+
+.plan-price-period {
+  font-size: 14px;
+}
+
+.plan-audience-box {
+  background-color: var(--bg-subtle);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  margin-bottom: 20px;
+  min-height: 84px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+.plan-audience-title {
+  font-size: 13px;
+  font-weight: var(--font-bold);
+  color: var(--text);
+  line-height: 1.25;
+}
+
+.plan-audience-icon {
+  flex-shrink: 0;
+}
+
+.plan-audience-sub {
+  font-size: 11px;
+  padding-left: 24px;
+}
+
+.plan-features-block {
+  margin-bottom: 24px;
+  flex: 1;
+}
+
+.plan-features-title {
+  font-size: 12px;
+  font-weight: var(--font-bold);
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.plan-feature-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.plan-feature-text {
+  font-size: 13px;
+  color: var(--text);
+  font-weight: var(--font-medium);
+}
+
+.plan-icon-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.plan-circle-purple {
+  background-color: #F3ECFF;
+}
+
+.plan-circle-yellow {
+  background-color: #FFFBE6;
+}
+
+.plan-circle-primary {
+  background-color: var(--brand-primary-subtle);
+}
+
+.plan-icon-purple {
+  color: #9C60FF;
+}
+
+.plan-icon-dark {
+  color: #0a0a0a;
+}
+
+.plan-badge-inline {
+  margin-right: 6px;
+}
+
+.plan-card-btn-wrap {
+  margin-bottom: 20px;
+}
+
+.plan-card-btn {
+  width: 100%;
+  padding: 12px 0;
+  font-size: 13px;
+  color: #ffffff !important;
+}
+
+.plan-card-btn * {
+  color: inherit !important;
+}
+
+.plan-addon-box {
+  background-color: var(--bg-subtle);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.plan-addon-title {
+  font-size: 11px;
+  font-weight: var(--font-medium);
+  margin-bottom: 8px;
+}
+
+.plan-addon-list {
+  font-size: 12px;
+}
+
+.plan-addon-icon {
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.plan-addon-icon-cyan {
+  color: #00C4DF;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.plans-terms-wrap {
+  margin-top: 48px;
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+}
+
+.plans-terms-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 0;
+}
+
+.plans-terms-title {
+  font-size: 14px;
+  font-weight: var(--font-bold);
+  color: var(--text);
+}
+
+.plans-terms-content {
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.plans-terms-list {
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}

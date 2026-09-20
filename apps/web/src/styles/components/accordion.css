@@ -1,0 +1,51 @@
+/* ==========================================================================
+   ACCORDION COMPONENT STYLES
+   ========================================================================== */
+
+.accordion-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.accordion-item {
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color 0.15s ease;
+}
+
+.accordion-trigger {
+  width: 100%;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-size: 15px;
+  font-weight: var(--font-bold);
+  color: var(--text);
+}
+
+.accordion-chevron {
+  color: var(--accent-blue);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
+.accordion-chevron-open {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  padding: 14px 20px 18px 20px;
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  border-top: 1px solid var(--border-subtle);
+}

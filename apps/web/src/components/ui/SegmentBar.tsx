@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { ExternalLink } from 'lucide-react';
 import { siteSegments } from '@/data/site';
 
 export function SegmentBar() {
@@ -10,9 +11,9 @@ export function SegmentBar() {
 
   return (
     <div className="segment-bar-root">
-      <div className="container flex items-center justify-between" style={{ height: '100%' }}>
+      <div className="container flex items-center justify-between segment-bar-container">
         {/* Segment Switcher Tabs */}
-        <div className="flex items-center gap-1" style={{ height: '100%' }}>
+        <div className="flex items-center gap-1 segment-bar-tabs">
           {siteSegments.map((seg) => {
             const isSelected = seg.id === 'home' ? pathname === '/' : false;
             return (
@@ -28,15 +29,16 @@ export function SegmentBar() {
         </div>
 
         {/* Right Help / Contact quick link */}
-        <div className="flex items-center gap-4 text-muted" style={{ fontSize: '12px' }}>
+        <div className="flex items-center gap-4 segment-bar-right">
           <a
             href="https://selfcare.link3.net"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted"
+            className="segment-bar-link"
             id="segment-selfcare-link"
           >
-            Self Care
+            <span>Self Care</span>
+            <ExternalLink size={13} className="segment-bar-link-icon" />
           </a>
         </div>
       </div>

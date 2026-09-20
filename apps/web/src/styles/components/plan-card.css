@@ -1,0 +1,136 @@
+/* ==========================================================================
+   PLAN CARD COMPONENT STYLES
+   ========================================================================== */
+
+.plan-card-item {
+  position: relative;
+  border-color: var(--border);
+  border-width: 1px;
+}
+
+.plan-card-item-popular {
+  border-color: var(--border-strong);
+  border-width: 2px;
+}
+
+.plan-card-promo-badge {
+  position: absolute;
+  top: -12px;
+  left: 20px;
+  background-color: var(--bg-inverse);
+  color: var(--text-inverse);
+  font-size: 11px;
+  font-weight: var(--font-bold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: var(--radius);
+}
+
+.plan-card-promo-badge-popular {
+  background-color: var(--accent-blue);
+}
+
+.plan-card-header {
+  margin-top: 0;
+}
+
+.plan-card-header-with-badge {
+  margin-top: 8px;
+}
+
+.plan-card-speed-row {
+  margin-bottom: 8px;
+}
+
+.plan-card-speed-val {
+  font-size: 3rem;
+  font-weight: var(--font-bold);
+  line-height: 1;
+}
+
+.plan-card-speed-unit {
+  font-size: 1.25rem;
+  font-weight: var(--font-bold);
+  color: var(--accent-blue);
+}
+
+.plan-card-ideal-for {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  min-height: 38px;
+}
+
+.plan-card-pricing-block {
+  padding: 16px 0;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 20px;
+}
+
+.plan-card-orig-price {
+  font-size: 14px;
+  color: var(--text-subtle);
+  text-decoration: line-through;
+}
+
+.plan-card-price-value {
+  font-size: 1.75rem;
+  font-weight: var(--font-bold);
+  color: var(--text);
+}
+
+.plan-card-price-period {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.plan-card-router-tag {
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: var(--font-medium);
+  color: var(--text);
+  background-color: var(--bg-subtle);
+  padding: 6px 10px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.plan-card-feature-list {
+  margin-bottom: 24px;
+}
+
+.plan-card-feature-row {
+  font-size: 13px;
+}
+
+.plan-card-check-icon {
+  color: var(--accent-blue);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.plan-card-feature-label {
+  color: var(--text);
+}
+
+.plan-card-cta-btn {
+  width: 100%;
+  text-decoration: none;
+  color: #ffffff !important;
+}
+
+.plan-card-cta-btn * {
+  color: inherit !important;
+}
+
+.plan-card-footnote-wrap {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.plan-card-footnote {
+  font-size: 11px;
+  color: var(--text-subtle);
+}

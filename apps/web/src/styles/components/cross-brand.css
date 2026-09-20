@@ -1,0 +1,111 @@
+/* ==========================================================================
+   CROSS-BRAND (SISTER SEGMENTS) COMPONENT STYLES
+   ========================================================================== */
+
+.cross-brand-section-title {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.sister-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.sister-card {
+  background-color: #ffffff;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  text-decoration: none;
+}
+
+.sister-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.sister-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: var(--font-black);
+  font-size: 18px;
+  min-height: 100px;
+  padding: 16px;
+  letter-spacing: 0.02em;
+}
+
+.sister-header-business {
+  background-color: #9C60FF;
+  color: #ffffff;
+}
+
+.sister-header-enterprise {
+  background-color: #00C4DF;
+  color: #0a0a0a;
+}
+
+.sister-header-wholesale {
+  background-color: #141414;
+  color: #ffffff;
+}
+
+.sister-header-cloud {
+  background-color: var(--brand-primary);
+  color: #ffffff;
+}
+
+.sister-card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.sister-card-title {
+  font-size: 15px;
+  font-weight: var(--font-bold);
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.sister-card-desc {
+  font-size: 13px;
+  color: #4B5563;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.sister-arrow-row {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sister-circle-arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #0a0a0a;
+  color: #ffffff !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.sister-circle-arrow * {
+  color: #ffffff !important;
+}
+
+.sister-card:hover .sister-circle-arrow {
+  transform: translateX(4px);
+  background-color: var(--brand-primary);
+}

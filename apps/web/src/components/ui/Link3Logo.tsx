@@ -23,9 +23,8 @@ export function Link3Logo({
       viewBox="0 0 88 78"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={className}
+      className={`link3-logo ${className || ''}`.trim()}
       aria-label="Link3 Technologies"
-      style={{ display: 'block', height, width: computedWidth ?? 'auto', ...style }}
       {...props}
     >
       <path d="M87.1999 0H0.399902V65.1H87.1999V0Z" fill="#034EA1" />

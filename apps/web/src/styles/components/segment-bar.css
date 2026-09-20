@@ -1,0 +1,73 @@
+/* ==========================================================================
+   SEGMENT BAR COMPONENT STYLES
+   ========================================================================== */
+
+.segment-bar-root {
+  background-color: #fafafa;
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+  height: var(--segment-bar-height);
+  display: flex;
+  align-items: center;
+}
+
+.segment-bar-container {
+  height: 100%;
+}
+
+.segment-bar-tabs {
+  height: 100%;
+}
+
+.segment-tab {
+  display: inline-flex;
+  align-items: center;
+  padding-left: 14px;
+  padding-right: 14px;
+  height: 100%;
+  font-size: 12px;
+  font-weight: var(--font-regular);
+  color: var(--text-muted);
+  border-bottom: 2px solid transparent;
+  background-color: transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+}
+
+.segment-tab:hover {
+  color: var(--text);
+}
+
+.segment-tab-active {
+  font-weight: var(--font-bold);
+  color: var(--brand-primary);
+  border-bottom: 2px solid var(--brand-primary);
+}
+
+.segment-bar-right {
+  font-size: 12px;
+}
+
+.segment-bar-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.segment-bar-link:hover {
+  color: var(--text);
+}
+
+.segment-bar-link-icon {
+  opacity: 0.7;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.segment-bar-link:hover .segment-bar-link-icon {
+  opacity: 1;
+  transform: translate(1px, -1px);
+}

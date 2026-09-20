@@ -58,14 +58,8 @@ export function FaqSection() {
 
   return (
     <section id="faq" className="section">
-      <div className="container" style={{ maxWidth: '840px' }}>
-        <h2
-          className="section-title"
-          style={{
-            textAlign: 'center',
-            marginBottom: '40px',
-          }}
-        >
+      <div className="container faq-section-container">
+        <h2 className="section-title faq-section-title">
           Frequently Asked Questions
         </h2>
 
@@ -87,10 +81,7 @@ export function FaqSection() {
                     {faq.question}
                   </span>
 
-                  <div
-                    className="text-primary flex items-center justify-center"
-                    style={{ flexShrink: 0 }}
-                  >
+                  <div className="text-primary faq-icon-wrapper">
                     {isOpen ? <Minus size={20} /> : <Plus size={20} />}
                   </div>
                 </button>
@@ -106,14 +97,10 @@ export function FaqSection() {
         </div>
 
         {/* Support Link */}
-        <div style={{ textAlign: 'center', marginTop: '24px' }}>
+        <div className="faq-footer-link-wrap">
           <Link
             href="/#contact"
-            className="text-primary"
-            style={{
-              fontSize: '13px',
-              fontWeight: 'var(--font-bold)',
-            }}
+            className="faq-footer-link"
           >
             Have more questions? Contact our team →
           </Link>

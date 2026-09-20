@@ -14,14 +14,14 @@ export function Navbar() {
 
   return (
     <header className="navbar-root">
-      <div className="container flex items-center justify-between" style={{ height: 'var(--header-height)' }}>
+      <div className="container flex items-center justify-between navbar-container">
         {/* Brand Lockup */}
         <Link
           href="/"
-          className="flex items-center gap-3"
+          className="navbar-brand-link"
           aria-label={`${siteConfig.brandName} Broadband`}
         >
-          <div className="flex items-center justify-center" style={{ flexShrink: 0 }}>
+          <div className="navbar-logo-wrap">
             <Link3Logo height={40} />
           </div>
           <span className="navbar-brand-text">
@@ -31,26 +31,9 @@ export function Navbar() {
 
         {/* Desktop Navigation Links */}
         <nav
-          className="flex items-center"
-          style={{ display: 'none', gap: '4px' }}
+          className="navbar-desktop-nav"
           id="desktop-nav"
         >
-          <style>{`
-            @media (min-width: 990px) {
-              #desktop-nav { display: flex !important; gap: 6px !important; }
-              #desktop-actions { display: flex !important; gap: 10px !important; }
-              #mobile-toggle { display: none !important; }
-            }
-            .nav-item-dropdown {
-              position: relative;
-            }
-            .nav-item-dropdown:hover .nav-dropdown-menu {
-              opacity: 1;
-              visibility: visible;
-              transform: translateY(0);
-            }
-          `}</style>
-
           {homeNavLinks.map((link) => {
             const isActive = pathname === link.href;
 
@@ -60,48 +43,23 @@ export function Navbar() {
                   <button
                     type="button"
                     className="navbar-link"
-                    style={{ background: 'none', border: 'none', cursor: 'pointer' }}
                   >
                     <span>{link.label}</span>
-                    <ChevronDown size={14} style={{ color: 'var(--text-muted)' }} />
+                    <ChevronDown size={14} className="navbar-chevron-icon" />
                   </button>
 
-                  <div
-                    className="nav-dropdown-menu"
-                    style={{
-                      position: 'absolute',
-                      top: '100%',
-                      left: '0',
-                      minWidth: '240px',
-                      backgroundColor: '#ffffff',
-                      borderRadius: '16px',
-                      border: '1px solid var(--border)',
-                      padding: '8px',
-                      opacity: 0,
-                      visibility: 'hidden',
-                      transform: 'translateY(6px)',
-                      transition: 'all 0.16s ease',
-                      zIndex: 50,
-                    }}
-                  >
+                  <div className="nav-dropdown-menu">
                     {link.dropdownItems?.map((item) => (
                       <Link
                         key={item.label}
                         href={item.href}
-                        style={{
-                          display: 'block',
-                          padding: '10px 14px',
-                          borderRadius: '10px',
-                          transition: 'background-color 0.12s ease',
-                        }}
-                        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--bg-subtle)')}
-                        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
+                        className="nav-dropdown-item"
                       >
-                        <div style={{ fontSize: '13px', fontWeight: 'var(--font-semibold)', color: 'var(--text)' }}>
+                        <div className="nav-dropdown-title">
                           {item.label}
                         </div>
                         {item.desc && (
-                          <div style={{ fontSize: '11px', color: 'var(--text-muted)', marginTop: '2px' }}>
+                          <div className="nav-dropdown-desc">
                             {item.desc}
                           </div>
                         )}
@@ -125,46 +83,21 @@ export function Navbar() {
         </nav>
 
         {/* Desktop Right Action Buttons */}
-        <div id="desktop-actions" className="flex items-center" style={{ display: 'none', gap: '10px' }}>
+        <div id="desktop-actions" className="navbar-desktop-actions">
           {/* Search Button */}
           <button
             type="button"
             onClick={() => setSearchOpen(!searchOpen)}
-            style={{
-              background: 'none',
-              border: 'none',
-              cursor: 'pointer',
-              color: 'var(--text)',
-              width: '38px',
-              height: '38px',
-              borderRadius: '50%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              transition: 'background-color 0.15s ease',
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--bg-subtle)')}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
+            className="navbar-search-btn"
             aria-label="Search site"
           >
             <Search size={18} />
           </button>
 
-          {/* Pill Button 1: Self Care */}
-          <a
-            href="https://selfcare.link3.net"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-pill-black btn-sm"
-          >
-            Self Care
-          </a>
-
-          {/* Pill Button 2: Get Started */}
+          {/* Pill Button: Get Started */}
           <Link
             href="/#plans"
-            className="btn btn-pill-primary btn-sm"
-            style={{ gap: '6px' }}
+            className="btn btn-pill-primary btn-sm navbar-action-btn-gap"
           >
             <Sparkles size={14} />
             <span>Get Started</span>
@@ -175,17 +108,7 @@ export function Navbar() {
         <button
           id="mobile-toggle"
           onClick={() => setMobileOpen(!mobileOpen)}
-          style={{
-            background: 'none',
-            border: 'none',
-            color: 'var(--text)',
-            cursor: 'pointer',
-            padding: '8px',
-            borderRadius: '50%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
+          className="navbar-mobile-toggle"
           aria-label="Toggle navigation menu"
         >
           {mobileOpen ? <X size={22} /> : <Menu size={22} />}
@@ -194,38 +117,18 @@ export function Navbar() {
 
       {/* Expandable Search Bar */}
       {searchOpen && (
-        <div
-          style={{
-            backgroundColor: '#ffffff',
-            borderTop: '1px solid var(--border)',
-            padding: '12px 0',
-          }}
-        >
+        <div className="navbar-search-bar">
           <div className="container flex items-center gap-3">
-            <Search size={16} style={{ color: 'var(--text-muted)' }} />
+            <Search size={16} className="navbar-search-icon" />
             <input
               type="text"
               placeholder="Search broadband plans, devices, coverage..."
-              style={{
-                border: 'none',
-                background: 'transparent',
-                outline: 'none',
-                width: '100%',
-                fontSize: '14px',
-                color: 'var(--text)',
-              }}
+              className="navbar-search-input"
               autoFocus
             />
             <button
               onClick={() => setSearchOpen(false)}
-              style={{
-                background: 'none',
-                border: 'none',
-                cursor: 'pointer',
-                color: 'var(--text-muted)',
-                fontSize: '13px',
-                padding: '4px 8px',
-              }}
+              className="navbar-search-close-btn"
             >
               Close
             </button>
@@ -235,49 +138,24 @@ export function Navbar() {
 
       {/* Mobile Drawer */}
       {mobileOpen && (
-        <div
-          style={{
-            backgroundColor: '#ffffff',
-            borderBottom: '1px solid var(--border)',
-            padding: '16px 20px',
-          }}
-        >
-          <div className="flex flex-col gap-2">
+        <div className="navbar-mobile-drawer">
+          <div className="navbar-mobile-menu">
             {homeNavLinks.map((link) => (
               <div key={link.label}>
                 <Link
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  style={{
-                    display: 'block',
-                    padding: '10px 12px',
-                    fontSize: '15px',
-                    fontWeight: 'var(--font-medium)',
-                    color: 'var(--text)',
-                    borderRadius: 'var(--radius)',
-                  }}
-                  onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--bg-subtle)')}
-                  onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
+                  className="navbar-mobile-link"
                 >
                   {link.label}
                 </Link>
               </div>
             ))}
-            <div style={{ paddingTop: '12px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-              <a
-                href="https://selfcare.link3.net"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-pill-black"
-                style={{ width: '100%', justifyContent: 'center' }}
-              >
-                Self Care
-              </a>
+            <div className="navbar-mobile-actions">
               <Link
                 href="/#plans"
                 onClick={() => setMobileOpen(false)}
-                className="btn btn-pill-primary"
-                style={{ width: '100%', justifyContent: 'center' }}
+                className="btn btn-pill-primary navbar-mobile-btn-full"
               >
                 <Sparkles size={14} />
                 <span>Get Started</span>

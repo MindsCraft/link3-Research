@@ -25,19 +25,8 @@ export function LeadCaptureSection() {
         <div className="lead-capture-grid">
           {/* Left Column: Bold Headline & Mascot */}
           <div>
-            <div className="flex items-center gap-4" style={{ alignItems: 'flex-start' }}>
-              <h2
-                className="font-display"
-                style={{
-                  fontSize: 'clamp(2.2rem, 4vw, 3.4rem)',
-                  fontWeight: 'var(--font-black)',
-                  color: 'var(--text)',
-                  lineHeight: 1.05,
-                  letterSpacing: '-0.03em',
-                  textTransform: 'uppercase',
-                  marginBottom: '20px',
-                }}
-              >
+            <div className="flex items-center gap-4 lead-header-row">
+              <h2 className="lead-headline">
                 NEED HELP
                 <br />
                 SIGNING UP
@@ -46,7 +35,7 @@ export function LeadCaptureSection() {
               </h2>
 
               {/* Mascot SVG */}
-              <div style={{ marginTop: '10px', flexShrink: 0 }}>
+              <div className="lead-mascot-wrap">
                 <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="36" cy="36" r="30" fill="var(--brand-primary)" />
                   <circle cx="27" cy="32" r="7" fill="#ffffff" />
@@ -60,36 +49,17 @@ export function LeadCaptureSection() {
               </div>
             </div>
 
-            <p
-              style={{
-                fontSize: '18px',
-                fontWeight: 'var(--font-medium)',
-                color: '#4B5563',
-                maxWidth: '460px',
-                lineHeight: 1.45,
-              }}
-            >
+            <p className="lead-desc">
               We&apos;ll guide you through the signup process, from choosing the perfect plan to hassle-free installation.
             </p>
 
-            <div style={{ marginTop: '32px', display: 'flex', alignItems: 'center', gap: '12px' }}>
-              <div
-                style={{
-                  width: '44px',
-                  height: '44px',
-                  borderRadius: '50%',
-                  backgroundColor: '#ffffff',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  boxShadow: 'var(--shadow-sm)',
-                }}
-              >
+            <div className="lead-hotline-wrap">
+              <div className="lead-phone-icon-wrap">
                 <PhoneCall size={20} className="text-primary" />
               </div>
               <div>
-                <div className="text-muted" style={{ fontSize: '12px' }}>Prefer calling right away?</div>
-                <div style={{ fontSize: '15px', fontWeight: 'var(--font-bold)', color: 'var(--text)' }}>
+                <div className="text-muted lead-hotline-label">Prefer calling right away?</div>
+                <div className="lead-hotline-num">
                   Hotline: 16335 / 09666716335
                 </div>
               </div>
@@ -100,16 +70,16 @@ export function LeadCaptureSection() {
           <div>
             <div className="lead-form-box">
               {submitted ? (
-                <div style={{ textAlign: 'center', padding: '24px 0' }}>
-                  <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '16px' }}>
-                    <CheckCircle2 size={56} style={{ color: '#0F9D58' }} />
+                <div className="lead-submitted-wrap">
+                  <div className="lead-submitted-icon-wrap">
+                    <CheckCircle2 size={56} className="lead-success-icon" />
                   </div>
-                  <h3 className="font-display" style={{ fontSize: '20px', fontWeight: 'var(--font-bold)', color: 'var(--text)', marginBottom: '8px' }}>
+                  <h3 className="font-display lead-submitted-title">
                     Request Received!
                   </h3>
-                  <p style={{ fontSize: '14px', color: '#4B5563', lineHeight: 1.5, marginBottom: '24px' }}>
-                    Thank you, <strong style={{ color: 'var(--text)' }}>{form.name}</strong>. A Link3 broadband specialist will call you at{' '}
-                    <strong style={{ color: 'var(--text)' }}>{form.contact}</strong> shortly.
+                  <p className="lead-submitted-desc">
+                    Thank you, <strong className="lead-highlight-text">{form.name}</strong>. A Link3 broadband specialist will call you at{' '}
+                    <strong className="lead-highlight-text">{form.contact}</strong> shortly.
                   </p>
                   <button
                     type="button"
@@ -123,21 +93,13 @@ export function LeadCaptureSection() {
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                  <h3
-                    className="font-display"
-                    style={{
-                      fontSize: '18px',
-                      fontWeight: 'var(--font-bold)',
-                      color: 'var(--text)',
-                      marginBottom: '4px',
-                    }}
-                  >
+                <form onSubmit={handleSubmit} className="lead-form">
+                  <h3 className="font-display lead-form-title">
                     Get in touch with our team
                   </h3>
 
                   <div>
-                    <label style={{ display: 'none' }} htmlFor="lead-name">Full Name</label>
+                    <label className="sr-only" htmlFor="lead-name">Full Name</label>
                     <input
                       id="lead-name"
                       type="text"
@@ -150,7 +112,7 @@ export function LeadCaptureSection() {
                   </div>
 
                   <div>
-                    <label style={{ display: 'none' }} htmlFor="lead-contact">Contact Number</label>
+                    <label className="sr-only" htmlFor="lead-contact">Contact Number</label>
                     <input
                       id="lead-contact"
                       type="tel"
@@ -163,7 +125,7 @@ export function LeadCaptureSection() {
                   </div>
 
                   <div>
-                    <label style={{ display: 'none' }} htmlFor="lead-email">Email Address</label>
+                    <label className="sr-only" htmlFor="lead-email">Email Address</label>
                     <input
                       id="lead-email"
                       type="email"
@@ -175,7 +137,7 @@ export function LeadCaptureSection() {
                   </div>
 
                   <div>
-                    <label className="form-label" style={{ fontSize: '11px', color: 'var(--text-subtle)', marginBottom: '4px' }}>
+                    <label className="form-label lead-lang-label">
                       Preferred Language
                     </label>
                     <select
@@ -190,24 +152,18 @@ export function LeadCaptureSection() {
 
                   <button
                     type="submit"
-                    className="btn btn-pill-primary"
-                    style={{
-                      width: '100%',
-                      padding: '14px',
-                      fontSize: '14px',
-                      marginTop: '8px',
-                    }}
+                    className="btn btn-pill-primary lead-submit-btn"
                   >
                     SUBMIT
                   </button>
 
-                  <p style={{ fontSize: '11px', color: 'var(--text-subtle)', lineHeight: 1.4, marginTop: '4px' }}>
+                  <p className="lead-terms-notice">
                     By clicking &quot;Submit&quot;, I agree to the Link3 Fibre Home{' '}
-                    <Link href="/#faq" className="text-primary" style={{ textDecoration: 'underline' }}>
+                    <Link href="/#faq" className="text-primary lead-terms-link">
                       Terms of Service
                     </Link>{' '}
                     and{' '}
-                    <Link href="/#faq" className="text-primary" style={{ textDecoration: 'underline' }}>
+                    <Link href="/#faq" className="text-primary lead-terms-link">
                       Privacy Policy
                     </Link>
                     .

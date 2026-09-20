@@ -1,0 +1,633 @@
+/* ==========================================================================
+   JIO HERO SLIDER COMPONENT STYLES
+   ========================================================================== */
+
+:root {
+  --jio-card-w: min(1320px, calc(100vw - 80px));
+  --jio-card-h: 720px;
+  --jio-card-gap: 20px;
+}
+
+@media (max-width: 960px) {
+  :root {
+    --jio-card-w: calc(100vw - 40px);
+    --jio-card-h: 520px;
+    --jio-card-gap: 14px;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --jio-card-w: calc(100vw - 32px);
+    --jio-card-h: 480px;
+    --jio-card-gap: 12px;
+  }
+}
+
+.jio-fullwidth-hero {
+  width: 100%;
+  position: relative;
+  background-color: #ffffff;
+  padding-top: 16px;
+  overflow: hidden;
+}
+
+/* Full-Viewport Width Carousel Container */
+.jio-carousel-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 12px 0 20px;
+}
+
+/* Carousel Track with Centering Formula */
+.jio-carousel-track {
+  display: flex;
+  gap: var(--jio-card-gap);
+  transform: translateX(
+    calc(50vw - (var(--jio-card-w) / 2) - (var(--current-slide) * (var(--jio-card-w) + var(--jio-card-gap))))
+  );
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+/* Individual Slide Card */
+.jio-card-item {
+  flex: 0 0 var(--jio-card-w);
+  width: var(--jio-card-w);
+  height: var(--jio-card-h);
+  min-height: var(--jio-card-h);
+  max-height: var(--jio-card-h);
+  border-radius: 32px;
+  position: relative;
+  overflow: hidden;
+  padding: 48px 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 36px;
+  box-sizing: border-box;
+  color: #ffffff;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  opacity: 0.92;
+  box-shadow: none !important;
+}
+
+.jio-card-item.jio-card-active {
+  opacity: 1;
+}
+
+@media (max-width: 960px) {
+  .jio-card-item {
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 32px 28px 44px;
+  }
+}
+
+/* Full-Bleed Banner Image Mode */
+.jio-card-full-image-link {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 1;
+  text-decoration: none;
+}
+
+.jio-card-full-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 32px;
+}
+
+/* Hybrid Mode Background Image with Gradient Overlay */
+.jio-card-bg-image-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.jio-card-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.jio-card-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(8, 20, 42, 0.88) 0%, rgba(8, 20, 42, 0.65) 45%, rgba(8, 20, 42, 0.18) 75%, rgba(8, 20, 42, 0.4) 100%);
+  pointer-events: none;
+}
+
+@media (max-width: 960px) {
+  .jio-card-bg-overlay {
+    background: linear-gradient(180deg, rgba(8, 20, 42, 0.2) 0%, rgba(8, 20, 42, 0.8) 50%, rgba(8, 20, 42, 0.95) 100%) !important;
+  }
+}
+
+/* Soft ambient decorative background circles */
+.jio-card-ambient-shape {
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+  pointer-events: none;
+}
+
+/* Left Content Area */
+.jio-card-left {
+  flex: 1;
+  max-width: 580px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 960px) {
+  .jio-card-left {
+    max-width: 100%;
+    align-items: flex-start;
+  }
+}
+
+.jio-card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(8, 20, 42, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #ffffff !important;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  width: fit-content;
+}
+
+.jio-card-badge span {
+  color: #ffffff !important;
+}
+
+.jio-sparkle-icon {
+  color: #ffffff;
+}
+
+.jio-card-heading {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3.2vw, 44px);
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.14;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+}
+
+.jio-card-description {
+  font-family: var(--font-body);
+  font-size: clamp(14px, 1.05vw, 16px);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.94);
+  margin-bottom: 24px;
+  max-width: 520px;
+}
+
+.jio-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Signature Jio Royal Blue Pill Button */
+.jio-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #0f3cc9;
+  color: #ffffff !important;
+  padding: 12px 28px;
+  border-radius: 9999px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  box-shadow: none !important;
+}
+
+.jio-pill-btn span,
+.jio-pill-btn svg {
+  color: #ffffff !important;
+}
+
+.jio-pill-btn:hover {
+  background-color: #0a2885;
+  transform: translateY(-2px);
+  color: #ffffff !important;
+}
+
+/* Right Side: Floating Spec Card */
+.jio-card-right {
+  flex-shrink: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 960px) {
+  .jio-card-right {
+    display: none;
+  }
+  .jio-card-heading {
+    font-size: clamp(20px, 4.5vw, 30px);
+    margin-bottom: 10px;
+  }
+  .jio-card-description {
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 18px;
+    max-width: 100%;
+  }
+}
+
+.jio-floating-spec-card {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 24px;
+  padding: 26px 30px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  width: 330px;
+  color: #141414;
+  box-shadow: none !important;
+}
+
+@media (max-width: 480px) {
+  .jio-floating-spec-card {
+    width: 100%;
+    padding: 20px;
+  }
+}
+
+.jio-spec-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.jio-spec-price {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 900;
+  color: #0f3cc9;
+  line-height: 1;
+}
+
+.jio-spec-period {
+  font-size: 13px;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.jio-spec-speed {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f3cc9;
+  margin-top: 6px;
+  margin-bottom: 12px;
+}
+
+.jio-zap-icon {
+  color: #0f3cc9;
+}
+
+.jio-spec-divider {
+  height: 1px;
+  background-color: #e2e8f0;
+  margin: 10px 0 14px;
+}
+
+.jio-spec-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.jio-spec-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.jio-spec-check {
+  color: #10b981;
+  flex-shrink: 0;
+}
+
+.jio-spec-partners {
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px dashed #cbd5e1;
+}
+
+.jio-spec-partners-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  letter-spacing: 0.05em;
+}
+
+.jio-spec-partner-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.jio-partner-tag {
+  font-size: 10px;
+  font-weight: 700;
+  background: #f1f5f9;
+  color: #334155;
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+
+/* Floating Bottom-Right Pill Counter: [ ← 1/4 → ] */
+.jio-pill-counter {
+  position: absolute;
+  bottom: 20px;
+  right: 28px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 9999px;
+  padding: 5px 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 10;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: none !important;
+}
+
+@media (max-width: 960px) {
+  .jio-pill-counter {
+    bottom: 16px;
+    right: 16px;
+  }
+}
+
+.jio-counter-arrow {
+  background: none;
+  border: none;
+  color: #141414;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  border-radius: 50%;
+  transition: all 0.15s ease;
+  box-shadow: none !important;
+}
+
+.jio-counter-arrow:hover {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.jio-counter-text {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 800;
+  color: #141414;
+  min-width: 28px;
+  text-align: center;
+}
+
+/* ==========================================================================
+   JIO SIGNATURE "RECHARGE OR PAY BILLS" SECTION
+   ========================================================================== */
+.jio-recharge-section {
+  padding: 44px 0 28px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.jio-recharge-card {
+  max-width: 820px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.jio-recharge-title {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 2.4vw, 36px);
+  font-weight: 900;
+  color: #141414;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.jio-recharge-tabs {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.jio-recharge-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 22px;
+  border-radius: 9999px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
+  border: 1px solid #e2e8f0;
+  background-color: #f8fafc;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  box-shadow: none !important;
+}
+
+.jio-recharge-tab:hover {
+  border-color: #cbd5e1;
+  background-color: #f1f5f9;
+}
+
+.jio-recharge-tab-active {
+  background-color: #0f3cc9 !important;
+  color: #ffffff !important;
+  border-color: #0f3cc9 !important;
+}
+
+.jio-recharge-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 480px;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 560px) {
+  .jio-recharge-form {
+    flex-direction: column;
+  }
+}
+
+.jio-input-group {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 9999px;
+  overflow: hidden;
+  flex: 1;
+  width: 100%;
+  transition: border-color 0.2s ease;
+  box-shadow: none !important;
+}
+
+.jio-input-group:focus-within {
+  border-color: #0f3cc9;
+}
+
+.jio-input-prefix {
+  padding: 10px 14px;
+  background-color: #f8fafc;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 13px;
+  color: #334155;
+  border-right: 1px solid #e2e8f0;
+  user-select: none;
+}
+
+.jio-recharge-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  font-size: 13px;
+  font-family: var(--font-body);
+  color: #0f172a;
+  background: transparent;
+  box-shadow: none !important;
+}
+
+.jio-proceed-btn {
+  background-color: #0f3cc9;
+  color: #ffffff;
+  border-radius: 9999px;
+  padding: 11px 28px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  flex-shrink: 0;
+  box-shadow: none !important;
+}
+
+.jio-proceed-btn:hover {
+  background-color: #0a2885;
+}
+
+@media (max-width: 560px) {
+  .jio-proceed-btn {
+    width: 100%;
+  }
+}
+
+/* 5 Circular Quick Action Buttons (Matching Jio's Circular Buttons) */
+.jio-circle-actions-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(16px, 4vw, 48px);
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.jio-circle-action-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.18s ease;
+}
+
+.jio-circle-action-item:hover {
+  transform: translateY(-2px);
+}
+
+.jio-circle-icon-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #e7ebf8;
+  color: #0f3cc9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: none !important;
+}
+
+.jio-circle-action-item:hover .jio-circle-icon-btn {
+  background-color: #0f3cc9;
+  color: #ffffff;
+}
+
+.jio-circle-action-label {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  color: #1e293b;
+  text-align: center;
+  white-space: nowrap;
+}

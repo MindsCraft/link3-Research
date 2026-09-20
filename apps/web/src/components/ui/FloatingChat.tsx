@@ -30,74 +30,35 @@ export function FloatingChat() {
   };
 
   return (
-    <div style={{ position: 'fixed', bottom: '24px', right: '24px', zIndex: 100 }}>
+    <div className="floating-chat-container">
       {/* Floating Chat Window */}
       {open && (
-        <div
-          style={{
-            position: 'absolute',
-            bottom: '70px',
-            right: '0',
-            width: '340px',
-            maxWidth: 'calc(100vw - 32px)',
-            backgroundColor: '#ffffff',
-            borderRadius: 'var(--radius-xl)',
-            boxShadow: '0 12px 40px rgba(0, 0, 0, 0.18)',
-            border: '1px solid var(--border)',
-            overflow: 'hidden',
-            display: 'flex',
-            flexDirection: 'column',
-          }}
-        >
+        <div className="floating-chat-window">
           {/* Header */}
-          <div
-            style={{
-              backgroundColor: 'var(--accent-blue)',
-              color: '#ffffff',
-              padding: '16px 20px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-            }}
-          >
+          <div className="floating-chat-header">
             <div className="flex items-center gap-2">
-              <div style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#00E676' }} />
-              <span style={{ fontWeight: 'var(--font-bold)', fontSize: '14px' }}>Link3 Live Support</span>
+              <div className="floating-chat-status-dot" />
+              <span className="floating-chat-title">Link3 Live Support</span>
             </div>
             <button
               onClick={() => setOpen(false)}
-              style={{ background: 'none', border: 'none', color: '#ffffff', cursor: 'pointer', padding: 0 }}
+              className="floating-chat-close-btn"
+              aria-label="Close live support"
             >
               <X size={18} />
             </button>
           </div>
 
           {/* Messages Area */}
-          <div
-            style={{
-              padding: '16px',
-              height: '240px',
-              overflowY: 'auto',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '12px',
-              backgroundColor: '#FAFAFA',
-            }}
-          >
+          <div className="floating-chat-messages">
             {chatLog.map((chat, idx) => (
               <div
                 key={idx}
-                style={{
-                  alignSelf: chat.sender === 'user' ? 'flex-end' : 'flex-start',
-                  backgroundColor: chat.sender === 'user' ? '#0a0a0a' : '#ffffff',
-                  color: chat.sender === 'user' ? '#ffffff' : '#1f2937',
-                  padding: '10px 14px',
-                  borderRadius: '16px',
-                  fontSize: '13px',
-                  maxWidth: '85%',
-                  lineHeight: 1.4,
-                  boxShadow: '0 1px 4px rgba(0, 0, 0, 0.05)',
-                }}
+                className={`floating-chat-bubble ${
+                  chat.sender === 'user'
+                    ? 'floating-chat-bubble-user'
+                    : 'floating-chat-bubble-agent'
+                }`}
               >
                 {chat.text}
               </div>
@@ -107,42 +68,19 @@ export function FloatingChat() {
           {/* Input Form */}
           <form
             onSubmit={handleSend}
-            style={{
-              padding: '10px 12px',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              borderTop: '1px solid var(--border)',
-              backgroundColor: '#ffffff',
-            }}
+            className="floating-chat-form"
           >
             <input
               type="text"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Type your message..."
-              style={{
-                flex: 1,
-                border: 'none',
-                outline: 'none',
-                fontSize: '13px',
-                padding: '6px 8px',
-              }}
+              className="floating-chat-input"
             />
             <button
               type="submit"
-              style={{
-                backgroundColor: 'var(--accent-blue)',
-                border: 'none',
-                borderRadius: '50%',
-                width: '32px',
-                height: '32px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: '#ffffff',
-                cursor: 'pointer',
-              }}
+              className="floating-chat-send-btn"
+              aria-label="Send message"
             >
               <Send size={14} />
             </button>
@@ -155,22 +93,7 @@ export function FloatingChat() {
         type="button"
         onClick={() => setOpen(!open)}
         aria-label="Open support chat"
-        style={{
-          width: '56px',
-          height: '56px',
-          borderRadius: '50%',
-          backgroundColor: '#0a0a0a',
-          color: '#ffffff',
-          border: 'none',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          cursor: 'pointer',
-          boxShadow: '0 6px 24px rgba(0, 0, 0, 0.22)',
-          transition: 'transform 0.15s ease, background-color 0.15s ease',
-        }}
-        onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.05)')}
-        onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
+        className="floating-chat-trigger-btn"
       >
         {open ? <X size={24} /> : <MessageSquare size={24} />}
       </button>

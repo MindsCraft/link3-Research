@@ -21,7 +21,7 @@ export function PlansSection() {
   const [showTerms, setShowTerms] = useState(false);
 
   return (
-    <section id="plans" style={{ paddingTop: '24px', paddingBottom: '64px' }}>
+    <section id="plans" className="plans-section-root">
       <div className="container">
         {/* Contract Duration Selector Pills */}
         <div className="plans-toggle-wrapper">
@@ -32,7 +32,7 @@ export function PlansSection() {
               className={`plans-toggle-btn ${contract === '24m' ? 'plans-toggle-btn-active' : ''}`}
             >
               <div>24 Months</div>
-              <div className="text-primary" style={{ fontSize: '11px', fontWeight: 'var(--font-bold)', marginTop: '2px' }}>
+              <div className="text-primary plans-toggle-subtext-active">
                 Now with WiFi 7
               </div>
             </button>
@@ -43,7 +43,7 @@ export function PlansSection() {
               className={`plans-toggle-btn ${contract === '12m' ? 'plans-toggle-btn-active' : ''}`}
             >
               <div>12 Months</div>
-              <div className="text-subtle" style={{ fontSize: '11px', fontWeight: 'var(--font-regular)', marginTop: '2px' }}>
+              <div className="text-subtle plans-toggle-subtext">
                 Perfect for Renters
               </div>
             </button>
@@ -54,7 +54,7 @@ export function PlansSection() {
               className={`plans-toggle-btn ${contract === 'nocontract' ? 'plans-toggle-btn-active' : ''}`}
             >
               <div>No Contract</div>
-              <div className="text-subtle" style={{ fontSize: '11px', fontWeight: 'var(--font-regular)', marginTop: '2px' }}>
+              <div className="text-subtle plans-toggle-subtext">
                 Maximum Flexibility
               </div>
             </button>
@@ -64,29 +64,17 @@ export function PlansSection() {
         {/* Sign-Up Exclusive Promo Banner */}
         <div className="plans-banner-promo">
           {/* Router icon illustration */}
-          <div
-            style={{
-              width: '44px',
-              height: '32px',
-              backgroundColor: '#ffffff',
-              borderRadius: '6px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              border: '1.5px solid #0a0a0a',
-              flexShrink: 0,
-            }}
-          >
-            <Wifi size={18} style={{ color: '#0a0a0a' }} />
+          <div className="plans-promo-icon-box">
+            <Wifi size={18} className="plans-promo-icon" />
           </div>
 
-          <div style={{ flex: 1, fontSize: '13px' }}>
-            <span className="badge-yellow" style={{ marginRight: '8px', display: 'inline-block' }}>
+          <div className="plans-promo-content">
+            <span className="badge-yellow plans-promo-badge">
               SIGN-UP EXCLUSIVE PROMO
             </span>
-            <span style={{ color: '#1f2937', fontWeight: 'var(--font-medium)' }}>
+            <span className="plans-promo-text">
               Add on mesh WiFi and enjoy up to RM300 rebate.{' '}
-              <Link href="/#plans" className="text-primary" style={{ fontWeight: 'var(--font-bold)', textDecoration: 'underline' }}>
+              <Link href="/#plans" className="text-primary plans-promo-link">
                 More info
               </Link>
             </span>
@@ -112,7 +100,7 @@ export function PlansSection() {
                 )}
 
                 {/* Plan Header: WiFi 7 tag & Speed */}
-                <div className="flex items-center justify-between" style={{ marginBottom: '8px' }}>
+                <div className="flex items-center justify-between plan-header-row">
                   <span className="plan-speed-text">
                     {plan.speed}
                   </span>
@@ -122,24 +110,24 @@ export function PlansSection() {
                 </div>
 
                 {/* Pricing Display */}
-                <div style={{ minHeight: '62px', marginBottom: '16px' }}>
+                <div className="plan-price-block">
                   {'promo' in pricing && pricing.promo ? (
                     <div>
                       <div className="plan-price-promo">
                         {pricing.promo}
                       </div>
                       {pricing.original && (
-                        <div className="text-subtle" style={{ fontSize: '12px', marginTop: '4px' }}>
+                        <div className="text-subtle plan-price-original">
                           {pricing.original}
                         </div>
                       )}
                     </div>
                   ) : (
-                    <div className="flex items-center" style={{ alignItems: 'baseline', gap: '4px' }}>
+                    <div className="plan-price-row">
                       <span className="plan-price-regular">
                         {pricing.regular}
                       </span>
-                      <span className="text-muted" style={{ fontSize: '14px' }}>/month</span>
+                      <span className="text-muted plan-price-period">/month</span>
                     </div>
                   )}
                 </div>
@@ -147,49 +135,49 @@ export function PlansSection() {
                 {/* Target Audience & Device Description */}
                 <div className="plan-audience-box">
                   <div className="flex items-center gap-2">
-                    {plan.icon === 'laptop' && <Laptop size={16} className="text-primary" style={{ flexShrink: 0 }} />}
-                    {plan.icon === 'monitor' && <Monitor size={16} className="text-primary" style={{ flexShrink: 0 }} />}
-                    {plan.icon === 'gamepad' && <Gamepad2 size={16} className="text-primary" style={{ flexShrink: 0 }} />}
-                    {plan.icon === 'users' && <Users size={16} className="text-primary" style={{ flexShrink: 0 }} />}
-                    <span style={{ fontSize: '13px', fontWeight: 'var(--font-bold)', color: 'var(--text)', lineHeight: 1.25 }}>
+                    {plan.icon === 'laptop' && <Laptop size={16} className="text-primary plan-audience-icon" />}
+                    {plan.icon === 'monitor' && <Monitor size={16} className="text-primary plan-audience-icon" />}
+                    {plan.icon === 'gamepad' && <Gamepad2 size={16} className="text-primary plan-audience-icon" />}
+                    {plan.icon === 'users' && <Users size={16} className="text-primary plan-audience-icon" />}
+                    <span className="plan-audience-title">
                       {plan.desc}
                     </span>
                   </div>
-                  <span className="text-subtle" style={{ fontSize: '11px', paddingLeft: '24px' }}>
+                  <span className="text-subtle plan-audience-sub">
                     {plan.recommendedFor}
                   </span>
                 </div>
 
                 {/* What You'll Get Feature List */}
-                <div style={{ marginBottom: '24px', flex: 1 }}>
-                  <div style={{ fontSize: '12px', fontWeight: 'var(--font-bold)', color: 'var(--text-muted)', marginBottom: '12px' }}>
+                <div className="plan-features-block">
+                  <div className="plan-features-title">
                     What you&apos;ll get
                   </div>
                   <div className="flex flex-col gap-3">
                     <div className="plan-feature-row">
-                      <div className="plan-icon-circle" style={{ backgroundColor: '#F3ECFF' }}>
-                        <Wifi size={14} style={{ color: '#9C60FF' }} />
+                      <div className="plan-icon-circle plan-circle-purple">
+                        <Wifi size={14} className="plan-icon-purple" />
                       </div>
-                      <span style={{ fontSize: '13px', color: 'var(--text)', fontWeight: 'var(--font-medium)' }}>
+                      <span className="plan-feature-text">
                         {plan.features.router}
                       </span>
                     </div>
 
                     <div className="plan-feature-row">
-                      <div className="plan-icon-circle" style={{ backgroundColor: '#FFFBE6' }}>
-                        <Wrench size={14} style={{ color: '#0a0a0a' }} />
+                      <div className="plan-icon-circle plan-circle-yellow">
+                        <Wrench size={14} className="plan-icon-dark" />
                       </div>
-                      <span style={{ fontSize: '13px', color: 'var(--text)' }}>
-                        <span className="badge-yellow" style={{ marginRight: '6px' }}>FREE</span>
+                      <span className="plan-feature-text">
+                        <span className="badge-yellow plan-badge-inline">FREE</span>
                         Installation
                       </span>
                     </div>
 
                     <div className="plan-feature-row">
-                      <div className="plan-icon-circle" style={{ backgroundColor: 'var(--brand-primary-subtle)' }}>
+                      <div className="plan-icon-circle plan-circle-primary">
                         <ArrowUpDown size={14} className="text-primary" />
                       </div>
-                      <span style={{ fontSize: '13px', color: 'var(--text)', fontWeight: 'var(--font-medium)' }}>
+                      <span className="plan-feature-text">
                         {plan.features.speedDetail}
                       </span>
                     </div>
@@ -197,42 +185,30 @@ export function PlansSection() {
                 </div>
 
                 {/* CTA Button */}
-                <div style={{ marginBottom: '20px' }}>
+                <div className="plan-card-btn-wrap">
                   <Link
                     href="/#contact"
-                    className={isFeatured ? 'btn btn-pill-primary' : 'btn btn-pill-black'}
-                    style={{
-                      width: '100%',
-                      padding: '12px 0',
-                      fontSize: '13px',
-                    }}
+                    className={`${isFeatured ? 'btn btn-pill-primary' : 'btn btn-pill-black'} plan-card-btn`}
                   >
                     SIGN UP NOW
                   </Link>
                 </div>
 
                 {/* What you can add on section */}
-                <div
-                  style={{
-                    backgroundColor: 'var(--bg-subtle)',
-                    borderRadius: 'var(--radius-md)',
-                    padding: '14px',
-                    borderTop: '1px solid var(--border-subtle)',
-                  }}
-                >
-                  <div className="text-subtle" style={{ fontSize: '11px', fontWeight: 'var(--font-medium)', marginBottom: '8px' }}>
+                <div className="plan-addon-box">
+                  <div className="text-subtle plan-addon-title">
                     What you can add on
                   </div>
 
-                  <div className="flex flex-col gap-2 text-muted" style={{ fontSize: '12px' }}>
+                  <div className="flex flex-col gap-2 text-muted plan-addon-list">
                     <div className="flex items-start gap-2">
-                      <Wifi size={14} className="text-primary" style={{ marginTop: '2px', flexShrink: 0 }} />
+                      <Wifi size={14} className="text-primary plan-addon-icon" />
                       <span>{plan.addOns.mesh}</span>
                     </div>
 
                     {plan.addOns.fttr && (
                       <div className="flex items-start gap-2">
-                        <Sparkles size={14} style={{ color: '#00C4DF', marginTop: '2px', flexShrink: 0 }} />
+                        <Sparkles size={14} className="plan-addon-icon-cyan" />
                         <span>{plan.addOns.fttr}</span>
                       </div>
                     )}
@@ -244,30 +220,21 @@ export function PlansSection() {
         </div>
 
         {/* Collapsible Terms & Conditions */}
-        <div style={{ marginTop: '48px', borderTop: '1px solid var(--border)', paddingTop: '24px' }}>
+        <div className="plans-terms-wrap">
           <button
             type="button"
             onClick={() => setShowTerms(!showTerms)}
-            style={{
-              background: 'none',
-              border: 'none',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              width: '100%',
-              padding: '8px 0',
-            }}
+            className="plans-terms-btn"
           >
-            <span className="font-display" style={{ fontSize: '14px', fontWeight: 'var(--font-bold)', color: 'var(--text)' }}>
+            <span className="font-display plans-terms-title">
               Terms &amp; Conditions
             </span>
             {showTerms ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
           </button>
 
           {showTerms && (
-            <div style={{ marginTop: '12px', fontSize: '12px', color: 'var(--text-muted)', lineHeight: 1.6 }}>
-              <ol style={{ paddingLeft: '18px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+            <div className="plans-terms-content">
+              <ol className="plans-terms-list">
                 <li>Price(s) displayed are subject to 6% Service Tax where applicable.</li>
                 <li>The bill discount(s) apply to your full month&apos;s subscription fee(s). Other charges such as voice calls, deposits, add-ons etc still apply.</li>
                 <li>Our 2Gbps plan is only available in selected locations. We&apos;re working on expanding coverage as fast and wide as we can.</li>

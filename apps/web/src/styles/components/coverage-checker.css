@@ -1,0 +1,251 @@
+/* ==========================================================================
+   COVERAGE CHECKER COMPONENT STYLES
+   (For CoverageChecker.tsx and CoverageCheckerWidget.tsx)
+   ========================================================================== */
+
+/* Widget Section in Home */
+.coverage-widget-section {
+  padding-top: 20px;
+  padding-bottom: 36px;
+}
+
+.coverage-widget-container {
+  max-width: 840px;
+  text-align: center;
+}
+
+.coverage-widget-title {
+  font-size: clamp(1.75rem, 2.5vw, 2.3rem);
+  margin-bottom: 24px;
+}
+
+.coverage-widget-search-wrap {
+  position: relative;
+  margin: 0 auto;
+  max-width: 640px;
+}
+
+.coverage-widget-pill-bar {
+  position: relative;
+  background-color: #ffffff;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: 6px 12px 6px 20px;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  display: flex;
+  align-items: center;
+}
+
+.coverage-widget-pill-bar:focus-within {
+  border-color: var(--brand-primary);
+}
+
+.coverage-widget-search-icon {
+  color: var(--text-muted);
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.coverage-widget-input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 16px;
+  color: var(--text);
+  background-color: transparent;
+  padding: 8px 0;
+}
+
+.coverage-widget-submit-btn {
+  padding: 10px 22px;
+  font-size: 13px;
+  flex-shrink: 0;
+  color: #ffffff !important;
+}
+
+.coverage-widget-submit-btn * {
+  color: inherit !important;
+}
+
+/* Dropdown list */
+.coverage-dropdown-list {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card-hover);
+  max-height: 240px;
+  overflow-y: auto;
+  z-index: 30;
+}
+
+.coverage-dropdown-item {
+  width: 100%;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: none;
+  border-bottom: 1px solid var(--border-subtle);
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.12s ease;
+}
+
+.coverage-dropdown-item:hover {
+  background-color: var(--bg-subtle);
+}
+
+.coverage-dropdown-pin-icon {
+  color: var(--brand-primary);
+}
+
+.coverage-dropdown-title {
+  font-size: 14px;
+  font-weight: var(--font-bold);
+  color: var(--text);
+}
+
+.coverage-dropdown-sub {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* Instant coverage success notification */
+.coverage-widget-success-box {
+  margin-top: 16px;
+  padding: 16px 20px;
+  border-radius: var(--radius-lg);
+  background-color: #F3FAF5;
+  border: 1px solid #C6EAD3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.coverage-success-icon {
+  color: #0F9D58;
+  flex-shrink: 0;
+}
+
+.coverage-success-title {
+  font-size: 14px;
+  font-weight: var(--font-bold);
+  color: #0F9D58;
+}
+
+.coverage-success-desc {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.coverage-success-cta-btn {
+  flex-shrink: 0;
+  padding: 8px 18px;
+  color: #ffffff !important;
+}
+
+.coverage-success-cta-btn * {
+  color: inherit !important;
+}
+
+/* Standalone CoverageChecker.tsx styles */
+.coverage-card-wrap {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+.coverage-label-text {
+  font-size: 14px;
+}
+
+.coverage-input-flex {
+  flex: 1;
+}
+
+.coverage-check-btn-nowrap {
+  white-space: nowrap;
+}
+
+.coverage-sample-chips-row {
+  flex-wrap: wrap;
+  font-size: 12px;
+}
+
+.coverage-sample-label {
+  color: var(--text-subtle);
+}
+
+.coverage-sample-chip-btn {
+  cursor: pointer;
+  background: var(--bg);
+  border-color: var(--border);
+}
+
+.coverage-results-section {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.coverage-result-success {
+  background-color: var(--accent-blue-subtle);
+  border: 1px solid #c7d8ed;
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.coverage-result-success-icon {
+  color: var(--accent-blue);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.coverage-result-success-title {
+  color: var(--accent-blue);
+  margin-bottom: 4px;
+}
+
+.coverage-result-success-address {
+  color: var(--text);
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.coverage-badges-row {
+  margin-bottom: 16px;
+}
+
+.coverage-result-cta {
+  text-decoration: none;
+}
+
+.coverage-result-notfound {
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.coverage-result-notfound-icon {
+  color: var(--text-muted);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.coverage-result-notfound-title {
+  margin-bottom: 4px;
+}
+
+.coverage-result-notfound-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}

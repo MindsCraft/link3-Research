@@ -19,12 +19,12 @@ export function CoverageCheckerWidget() {
   const [showDropdown, setShowDropdown] = useState(false);
 
   const filtered = query.trim()
-    ? sampleBuildings.filter(
-        (b) =>
-          b.name.toLowerCase().includes(query.toLowerCase()) ||
-          b.area.toLowerCase().includes(query.toLowerCase())
-      )
-    : [];
+  ? sampleBuildings.filter(
+      (b) =>
+        b.name.toLowerCase().includes(query.toLowerCase()) ||
+        b.area.toLowerCase().includes(query.toLowerCase())
+    )
+  : [];
 
   const handleSelect = (building: typeof sampleBuildings[0]) => {
     setSelectedBuilding(building);
@@ -33,27 +33,16 @@ export function CoverageCheckerWidget() {
   };
 
   return (
-    <section id="coverage" style={{ paddingTop: '20px', paddingBottom: '36px' }}>
-      <div className="container" style={{ maxWidth: '840px', textAlign: 'center' }}>
-        <h2 className="section-title" style={{ fontSize: 'clamp(1.75rem, 2.5vw, 2.3rem)', marginBottom: '24px' }}>
+    <section id="coverage" className="coverage-widget-section">
+      <div className="container coverage-widget-container">
+        <h2 className="section-title coverage-widget-title">
           Check if Link3 Internet is available in your area
         </h2>
 
         {/* Rounded Search Input Container */}
-        <div style={{ position: 'relative', margin: '0 auto', maxWidth: '640px' }}>
-          <div
-            className="flex items-center"
-            style={{
-              position: 'relative',
-              backgroundColor: '#ffffff',
-              border: '2px solid var(--border)',
-              borderRadius: 'var(--radius-pill)',
-              padding: '6px 12px 6px 20px',
-              boxShadow: 'var(--shadow-sm)',
-              transition: 'border-color 0.15s ease, box-shadow 0.15s ease',
-            }}
-          >
-            <Search size={20} style={{ color: 'var(--text-muted)', marginRight: '12px', flexShrink: 0 }} />
+        <div className="coverage-widget-search-wrap">
+          <div className="coverage-widget-pill-bar">
+            <Search size={20} className="coverage-widget-search-icon" />
             <input
               type="text"
               value={query}
@@ -66,15 +55,7 @@ export function CoverageCheckerWidget() {
               }}
               onFocus={() => setShowDropdown(true)}
               placeholder="Enter building or street name"
-              style={{
-                border: 'none',
-                outline: 'none',
-                width: '100%',
-                fontSize: '16px',
-                color: 'var(--text)',
-                backgroundColor: 'transparent',
-                padding: '8px 0',
-              }}
+              className="coverage-widget-input"
             />
 
             <button
@@ -91,12 +72,7 @@ export function CoverageCheckerWidget() {
                   });
                 }
               }}
-              className="btn btn-pill-black"
-              style={{
-                padding: '10px 22px',
-                fontSize: '13px',
-                flexShrink: 0,
-              }}
+              className="btn btn-pill-black coverage-widget-submit-btn"
             >
               Check
             </button>
@@ -113,12 +89,12 @@ export function CoverageCheckerWidget() {
                   className="coverage-dropdown-item"
                 >
                   <div className="flex items-center gap-3">
-                    <MapPin size={16} style={{ color: 'var(--brand-primary)' }} />
+                    <MapPin size={16} className="coverage-dropdown-pin-icon" />
                     <div>
-                      <div style={{ fontSize: '14px', fontWeight: 'var(--font-bold)', color: 'var(--text)' }}>
+                      <div className="coverage-dropdown-title">
                         {item.name}
                       </div>
-                      <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{item.area}</div>
+                      <div className="coverage-dropdown-sub">{item.area}</div>
                     </div>
                   </div>
                   <span className="badge badge-primary">100% Fibre Ready</span>
@@ -129,26 +105,14 @@ export function CoverageCheckerWidget() {
 
           {/* Instant Coverage Result Card */}
           {selectedBuilding && (
-            <div
-              style={{
-                marginTop: '16px',
-                padding: '16px 20px',
-                borderRadius: 'var(--radius-lg)',
-                backgroundColor: '#F3FAF5',
-                border: '1px solid #C6EAD3',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                textAlign: 'left',
-              }}
-            >
+            <div className="coverage-widget-success-box">
               <div className="flex items-center gap-3">
-                <CheckCircle2 size={24} style={{ color: '#0F9D58', flexShrink: 0 }} />
+                <CheckCircle2 size={24} className="coverage-success-icon" />
                 <div>
-                  <div style={{ fontSize: '14px', fontWeight: 'var(--font-bold)', color: '#0F9D58' }}>
+                  <div className="coverage-success-title">
                     Awesome! {selectedBuilding.name} is 100% Fibre Ready!
                   </div>
-                  <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>
+                  <div className="coverage-success-desc">
                     Speeds up to {selectedBuilding.maxSpeed} with Same-Day / Next-Day Installation available.
                   </div>
                 </div>
@@ -156,8 +120,7 @@ export function CoverageCheckerWidget() {
 
               <Link
                 href="/#plans"
-                className="btn btn-pill-primary btn-sm"
-                style={{ flexShrink: 0, padding: '8px 18px' }}
+                className="btn btn-pill-primary btn-sm coverage-success-cta-btn"
               >
                 Sign Up Now
               </Link>

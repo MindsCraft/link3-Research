@@ -7,8 +7,7 @@ import { ArrowRight } from 'lucide-react';
 interface SisterSegment {
   id: string;
   title: string;
-  headerBg: string;
-  headerTextColor?: string;
+  headerClass: string;
   subtitle: string;
   desc: string;
   href: string;
@@ -18,7 +17,7 @@ const segments: SisterSegment[] = [
   {
     id: 'business',
     title: 'LINK3 BUSINESS',
-    headerBg: '#9C60FF',
+    headerClass: 'sister-header-business',
     subtitle: 'Businesses Grow With Link3',
     desc: 'High-speed Internet plans built for scalability, SLA reliability and seamless SME operations.',
     href: '/#contact',
@@ -26,8 +25,7 @@ const segments: SisterSegment[] = [
   {
     id: 'enterprise',
     title: 'LINK3 ENTERPRISE',
-    headerBg: '#00C4DF',
-    headerTextColor: '#0a0a0a',
+    headerClass: 'sister-header-enterprise',
     subtitle: "Link3's 3Cs of Digitalisation",
     desc: 'Supercharge your enterprise with cloud interconnect, managed cyber defence, and expert technical support.',
     href: '/#contact',
@@ -35,7 +33,7 @@ const segments: SisterSegment[] = [
   {
     id: 'wholesale',
     title: 'LINK3 WHOLESALE',
-    headerBg: '#141414',
+    headerClass: 'sister-header-wholesale',
     subtitle: 'Partnership Beyond Connectivity',
     desc: 'Expanding collaboration beyond basic network services to offer regional IP transit, dark fibre, and subsea capacity.',
     href: '/#contact',
@@ -43,7 +41,7 @@ const segments: SisterSegment[] = [
   {
     id: 'cloud-energy',
     title: 'LINK3 CLOUD / ENERGY',
-    headerBg: 'var(--brand-primary)',
+    headerClass: 'sister-header-cloud',
     subtitle: 'Sustainable Digital Infrastructure',
     desc: 'Tier-III green data centres, private cloud solutions, and zero-carbon smart infrastructure.',
     href: '/#contact',
@@ -54,7 +52,7 @@ export function CrossBrandGrid() {
   return (
     <section id="segments" className="section-subtle">
       <div className="container">
-        <h2 className="section-title" style={{ textAlign: 'center', marginBottom: '48px' }}>
+        <h2 className="section-title cross-brand-section-title">
           Connecting More Than Just Homes
         </h2>
 
@@ -66,50 +64,21 @@ export function CrossBrandGrid() {
               className="sister-card"
             >
               {/* Colored Header Block */}
-              <div
-                className="sister-card-header"
-                style={{
-                  backgroundColor: seg.headerBg,
-                  color: seg.headerTextColor || '#ffffff',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  textAlign: 'center',
-                  fontWeight: 'var(--font-black)',
-                  fontSize: '18px',
-                  minHeight: '100px',
-                }}
-              >
+              <div className={`sister-card-header ${seg.headerClass}`}>
                 {seg.title}
               </div>
 
               {/* Card Body */}
               <div className="sister-card-body">
-                <h3
-                  className="font-display"
-                  style={{
-                    fontSize: '15px',
-                    fontWeight: 'var(--font-bold)',
-                    color: 'var(--text)',
-                    marginBottom: '8px',
-                  }}
-                >
+                <h3 className="font-display sister-card-title">
                   {seg.subtitle}
                 </h3>
-                <p
-                  style={{
-                    fontSize: '13px',
-                    color: '#4B5563',
-                    lineHeight: 1.5,
-                    marginBottom: '20px',
-                    flex: 1,
-                  }}
-                >
+                <p className="sister-card-desc">
                   {seg.desc}
                 </p>
 
                 {/* Bottom-right Arrow Button */}
-                <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                <div className="sister-arrow-row">
                   <div className="sister-circle-arrow">
                     <ArrowRight size={18} />
                   </div>

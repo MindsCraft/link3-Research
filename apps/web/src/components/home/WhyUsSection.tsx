@@ -7,7 +7,7 @@ export function WhyUsSection() {
   return (
     <section id="why-us" className="section">
       <div className="container">
-        <h2 className="section-title" style={{ textAlign: 'center', marginBottom: '48px' }}>
+        <h2 className="section-title why-us-section-title">
           Our Home Internet Is Just Better
         </h2>
 
@@ -34,14 +34,13 @@ export function WhyUsSection() {
               </svg>
             </div>
 
-            <p style={{ fontSize: '14px', color: '#4B5563', lineHeight: 1.5, marginBottom: '28px', flex: 1 }}>
+            <p className="why-us-desc">
               We fully own our fibre network, which means faster speeds, greater stability and better service for you.
             </p>
 
             <Link
               href="/#plans"
-              className="btn btn-pill-primary btn-sm"
-              style={{ padding: '10px 24px' }}
+              className="btn btn-pill-primary btn-sm why-us-btn"
             >
               FIND OUT MORE
             </Link>
@@ -56,23 +55,22 @@ export function WhyUsSection() {
             {/* Speedometer graphic */}
             <div className="why-us-graphic-box">
               <div className="why-us-speedometer">
-                <div style={{ fontSize: '32px', fontWeight: 'var(--font-black)', color: '#0a0a0a', lineHeight: 1 }}>
+                <div className="why-us-speed-number">
                   2
                 </div>
-                <div style={{ fontSize: '13px', fontWeight: 'var(--font-bold)', color: '#0a0a0a' }}>
+                <div className="why-us-speed-unit">
                   Gbps
                 </div>
               </div>
             </div>
 
-            <p style={{ fontSize: '14px', color: '#4B5563', lineHeight: 1.5, marginBottom: '28px', flex: 1 }}>
+            <p className="why-us-desc">
               First in Bangladesh &amp; region to offer TRUE 2Gbps to supercharge your internet.
             </p>
 
             <Link
               href="/#plans"
-              className="btn btn-pill-primary btn-sm"
-              style={{ padding: '10px 24px' }}
+              className="btn btn-pill-primary btn-sm why-us-btn"
             >
               GET UP TO SPEED
             </Link>
@@ -103,14 +101,13 @@ export function WhyUsSection() {
               </svg>
             </div>
 
-            <p style={{ fontSize: '14px', color: '#4B5563', lineHeight: 1.5, marginBottom: '28px', flex: 1 }}>
+            <p className="why-us-desc">
               Faster, stronger and smoother WiFi that reaches further, powers every device and delivers a smooth online experience without interruptions.
             </p>
 
             <Link
               href="/#plans"
-              className="btn btn-pill-primary btn-sm"
-              style={{ padding: '10px 24px' }}
+              className="btn btn-pill-primary btn-sm why-us-btn"
             >
               SEE PLANS
             </Link>

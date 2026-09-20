@@ -45,39 +45,22 @@ function Twitter({ size = 18 }: { size?: number }) {
   );
 }
 
-
 export function Footer() {
   return (
-    <footer
-      style={{
-        backgroundColor: '#ffffff',
-        borderTop: '1px solid var(--border)',
-        paddingTop: '64px',
-        paddingBottom: '48px',
-        fontSize: '13px',
-      }}
-    >
+    <footer className="footer-root">
       <div className="container">
         {/* Brand Logo Row */}
-        <div style={{ marginBottom: '40px' }}>
-          <div className="flex items-center" style={{ flexShrink: 0 }}>
+        <div className="footer-logo-row">
+          <div className="flex items-center footer-logo-wrap">
             <Link3Logo height={48} />
           </div>
         </div>
 
         {/* 4-Column Sitemap Grid */}
-        <div
-          className="grid"
-          style={{
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: '40px',
-            paddingBottom: '48px',
-            borderBottom: '1px solid var(--border)',
-          }}
-        >
+        <div className="grid footer-sitemap-grid">
           {/* Column 1: About Link3 */}
           <div className="flex flex-col gap-3">
-            <h5 className="font-display" style={{ color: 'var(--text)', fontWeight: 'var(--font-bold)', marginBottom: '8px' }}>
+            <h5 className="font-display footer-column-title">
               About {siteConfig.brandName}
             </h5>
             <Link href="/#why-us" className="text-muted">Our Company</Link>
@@ -90,7 +73,7 @@ export function Footer() {
 
           {/* Column 2: More From Link3 */}
           <div className="flex flex-col gap-3">
-            <h5 className="font-display" style={{ color: 'var(--text)', fontWeight: 'var(--font-bold)', marginBottom: '8px' }}>
+            <h5 className="font-display footer-column-title">
               More From {siteConfig.brandName}
             </h5>
             <Link href="/#plans" className="text-muted">Home Fibre</Link>
@@ -103,7 +86,7 @@ export function Footer() {
 
           {/* Column 3: Help & Support */}
           <div className="flex flex-col gap-3">
-            <h5 className="font-display" style={{ color: 'var(--text)', fontWeight: 'var(--font-bold)', marginBottom: '8px' }}>
+            <h5 className="font-display footer-column-title">
               Help &amp; Support
             </h5>
             <Link href="/#contact" className="text-muted">Customer Support</Link>
@@ -112,7 +95,7 @@ export function Footer() {
             <a href="https://selfcare.link3.net" target="_blank" rel="noopener noreferrer" className="text-muted">
               Self Care Portal
             </a>
-            <div style={{ marginTop: '8px' }}>
+            <div className="footer-hotline-wrap">
               <span className="badge badge-primary">Hotline: {siteConfig.supportHotline}</span>
             </div>
           </div>
@@ -120,7 +103,7 @@ export function Footer() {
           {/* Column 4: Follow Us & Certifications */}
           <div className="flex flex-col gap-4">
             <div>
-              <h5 className="font-display" style={{ color: 'var(--text)', fontWeight: 'var(--font-bold)', marginBottom: '12px' }}>
+              <h5 className="font-display footer-social-title">
                 Follow Us
               </h5>
               <div className="flex items-center gap-3">
@@ -129,16 +112,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Facebook"
-                  style={{
-                    width: '36px',
-                    height: '36px',
-                    borderRadius: '50%',
-                    backgroundColor: 'var(--bg-subtle)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: 'var(--text)',
-                  }}
+                  className="footer-social-link"
                 >
                   <Facebook size={18} />
                 </a>
@@ -147,16 +121,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram"
-                  style={{
-                    width: '36px',
-                    height: '36px',
-                    borderRadius: '50%',
-                    backgroundColor: 'var(--bg-subtle)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: 'var(--text)',
-                  }}
+                  className="footer-social-link"
                 >
                   <Instagram size={18} />
                 </a>
@@ -165,16 +130,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
-                  style={{
-                    width: '36px',
-                    height: '36px',
-                    borderRadius: '50%',
-                    backgroundColor: 'var(--bg-subtle)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: 'var(--text)',
-                  }}
+                  className="footer-social-link"
                 >
                   <Linkedin size={18} />
                 </a>
@@ -183,16 +139,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Twitter / X"
-                  style={{
-                    width: '36px',
-                    height: '36px',
-                    borderRadius: '50%',
-                    backgroundColor: 'var(--bg-subtle)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: 'var(--text)',
-                  }}
+                  className="footer-social-link"
                 >
                   <Twitter size={18} />
                 </a>
@@ -200,22 +147,11 @@ export function Footer() {
             </div>
 
             <div>
-              <h5 className="font-display" style={{ color: 'var(--text)', fontWeight: 'var(--font-bold)', marginBottom: '8px' }}>
+              <h5 className="font-display footer-column-title">
                 Self Care App
               </h5>
               <div className="flex items-center gap-2">
-                <div
-                  style={{
-                    padding: '6px 12px',
-                    borderRadius: 'var(--radius-sm)',
-                    border: '1px solid var(--border)',
-                    fontSize: '11px',
-                    fontWeight: 'var(--font-bold)',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                  }}
-                >
+                <div className="footer-app-badge">
                   <Smartphone size={14} />
                   <span>iOS &amp; Android</span>
                 </div>
@@ -223,25 +159,16 @@ export function Footer() {
             </div>
 
             {/* Certifications row */}
-            <div className="flex items-center gap-2" style={{ marginTop: '4px' }}>
-              <span className="badge" style={{ fontSize: '10px' }}>MEF 3.0 Certified</span>
-              <span className="badge" style={{ fontSize: '10px' }}>ISO 27001</span>
-              <span className="badge" style={{ fontSize: '10px' }}>Licensed ISP</span>
+            <div className="flex items-center gap-2 footer-cert-row">
+              <span className="badge footer-cert-badge">MEF 3.0 Certified</span>
+              <span className="badge footer-cert-badge">ISO 27001</span>
+              <span className="badge footer-cert-badge">Licensed ISP</span>
             </div>
           </div>
         </div>
 
         {/* Bottom Legal Bar */}
-        <div
-          style={{
-            paddingTop: '28px',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '12px',
-            fontSize: '12px',
-            color: 'var(--text-subtle)',
-          }}
-        >
+        <div className="footer-legal-bar">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
               © {siteConfig.copyrightYear} {siteConfig.brandName} Technologies Ltd. All rights reserved.
@@ -256,7 +183,7 @@ export function Footer() {
             </div>
           </div>
 
-          <div style={{ fontSize: '11px', color: 'var(--text-subtle)' }}>
+          <div className="footer-legal-disclaimer">
             Registered with regulatory authorities. Full Gigabit optical broadband connectivity.
           </div>
         </div>

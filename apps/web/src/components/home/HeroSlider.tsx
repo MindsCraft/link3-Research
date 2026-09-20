@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { heroSlidesData, type HeroSlide } from '@/data/hero';
+import { heroSlidesData } from '@/data/hero';
 import { sampleCoverageList, type CoverageLocation } from '@/data/coverage';
 import {
   ArrowRight,
@@ -13,8 +13,6 @@ import {
   ChevronLeft,
   ChevronRight,
   Zap,
-  Activity,
-  Wifi,
 } from 'lucide-react';
 
 export function HeroSlider() {
@@ -63,64 +61,38 @@ export function HeroSlider() {
     <section
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
-      style={{
-        backgroundColor: 'var(--bg)',
-        borderBottom: '1px solid var(--border)',
-        paddingTop: '48px',
-        paddingBottom: '56px',
-        position: 'relative',
-      }}
+      className="hero-slider-section"
     >
       <div className="container">
         {/* Main Grid: Left copy & Right visual display */}
-        <div className="grid grid-2 gap-12" style={{ alignItems: 'center' }}>
+        <div className="grid grid-2 gap-12 hero-slider-grid">
           {/* Left Column: Copy & Actions */}
           <div>
             {/* Badge */}
-            <div className="badge badge-blue" style={{ marginBottom: '16px' }}>
+            <div className="badge badge-blue hero-slider-badge">
               <Zap size={13} />
               <span>{slide.badge}</span>
             </div>
 
             {/* Headline */}
-            <h1 style={{ marginBottom: '16px', lineHeight: '1.15' }}>
+            <h1 className="hero-slider-headline">
               {slide.headline}{' '}
-              <span style={{ color: 'var(--accent-blue)' }}>{slide.headlineAccent}</span>
+              <span className="hero-slider-accent-text">{slide.headlineAccent}</span>
             </h1>
 
             {/* Subhead */}
-            <p
-              style={{
-                fontSize: '17px',
-                color: 'var(--text-muted)',
-                marginBottom: '24px',
-                lineHeight: '1.6',
-                maxWidth: '540px',
-              }}
-            >
+            <p className="hero-slider-subhead">
               {slide.subhead}
             </p>
 
             {/* Feature Highlights */}
-            <div className="flex flex-col gap-2" style={{ marginBottom: '28px' }}>
+            <div className="flex flex-col gap-2 hero-slider-highlights">
               {slide.highlights.map((item, idx) => (
-                <div key={idx} className="flex items-center gap-2.5" style={{ fontSize: '14px' }}>
-                  <div
-                    style={{
-                      width: '18px',
-                      height: '18px',
-                      borderRadius: 'var(--radius)',
-                      backgroundColor: 'var(--accent-blue-subtle)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: 'var(--accent-blue)',
-                      flexShrink: 0,
-                    }}
-                  >
+                <div key={idx} className="flex items-center gap-2.5 hero-slider-highlight-item">
+                  <div className="hero-slider-check-circle">
                     <Check size={12} strokeWidth={3} />
                   </div>
-                  <span style={{ color: 'var(--text)', fontWeight: 'var(--font-medium)' }}>
+                  <span className="hero-slider-highlight-label">
                     {item}
                   </span>
                 </div>
@@ -128,7 +100,7 @@ export function HeroSlider() {
             </div>
 
             {/* Primary Action Buttons */}
-            <div className="flex items-center gap-3" style={{ flexWrap: 'wrap', marginBottom: '32px' }}>
+            <div className="flex items-center gap-3 hero-slider-actions-row">
               <Link href={slide.primaryCtaHref} className="btn btn-primary btn-lg">
                 <span>{slide.primaryCtaText}</span>
                 <ArrowRight size={16} />
@@ -139,27 +111,9 @@ export function HeroSlider() {
             </div>
 
             {/* Inline Fast Coverage Check Widget */}
-            <div
-              style={{
-                backgroundColor: 'var(--bg-subtle)',
-                border: '1px solid var(--border)',
-                borderRadius: 'var(--radius)',
-                padding: '16px',
-                maxWidth: '540px',
-              }}
-            >
-              <div
-                style={{
-                  fontSize: '12px',
-                  fontWeight: 'var(--font-bold)',
-                  color: 'var(--text)',
-                  marginBottom: '8px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '6px',
-                }}
-              >
-                <Search size={14} style={{ color: 'var(--accent-blue)' }} />
+            <div className="hero-slider-coverage-box">
+              <div className="hero-slider-coverage-header">
+                <Search size={14} className="hero-slider-coverage-icon" />
                 <span>Quick Coverage Lookup in Your Area</span>
               </div>
 
@@ -169,38 +123,25 @@ export function HeroSlider() {
                   value={coverageInput}
                   onChange={(e) => setCoverageInput(e.target.value)}
                   placeholder="Enter building name, street, or postcode..."
-                  className="form-input"
-                  style={{ fontSize: '13px', padding: '8px 12px' }}
+                  className="form-input hero-slider-coverage-input"
                 />
                 <button
                   type="submit"
-                  className="btn btn-primary btn-sm"
-                  style={{ whiteSpace: 'nowrap' }}
+                  className="btn btn-primary btn-sm hero-slider-coverage-btn"
                 >
                   <span>Check</span>
                 </button>
               </form>
 
               {/* Sample area chips */}
-              <div
-                className="flex items-center gap-1.5"
-                style={{ marginTop: '10px', flexWrap: 'wrap', fontSize: '11px' }}
-              >
-                <span style={{ color: 'var(--text-subtle)' }}>Try:</span>
+              <div className="flex items-center gap-1.5 hero-slider-chips-row">
+                <span className="text-subtle">Try:</span>
                 {sampleCoverageList.slice(0, 3).map((loc) => (
                   <button
                     key={loc.id}
                     type="button"
                     onClick={() => handleQuickSelect(loc)}
-                    style={{
-                      border: '1px solid var(--border)',
-                      backgroundColor: 'var(--bg)',
-                      color: 'var(--text-muted)',
-                      borderRadius: 'var(--radius)',
-                      padding: '2px 6px',
-                      fontSize: '11px',
-                      cursor: 'pointer',
-                    }}
+                    className="hero-slider-chip-btn"
                   >
                     {loc.building}
                   </button>
@@ -210,35 +151,23 @@ export function HeroSlider() {
               {/* Inline feedback banner */}
               {coverageChecked && (
                 <div
-                  style={{
-                    marginTop: '12px',
-                    padding: '10px 12px',
-                    borderRadius: 'var(--radius)',
-                    fontSize: '12px',
-                    backgroundColor: coverageResult
-                      ? 'var(--accent-blue-subtle)'
-                      : 'var(--bg)',
-                    border: coverageResult
-                      ? '1px solid #c7d8ed'
-                      : '1px solid var(--border)',
-                  }}
+                  className={`hero-slider-feedback-box ${
+                    coverageResult
+                      ? 'hero-slider-feedback-success'
+                      : 'hero-slider-feedback-notfound'
+                  }`}
                 >
                   {coverageResult ? (
                     <div className="flex items-center justify-between gap-2">
                       <div className="flex items-center gap-2">
-                        <CheckCircle size={16} style={{ color: 'var(--accent-blue)', flexShrink: 0 }} />
-                        <span style={{ color: 'var(--accent-blue)', fontWeight: 'var(--font-bold)' }}>
+                        <CheckCircle size={16} className="hero-slider-coverage-icon" />
+                        <span className="hero-slider-accent-text text-bold">
                           {coverageResult.building} is covered! (Up to {coverageResult.maxSpeed})
                         </span>
                       </div>
                       <Link
                         href="/#plans"
-                        style={{
-                          fontSize: '11px',
-                          fontWeight: 'var(--font-bold)',
-                          color: 'var(--accent-blue)',
-                          textDecoration: 'underline',
-                        }}
+                        className="hero-slider-feedback-link hero-slider-feedback-link-success"
                       >
                         Order Plan →
                       </Link>
@@ -246,19 +175,14 @@ export function HeroSlider() {
                   ) : (
                     <div className="flex items-center justify-between gap-2">
                       <div className="flex items-center gap-2">
-                        <AlertCircle size={16} style={{ color: 'var(--text-muted)', flexShrink: 0 }} />
-                        <span style={{ color: 'var(--text-muted)' }}>
+                        <AlertCircle size={16} className="text-muted" />
+                        <span className="text-muted">
                           Address not found in current optical ring.
                         </span>
                       </div>
                       <Link
                         href="/#coverage"
-                        style={{
-                          fontSize: '11px',
-                          fontWeight: 'var(--font-bold)',
-                          color: 'var(--text)',
-                          textDecoration: 'underline',
-                        }}
+                        className="hero-slider-feedback-link hero-slider-feedback-link-dark"
                       >
                         Wishlist →
                       </Link>
@@ -270,128 +194,49 @@ export function HeroSlider() {
           </div>
 
           {/* Right Column: Visual Technical Display Card */}
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <div
-              className="card"
-              style={{
-                width: '100%',
-                maxWidth: '460px',
-                padding: '32px',
-                backgroundColor: 'var(--bg-subtle)',
-                border: '1px solid var(--border-strong)',
-              }}
-            >
+          <div className="hero-slider-visual-col">
+            <div className="card hero-slider-telemetry-card">
               {/* Header inside card */}
-              <div
-                className="flex items-center justify-between"
-                style={{ paddingBottom: '16px', borderBottom: '1px solid var(--border)' }}
-              >
+              <div className="flex items-center justify-between hero-slider-telemetry-header">
                 <div className="flex items-center gap-2">
-                  <span
-                    style={{
-                      width: '8px',
-                      height: '8px',
-                      borderRadius: '50%',
-                      backgroundColor: 'var(--accent-blue)',
-                    }}
-                  />
-                  <span style={{ fontSize: '12px', fontWeight: 'var(--font-bold)', color: 'var(--text)' }}>
+                  <span className="hero-slider-status-dot" />
+                  <span className="hero-slider-status-label">
                     NETWORK STATUS: OPERATIONAL
                   </span>
                 </div>
-                <span
-                  style={{
-                    fontSize: '11px',
-                    fontFamily: 'monospace',
-                    color: 'var(--accent-blue)',
-                    fontWeight: 'var(--font-bold)',
-                  }}
-                >
+                <span className="hero-slider-gpon-badge">
                   GPON / XGS-PON
                 </span>
               </div>
 
               {/* Price Banner */}
               {slide.priceTag && (
-                <div
-                  style={{
-                    marginTop: '20px',
-                    marginBottom: '20px',
-                    padding: '16px',
-                    backgroundColor: 'var(--bg)',
-                    border: '1px solid var(--border)',
-                    borderRadius: 'var(--radius)',
-                    textAlign: 'center',
-                  }}
-                >
-                  <div
-                    style={{
-                      fontSize: '11px',
-                      fontWeight: 'var(--font-bold)',
-                      color: 'var(--text-muted)',
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.05em',
-                      marginBottom: '4px',
-                    }}
-                  >
+                <div className="hero-slider-price-box">
+                  <div className="hero-slider-price-prefix">
                     {slide.priceTag.prefix}
                   </div>
-                  <div
-                    style={{
-                      fontSize: '2.5rem',
-                      fontWeight: 'var(--font-bold)',
-                      color: 'var(--accent-blue)',
-                      lineHeight: '1',
-                    }}
-                  >
+                  <div className="hero-slider-price-amount">
                     {slide.priceTag.amount}
                   </div>
-                  <div
-                    style={{
-                      fontSize: '12px',
-                      color: 'var(--text-muted)',
-                      marginTop: '4px',
-                      fontWeight: 'var(--font-medium)',
-                    }}
-                  >
+                  <div className="hero-slider-price-suffix">
                     {slide.priceTag.suffix}
                   </div>
                 </div>
               )}
 
               {/* Telemetry Metrics */}
-              <div style={{ marginBottom: '20px' }}>
-                <div
-                  style={{
-                    fontSize: '12px',
-                    fontWeight: 'var(--font-bold)',
-                    color: 'var(--text)',
-                    marginBottom: '10px',
-                  }}
-                >
+              <div className="hero-slider-telemetry-wrap">
+                <div className="hero-slider-telemetry-title">
                   {slide.visualData.title}
                 </div>
                 <div className="flex flex-col gap-2">
                   {slide.visualData.metrics.map((m, idx) => (
                     <div
                       key={idx}
-                      className="flex items-center justify-between"
-                      style={{
-                        padding: '10px 14px',
-                        backgroundColor: 'var(--bg)',
-                        border: '1px solid var(--border)',
-                        borderRadius: 'var(--radius)',
-                        fontSize: '13px',
-                      }}
+                      className="flex items-center justify-between hero-slider-metric-row"
                     >
-                      <span style={{ color: 'var(--text-muted)' }}>{m.label}</span>
-                      <span
-                        style={{
-                          fontWeight: 'var(--font-bold)',
-                          color: 'var(--text)',
-                          fontFamily: 'monospace',
-                        }}
-                      >
+                      <span className="hero-slider-metric-label">{m.label}</span>
+                      <span className="hero-slider-metric-val">
                         {m.value}
                       </span>
                     </div>
@@ -399,15 +244,7 @@ export function HeroSlider() {
                 </div>
               </div>
 
-              <div
-                style={{
-                  fontSize: '12px',
-                  color: 'var(--text-subtle)',
-                  textAlign: 'center',
-                  borderTop: '1px solid var(--border)',
-                  paddingTop: '12px',
-                }}
-              >
+              <div className="hero-slider-caption">
                 {slide.visualData.caption}
               </div>
             </div>
@@ -415,33 +252,18 @@ export function HeroSlider() {
         </div>
 
         {/* Carousel Slide Controller Pills */}
-        <div
-          className="flex items-center justify-between gap-4"
-          style={{
-            marginTop: '40px',
-            paddingTop: '20px',
-            borderTop: '1px solid var(--border)',
-          }}
-        >
+        <div className="flex items-center justify-between gap-4 hero-slider-controller-bar">
           {/* Slide Tab Buttons */}
-          <div className="flex items-center gap-2" style={{ flexWrap: 'wrap' }}>
+          <div className="flex items-center gap-2 hero-slider-tabs-row">
             {heroSlidesData.map((s, idx) => {
               const isActive = idx === currentIdx;
               return (
                 <button
                   key={s.id}
                   onClick={() => setCurrentIdx(idx)}
-                  style={{
-                    padding: '8px 16px',
-                    fontSize: '12px',
-                    fontWeight: isActive ? 'var(--font-bold)' : 'var(--font-medium)',
-                    color: isActive ? 'var(--text-inverse)' : 'var(--text)',
-                    backgroundColor: isActive ? 'var(--accent-blue)' : 'var(--bg-subtle)',
-                    border: isActive ? '1px solid var(--accent-blue)' : '1px solid var(--border)',
-                    borderRadius: 'var(--radius)',
-                    cursor: 'pointer',
-                    transition: 'all 0.15s ease',
-                  }}
+                  className={`hero-slider-tab-btn ${
+                    isActive ? 'hero-slider-tab-btn-active' : 'hero-slider-tab-btn-inactive'
+                  }`}
                 >
                   {s.id === 'slide-works'
                     ? '1. Internet that just works'
@@ -459,19 +281,17 @@ export function HeroSlider() {
               onClick={() =>
                 setCurrentIdx((prev) => (prev === 0 ? heroSlidesData.length - 1 : prev - 1))
               }
-              className="btn btn-outline btn-sm"
-              style={{ padding: '6px 10px' }}
+              className="btn btn-outline btn-sm hero-slider-nav-btn"
               aria-label="Previous Slide"
             >
               <ChevronLeft size={16} />
             </button>
-            <span style={{ fontSize: '12px', fontFamily: 'monospace', color: 'var(--text-muted)' }}>
+            <span className="hero-slider-nav-counter">
               {currentIdx + 1} / {heroSlidesData.length}
             </span>
             <button
               onClick={() => setCurrentIdx((prev) => (prev + 1) % heroSlidesData.length)}
-              className="btn btn-outline btn-sm"
-              style={{ padding: '6px 10px' }}
+              className="btn btn-outline btn-sm hero-slider-nav-btn"
               aria-label="Next Slide"
             >
               <ChevronRight size={16} />
