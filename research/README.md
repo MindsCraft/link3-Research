@@ -50,7 +50,7 @@ research/
 | *2026-09-19* | Current-State Heuristic Audit & Friction Analysis (NN/g 10 Principles) | Audits | [01_current_state_heuristic_audit.md](./03-audits/01_current_state_heuristic_audit.md) | ✅ Completed |
 | *2026-09-20* | UX Architectural Decisions, Component Specs & 6-Sprint Backlog | Insights | [01_ux_decisions_and_feature_backlog.md](./04-insights/01_ux_decisions_and_feature_backlog.md) | ✅ Completed |
 | *2026-09-20* | Structural Wireframes, Layout Blueprints & Responsive Interaction Flows | Wireframes | [01_core_flow_wireframes.md](./05-wireframes/01_core_flow_wireframes.md) | ✅ Completed |
-| *2026-09-20* | Frontend Component Low-Level Design (LLD) & State Architecture | Wireframes / LLD | [02_component_low_level_design.md](./05-wireframes/02_component_low_level_design.md) | ✅ Completed |
+| *2026-09-20* | Frontend Component Low-Level Design (LLD) & State Architecture | Wireframes / LLD | [02_component_low_level_design.md](./05-wireframes/02_component_low_level_design.md) &bull; [Interactive HTML Viewer](./05-wireframes/02_component_low_level_design.html) | ✅ Completed |
 
 ---
 
