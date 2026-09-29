@@ -32,3 +32,6 @@ Thumbs.db
 *.sqlite
 *.sqlite3
 *.db
+
+# Archives & large bundle exports
+*.zip

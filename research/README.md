@@ -14,7 +14,8 @@ research/
 ├── 02-personas/     # Phase 2: User archetypes, pain points, and customer journey maps (5 Archetypes)
 ├── 03-audits/       # Phase 3: Heuristic evaluations, accessibility, and current-state friction audits (10 NN/g Principles)
 ├── 04-insights/     # Phase 4: Synthesized UX decisions, component specs, and 6-sprint engineering backlog
-└── 05-wireframes/   # Phase 5: Structural layout blueprints, responsive desktop/mobile wireframes & interaction specs
+├── 05-wireframes/   # Phase 5: Structural layout blueprints, responsive desktop/mobile wireframes & interaction specs
+└── 06-moodboards/   # Phase 6: Visual mood boards, competitor aesthetics & design system tokens
 ```
 
 ---
@@ -43,14 +44,16 @@ research/
 | Date | Topic | Category | File | Status |
 | :--- | :--- | :--- | :--- | :--- |
 | *2026-09-19* | Research Repository Initialized | Meta | [README.md](./README.md) | ✅ Active |
-| *2026-09-19* | 30 Regional Competitors & Ecosystem Bundling (South Asia & SEA + Maxis) | Benchmarks | [01_regional_south_asia_benchmarks.md](./01-benchmarks/01_regional_south_asia_benchmarks.md) | ✅ Completed |
-| *2026-09-19* | 20 Global World-Class Leaders & Disruptors (Americas, Europe, East Asia) | Benchmarks | [02_global_world_class_benchmarks.md](./01-benchmarks/02_global_world_class_benchmarks.md) | ✅ Completed |
+| *2026-09-19* | 17 Emerging Market ISP Powerhouses (India, Indonesia, Philippines, Vietnam, Thailand) | Benchmarks | [01_regional_south_asia_benchmarks.md](./01-benchmarks/01_regional_south_asia_benchmarks.md) | ✅ Completed |
+| *2026-09-19* | 17 World-Class International Disruptors & Tier-1 Altnets (US, UK, FR, MY, SG, EU) | Benchmarks | [02_global_world_class_benchmarks.md](./01-benchmarks/02_global_world_class_benchmarks.md) | ✅ Completed |
 | *2026-09-19* | Strategic Blueprint: Commodity ISP to Digital Experience Platform | Benchmarks / Strategy | [03_strategic_blueprint.md](./01-benchmarks/03_strategic_blueprint.md) | ✅ Completed |
 | *2026-09-19* | Customer Personas, Mental Models & End-to-End Journey Maps | Personas | [01_customer_personas.md](./02-personas/01_customer_personas.md) | ✅ Completed |
 | *2026-09-19* | Current-State Heuristic Audit & Friction Analysis (NN/g 10 Principles) | Audits | [01_current_state_heuristic_audit.md](./03-audits/01_current_state_heuristic_audit.md) | ✅ Completed |
 | *2026-09-20* | UX Architectural Decisions, Component Specs & 6-Sprint Backlog | Insights | [01_ux_decisions_and_feature_backlog.md](./04-insights/01_ux_decisions_and_feature_backlog.md) | ✅ Completed |
 | *2026-09-20* | Structural Wireframes, Layout Blueprints & Responsive Interaction Flows | Wireframes | [01_core_flow_wireframes.md](./05-wireframes/01_core_flow_wireframes.md) | ✅ Completed |
 | *2026-09-20* | Frontend Component Low-Level Design (LLD) & State Architecture | Wireframes / LLD | [02_component_low_level_design.md](./05-wireframes/02_component_low_level_design.md) &bull; [Interactive HTML Viewer](./05-wireframes/02_component_low_level_design.html) | ✅ Completed |
+| *2026-09-21* | Information Architecture (IA), Global Site Map & Routing Blueprints | Wireframes / IA | [03_site_map_and_information_architecture.md](./05-wireframes/03_site_map_and_information_architecture.md) &bull; [Interactive HTML Viewer](./05-wireframes/03_site_map_and_information_architecture.html) | ✅ Completed |
+| *2026-09-22* | Home Page Visual Mood Board, Design Tokens & 34-Competitor Gallery | Mood Boards / Design | [01_homepage_moodboard.md](./06-moodboards/01_homepage_moodboard.md) &bull; [Tokens Viewer](./06-moodboards/01_homepage_moodboard.html) &bull; [34-Competitor Visual Mood Board](./06-moodboards/02_competitor_visual_moodboard.html) | ✅ Completed |
 
 ---
 

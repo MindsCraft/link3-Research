@@ -1,0 +1,2566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Link3 Information Architecture (IA) & Global Site Map Explorer | 05-WIRE-MAP-03</title>
+  <meta name="description" content="Figma-grade interactive Information Architecture, 24-route taxonomy, persona user journeys, and Next.js App Router specification for Link3 Digital Experience Platform.">
+
+  <!-- Inter Font Exclusively -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================================================================
+       FIGMA DESIGN CANVAS SYSTEM (100% LIGHT MODE • HIGH CONTRAST)
+       ========================================================================= */
+    :root {
+      /* Canvas & Surfaces */
+      --canvas-bg: #F8FAFC;
+      --canvas-dot: #CBD5E1;
+      --surface-white: #FFFFFF;
+      --surface-elevated: #F1F5F9;
+      --surface-hover: #E2E8F0;
+      --surface-border: #E2E8F0;
+      --surface-border-strong: #CBD5E1;
+
+      /* Brand Accents */
+      --brand-primary: #0284C7;
+      --brand-primary-dark: #0369A1;
+      --brand-primary-light: #E0F2FE;
+      --brand-secondary: #2563EB;
+      --brand-secondary-light: #EFF6FF;
+
+      /* Domain Color Palette (Accessible, High-Contrast Light Mode) */
+      --domain-res-color: #0284C7;
+      --domain-res-bg: #F0F9FF;
+      --domain-res-border: #BAE6FD;
+      --domain-res-text: #0369A1;
+
+      --domain-biz-color: #2563EB;
+      --domain-biz-bg: #EFF6FF;
+      --domain-biz-border: #BFDBFE;
+      --domain-biz-text: #1D4ED8;
+
+      --domain-util-color: #059669;
+      --domain-util-bg: #ECFDF5;
+      --domain-util-border: #A7F3D0;
+      --domain-util-text: #047857;
+
+      --domain-supp-color: #7C3AED;
+      --domain-supp-bg: #F5F3FF;
+      --domain-supp-border: #DDD6FE;
+      --domain-supp-text: #6D28D9;
+
+      --domain-corp-color: #D97706;
+      --domain-corp-bg: #FFFBEB;
+      --domain-corp-border: #FDE68A;
+      --domain-corp-text: #B45309;
+
+      --domain-legal-color: #E11D48;
+      --domain-legal-bg: #FFF1F2;
+      --domain-legal-border: #FECDD3;
+      --domain-legal-text: #BE123C;
+
+      /* High-Contrast WCAG AAA Typography Tokens */
+      --text-title: #0F172A;
+      --text-body: #334155;
+      --text-muted: #64748B;
+      --text-faint: #94A3B8;
+
+      /* Typography Font: 100% Inter Only */
+      --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'Inter', -apple-system, monospace;
+
+      /* Layout & Shadows */
+      --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 4px 12px -2px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+      --shadow-lg: 0 12px 28px -4px rgba(15, 23, 42, 0.12), 0 4px 10px -2px rgba(15, 23, 42, 0.05);
+      --shadow-figma-card: 0 1px 3px rgba(15, 23, 42, 0.06), 0 10px 24px -4px rgba(15, 23, 42, 0.06);
+
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-pill: 9999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--canvas-bg);
+      color: var(--text-body);
+      font-family: var(--font-family);
+      font-size: 15px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      min-height: 100vh;
+      /* Figma Blueprint Canvas Dot Grid */
+      background-color: var(--canvas-bg);
+      background-image: radial-gradient(var(--canvas-dot) 1.25px, transparent 1.25px);
+      background-size: 24px 24px;
+      color: var(--text-body);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* =========================================================================
+       FIGMA TOP NAVIGATION TOOLBAR
+       ========================================================================= */
+    .figma-toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      height: 64px;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--surface-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .brand-section {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .figma-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #0284C7;
+      color: #FFFFFF;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: var(--radius-sm);
+      letter-spacing: 0.5px;
+    }
+
+    .doc-title-group h1 {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--text-title);
+      letter-spacing: -0.3px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .doc-code-pill {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--brand-primary);
+      background: var(--brand-primary-light);
+      padding: 2px 7px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--domain-res-border);
+    }
+
+    /* Figma View Switcher segmented control */
+    .figma-view-switcher {
+      display: flex;
+      align-items: center;
+      background: var(--surface-elevated);
+      padding: 4px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--surface-border);
+      gap: 2px;
+    }
+
+    .view-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-family: var(--font-family);
+      font-size: 12.5px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+
+    .view-btn:hover:not(.active) {
+      color: var(--text-title);
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    .view-btn.active {
+      background: var(--surface-white);
+      color: var(--brand-primary-dark);
+      font-weight: 700;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.1);
+    }
+
+    .toolbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .tool-btn {
+      font-family: var(--font-family);
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--text-body);
+      background: var(--surface-white);
+      border: 1px solid var(--surface-border-strong);
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+
+    .tool-btn:hover {
+      background: var(--surface-elevated);
+      color: var(--text-title);
+      border-color: var(--brand-primary);
+    }
+
+    .tool-btn.primary {
+      background: var(--brand-primary);
+      border-color: var(--brand-primary);
+      color: #FFFFFF;
+    }
+
+    .tool-btn.primary:hover {
+      background: var(--brand-primary-dark);
+    }
+
+    /* =========================================================================
+       CANVAS CONTAINER & HERO OVERVIEW
+       ========================================================================= */
+    .figma-canvas {
+      flex: 1;
+      max-width: 1440px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 28px 100px;
+    }
+
+    /* Header Information Card */
+    .canvas-hero-card {
+      background: var(--surface-white);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-lg);
+      padding: 28px 32px;
+      margin-bottom: 28px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .hero-top-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .hero-text-block h2 {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--text-title);
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    .hero-text-block p {
+      font-size: 14.5px;
+      color: var(--text-body);
+      max-width: 840px;
+      line-height: 1.6;
+    }
+
+    .hero-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      background: var(--domain-util-bg);
+      border: 1px solid var(--domain-util-border);
+      color: var(--domain-util-text);
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--domain-util-color);
+      box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.2);
+    }
+
+    /* KPI Stats Bar */
+    .kpi-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      padding-top: 18px;
+      border-top: 1px solid var(--surface-border);
+    }
+
+    .kpi-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .kpi-label {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+
+    .kpi-value {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--text-title);
+      letter-spacing: -0.5px;
+    }
+
+    .kpi-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* =========================================================================
+       FILTER & SEARCH CONTROL STRIP
+       ========================================================================= */
+    .canvas-filter-strip {
+      background: var(--surface-white);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-md);
+      padding: 12px 18px;
+      margin-bottom: 28px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .search-input-wrapper {
+      position: relative;
+      width: 320px;
+    }
+
+    .search-input-wrapper span {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 14px;
+      pointer-events: none;
+    }
+
+    .search-input-wrapper input {
+      width: 100%;
+      padding: 8px 12px 8px 36px;
+      border: 1px solid var(--surface-border-strong);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-family);
+      font-size: 13px;
+      color: var(--text-title);
+      background: var(--canvas-bg);
+      outline: none;
+      transition: all 0.15s ease;
+    }
+
+    .search-input-wrapper input:focus {
+      border-color: var(--brand-primary);
+      background: #FFFFFF;
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.12);
+    }
+
+    .domain-pill-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .domain-filter-pill {
+      font-family: var(--font-family);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--surface-border);
+      background: var(--surface-white);
+      color: var(--text-body);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+
+    .domain-filter-pill:hover {
+      background: var(--surface-elevated);
+      color: var(--text-title);
+      border-color: var(--surface-border-strong);
+    }
+
+    .domain-filter-pill.active {
+      background: var(--text-title);
+      color: #FFFFFF;
+      border-color: var(--text-title);
+    }
+
+    .domain-filter-pill .pill-count {
+      font-size: 11px;
+      padding: 1px 6px;
+      border-radius: var(--radius-pill);
+      background: rgba(0, 0, 0, 0.08);
+    }
+
+    .domain-filter-pill.active .pill-count {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    /* =========================================================================
+       VIEW 1: FIGMA VISUAL ARCHITECTURE TREE (FLOWCHART VIEW)
+       ========================================================================= */
+    .figma-tree-view {
+      display: block;
+      margin-bottom: 40px;
+    }
+
+    .tree-canvas-frame {
+      background: var(--surface-white);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      box-shadow: var(--shadow-sm);
+      overflow-x: auto;
+    }
+
+    .tree-root-cluster {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 36px;
+    }
+
+    .tree-root-node {
+      background: #0F172A;
+      color: #FFFFFF;
+      padding: 14px 28px;
+      border-radius: var(--radius-md);
+      font-weight: 800;
+      font-size: 16px;
+      letter-spacing: -0.3px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: var(--shadow-md);
+      position: relative;
+    }
+
+    .tree-root-connector {
+      width: 2px;
+      height: 32px;
+      background: #CBD5E1;
+      margin: 0 auto;
+    }
+
+    .tree-horizontal-bus {
+      width: 85%;
+      height: 2px;
+      background: #CBD5E1;
+      margin: 0 auto 28px;
+      position: relative;
+    }
+
+    .tree-domains-row {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 18px;
+      min-width: 1080px;
+    }
+
+    .tree-domain-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    .tree-domain-column::before {
+      content: '';
+      position: absolute;
+      top: -28px;
+      width: 2px;
+      height: 28px;
+      background: #CBD5E1;
+    }
+
+    .tree-domain-header-box {
+      width: 100%;
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid transparent;
+    }
+
+    .tree-domain-header-box.residential {
+      background: var(--domain-res-bg);
+      border-color: var(--domain-res-border);
+      color: var(--domain-res-text);
+    }
+
+    .tree-domain-header-box.business {
+      background: var(--domain-biz-bg);
+      border-color: var(--domain-biz-border);
+      color: var(--domain-biz-text);
+    }
+
+    .tree-domain-header-box.utilities {
+      background: var(--domain-util-bg);
+      border-color: var(--domain-util-border);
+      color: var(--domain-util-text);
+    }
+
+    .tree-domain-header-box.support {
+      background: var(--domain-supp-bg);
+      border-color: var(--domain-supp-border);
+      color: var(--domain-supp-text);
+    }
+
+    .tree-domain-header-box.corporate {
+      background: var(--domain-corp-bg);
+      border-color: var(--domain-corp-border);
+      color: var(--domain-corp-text);
+    }
+
+    .tree-domain-header-box.legal {
+      background: var(--domain-legal-bg);
+      border-color: var(--domain-legal-border);
+      color: var(--domain-legal-text);
+    }
+
+    .tree-route-pills {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .tree-route-pill-item {
+      width: 100%;
+      background: var(--surface-white);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-sm);
+      padding: 8px 10px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    }
+
+    .tree-route-pill-item:hover {
+      border-color: var(--brand-primary);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-sm);
+      background: var(--surface-elevated);
+    }
+
+    .tree-route-pill-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .tree-route-code {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--brand-primary-dark);
+    }
+
+    .tree-route-level {
+      font-size: 9.5px;
+      font-weight: 700;
+      padding: 1px 5px;
+      border-radius: var(--radius-sm);
+      background: var(--surface-elevated);
+      color: var(--text-muted);
+    }
+
+    .tree-route-name {
+      font-size: 11.5px;
+      font-weight: 500;
+      color: var(--text-title);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* =========================================================================
+       VIEW 2: FIGMA COMPONENT CARDS (GRID EXPLORER)
+       ========================================================================= */
+    .figma-cards-view {
+      display: block;
+      margin-bottom: 40px;
+    }
+
+    .domain-section-group {
+      margin-bottom: 36px;
+    }
+
+    .domain-group-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--surface-border);
+    }
+
+    .domain-group-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text-title);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .domain-icon-circle {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+      gap: 18px;
+    }
+
+    /* Figma Component Card */
+    .figma-card {
+      background: var(--surface-white);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      box-shadow: var(--shadow-figma-card);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+
+    .figma-card:hover {
+      border-color: var(--brand-primary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .figma-card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .route-badge-box {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .route-url-text {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--brand-primary-dark);
+      background: var(--brand-primary-light);
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--domain-res-border);
+    }
+
+    .level-badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: var(--radius-sm);
+      background: var(--surface-elevated);
+      color: var(--text-muted);
+      border: 1px solid var(--surface-border);
+    }
+
+    .wf-badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: var(--radius-sm);
+      background: #FEF3C7;
+      color: #92400E;
+      border: 1px solid #FDE68A;
+    }
+
+    .card-title-text {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-title);
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+
+    .card-intent-text {
+      font-size: 13px;
+      color: var(--text-body);
+      line-height: 1.55;
+      margin-bottom: 16px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .card-meta-chips {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding-top: 14px;
+      border-top: 1px solid var(--surface-border);
+    }
+
+    .meta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+    }
+
+    .persona-chip {
+      color: var(--text-body);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .rendering-chip {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 6px;
+      border-radius: var(--radius-sm);
+      background: var(--domain-util-bg);
+      color: var(--domain-util-text);
+      border: 1px solid var(--domain-util-border);
+    }
+
+    .cta-preview-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 12px;
+      background: var(--surface-elevated);
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+      margin-top: 4px;
+    }
+
+    .cta-preview-primary {
+      font-weight: 600;
+      color: var(--brand-primary-dark);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .inspect-btn-text {
+      color: var(--brand-primary);
+      font-weight: 700;
+      font-size: 11.5px;
+      white-space: nowrap;
+    }
+
+    /* =========================================================================
+       VIEW 3: PERSONA USER JOURNEYS (SWIMLANE VIEW)
+       ========================================================================= */
+    .figma-persona-view {
+      display: none;
+      margin-bottom: 40px;
+    }
+
+    .persona-container-card {
+      background: var(--surface-white);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .persona-tab-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--surface-border);
+    }
+
+    .persona-tab-pill {
+      font-family: var(--font-family);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--surface-border);
+      background: var(--surface-white);
+      color: var(--text-body);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+    }
+
+    .persona-tab-pill:hover:not(.active) {
+      background: var(--surface-elevated);
+      color: var(--text-title);
+    }
+
+    .persona-tab-pill.active {
+      background: #0F172A;
+      color: #FFFFFF;
+      border-color: #0F172A;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .persona-card-summary {
+      background: var(--domain-res-bg);
+      border: 1px solid var(--domain-res-border);
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      margin-bottom: 28px;
+    }
+
+    .summary-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .summary-name {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text-title);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .summary-role {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .conversion-time-badge {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--domain-util-text);
+      background: var(--domain-util-bg);
+      border: 1px solid var(--domain-util-border);
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+    }
+
+    .summary-goal {
+      font-size: 14px;
+      color: var(--text-body);
+      line-height: 1.5;
+    }
+
+    .summary-goal strong {
+      color: var(--brand-primary-dark);
+    }
+
+    .journey-timeline-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      position: relative;
+    }
+
+    .journey-step-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      position: relative;
+    }
+
+    .journey-step-row:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 19px;
+      top: 40px;
+      bottom: -16px;
+      width: 2px;
+      background: var(--surface-border-strong);
+    }
+
+    .step-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--surface-white);
+      border: 2px solid var(--brand-primary);
+      color: var(--brand-primary-dark);
+      font-size: 15px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      z-index: 1;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .step-content-card {
+      flex: 1;
+      background: var(--surface-white);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .step-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .step-route-url {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--brand-primary-dark);
+      background: var(--brand-primary-light);
+      padding: 2px 8px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--domain-res-border);
+    }
+
+    .step-intent-text {
+      font-size: 13.5px;
+      color: var(--text-body);
+      line-height: 1.55;
+    }
+
+    /* =========================================================================
+       VIEW 4: LIVE SEGMENTBAR & NAVIGATION SIMULATOR
+       ========================================================================= */
+    .figma-simulator-view {
+      display: none;
+      margin-bottom: 40px;
+    }
+
+    .sim-board-card {
+      background: var(--surface-white);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .sim-intro-box {
+      margin-bottom: 24px;
+    }
+
+    .sim-intro-box h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text-title);
+      margin-bottom: 6px;
+    }
+
+    .sim-intro-box p {
+      font-size: 14px;
+      color: var(--text-body);
+    }
+
+    /* Live Header Frame */
+    .mock-preview-frame {
+      border: 1px solid var(--surface-border-strong);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+
+    .mock-segment-bar {
+      background: #F8FAFC;
+      border-bottom: 1px solid var(--surface-border);
+      padding: 8px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12.5px;
+    }
+
+    .segment-switch-capsule {
+      display: flex;
+      align-items: center;
+      background: #E2E8F0;
+      padding: 3px;
+      border-radius: var(--radius-pill);
+      gap: 3px;
+    }
+
+    .segment-btn {
+      border: none;
+      background: transparent;
+      padding: 4px 14px;
+      border-radius: var(--radius-pill);
+      font-family: var(--font-family);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .segment-btn.active {
+      background: #FFFFFF;
+      color: var(--brand-primary-dark);
+      font-weight: 700;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.1);
+    }
+
+    .mock-header-navbar {
+      background: #FFFFFF;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .mock-logo {
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--text-title);
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .mock-logo-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--brand-primary);
+    }
+
+    .mock-nav-list {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .mock-nav-item {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-body);
+      cursor: pointer;
+      transition: color 0.15s ease;
+    }
+
+    .mock-nav-item:hover {
+      color: var(--brand-primary);
+    }
+
+    .mock-primary-cta {
+      background: var(--brand-primary);
+      color: #FFFFFF;
+      font-family: var(--font-family);
+      font-size: 12.5px;
+      font-weight: 700;
+      padding: 8px 18px;
+      border-radius: var(--radius-sm);
+      border: none;
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }
+
+    .mock-primary-cta:hover {
+      background: var(--brand-primary-dark);
+    }
+
+    /* =========================================================================
+       VIEW 5: PRODUCTION ROUTE MATRIX TABLE
+       ========================================================================= */
+    .figma-table-view {
+      display: none;
+      margin-bottom: 40px;
+    }
+
+    .table-container-card {
+      background: var(--surface-white);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      overflow-x: auto;
+    }
+
+    .production-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      text-align: left;
+    }
+
+    .production-table th {
+      background: var(--surface-elevated);
+      padding: 12px 16px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--text-title);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      border-bottom: 1px solid var(--surface-border-strong);
+    }
+
+    .production-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--surface-border);
+      color: var(--text-body);
+      vertical-align: middle;
+    }
+
+    .production-table tr:hover td {
+      background: var(--canvas-bg);
+      color: var(--text-title);
+    }
+
+    .app-router-code {
+      font-size: 12px;
+      color: var(--text-muted);
+      background: var(--surface-elevated);
+      padding: 2px 6px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--surface-border);
+    }
+
+    /* =========================================================================
+       VIEW 6: LEGACY 301 PERMANENT REDIRECTS
+       ========================================================================= */
+    .figma-redirects-view {
+      display: none;
+      margin-bottom: 40px;
+    }
+
+    /* =========================================================================
+       INSPECTOR DRAWER / MODAL (FIGMA PROPERTIES PANEL)
+       ========================================================================= */
+    .inspector-modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(15, 23, 42, 0.4);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .inspector-modal-backdrop.open {
+      display: flex;
+    }
+
+    .inspector-dialog {
+      background: #FFFFFF;
+      border: 1px solid var(--surface-border-strong);
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 740px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      padding: 32px;
+    }
+
+    .close-dialog-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--surface-elevated);
+      border: 1px solid var(--surface-border);
+      color: var(--text-title);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 700;
+      transition: all 0.15s ease;
+    }
+
+    .close-dialog-btn:hover {
+      background: #E2E8F0;
+      color: #000000;
+    }
+
+    .insp-header-section {
+      margin-bottom: 24px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--surface-border);
+    }
+
+    .insp-route-tag {
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--brand-primary-dark);
+      margin-bottom: 4px;
+    }
+
+    .insp-path-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+
+    .insp-prop-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+
+    .insp-prop-box {
+      background: var(--canvas-bg);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+    }
+
+    .insp-prop-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .insp-prop-value {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-title);
+    }
+
+    .insp-seo-box {
+      background: #F8FAFC;
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      margin-top: 16px;
+    }
+
+    .insp-seo-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--brand-primary-dark);
+      margin-bottom: 4px;
+    }
+
+    .insp-seo-desc {
+      font-size: 12.5px;
+      color: var(--text-body);
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    .figma-footer {
+      background: #FFFFFF;
+      border-top: 1px solid var(--surface-border);
+      padding: 24px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: auto;
+    }
+
+    .figma-footer a {
+      color: var(--brand-primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .figma-footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .figma-toolbar {
+        flex-direction: column;
+        height: auto;
+        padding: 14px;
+        gap: 12px;
+      }
+      .figma-view-switcher {
+        width: 100%;
+        overflow-x: auto;
+      }
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+      .insp-prop-grid {
+        grid-template-columns: 1fr;
+      }
+      .search-input-wrapper {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Figma Style Toolbar -->
+  <header class="figma-toolbar">
+    <div class="brand-section">
+      <span class="figma-badge">FIGMA CANVAS</span>
+      <div class="doc-title-group">
+        <h1>
+          Link3 Information Architecture
+          <span class="doc-code-pill">05-WIRE-MAP-03</span>
+        </h1>
+      </div>
+    </div>
+
+    <!-- View Mode Switcher -->
+    <div class="figma-view-switcher">
+      <button class="view-btn active" id="tab-btn-tree" onclick="switchCanvasView('tree')">
+        <span>🌳 Architecture Tree</span>
+      </button>
+      <button class="view-btn" id="tab-btn-cards" onclick="switchCanvasView('cards')">
+        <span>🗂️ Component Cards</span>
+      </button>
+      <button class="view-btn" id="tab-btn-personas" onclick="switchCanvasView('personas')">
+        <span>🧭 Persona Journeys</span>
+      </button>
+      <button class="view-btn" id="tab-btn-simulator" onclick="switchCanvasView('simulator')">
+        <span>⚡ SegmentBar Simulator</span>
+      </button>
+      <button class="view-btn" id="tab-btn-table" onclick="switchCanvasView('table')">
+        <span>📋 Route Matrix</span>
+      </button>
+      <button class="view-btn" id="tab-btn-redirects" onclick="switchCanvasView('redirects')">
+        <span>🔄 301 Redirects</span>
+      </button>
+    </div>
+
+    <!-- Quick Action Buttons -->
+    <div class="toolbar-actions">
+      <button class="tool-btn" onclick="copyEntireSitemapJson()" title="Copy master 24-route schema as JSON">
+        <span>📋 Export JSON</span>
+      </button>
+      <a href="./03_site_map_and_information_architecture.md" class="tool-btn" title="View Markdown Blueprint">
+        <span>📄 Markdown Spec</span>
+      </a>
+      <a href="../06-moodboards/01_homepage_moodboard.html" class="tool-btn primary" title="View Visual Moodboard">
+        <span>🎨 Moodboard ↗</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Canvas Workspace -->
+  <main class="figma-canvas">
+
+    <!-- Overview Hero Card -->
+    <div class="canvas-hero-card">
+      <div class="hero-top-row">
+        <div class="hero-text-block">
+          <h2>Master Production Information Architecture & Site Map</h2>
+          <p>
+            Synthesized from 50 ISP benchmarks, 5 core customer personas, and 11 wireframe blueprints. Provides instant cognitive separation between Residential and Enterprise users, with transparent VAT pricing and a maximum discovery depth of &le; 2 clicks.
+          </p>
+        </div>
+        <div class="hero-status-pill">
+          <span class="pulse-dot"></span>
+          <span>100% Light Mode • WCAG AAA Validated</span>
+        </div>
+      </div>
+
+      <!-- Quick Metrics Strip -->
+      <div class="kpi-strip">
+        <div class="kpi-item">
+          <div class="kpi-label">Total Routes</div>
+          <div class="kpi-value">24 Production Pages</div>
+          <div class="kpi-sub">Across 6 Navigational Domains</div>
+        </div>
+        <div class="kpi-item">
+          <div class="kpi-label">Wireframe Mappings</div>
+          <div class="kpi-value">11 / 11 Blueprints</div>
+          <div class="kpi-sub">100% UI/UX Spec Coverage (WF1–WF11)</div>
+        </div>
+        <div class="kpi-item">
+          <div class="kpi-label">Customer Archetypes</div>
+          <div class="kpi-value">5 Target Personas</div>
+          <div class="kpi-sub">Tanvir, Shakib, Mahbub, Nusrat, Farhana</div>
+        </div>
+        <div class="kpi-item">
+          <div class="kpi-label">Maximum Navigation Depth</div>
+          <div class="kpi-value">&le; 2 Clicks to Convert</div>
+          <div class="kpi-sub">Zero Dead-End Navigation Architecture</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search & Filter Strip -->
+    <div class="canvas-filter-strip">
+      <div class="search-input-wrapper">
+        <span>🔍</span>
+        <input type="text" id="route-search-input" placeholder="Search routes, components, or personas..." oninput="handleSearch(this.value)">
+      </div>
+
+      <div class="domain-pill-group">
+        <button class="domain-filter-pill active" onclick="filterDomain('all')">
+          <span>All Routes</span>
+          <span class="pill-count">24</span>
+        </button>
+        <button class="domain-filter-pill" onclick="filterDomain('residential')">
+          <span>🏠 Residential</span>
+          <span class="pill-count">7</span>
+        </button>
+        <button class="domain-filter-pill" onclick="filterDomain('business')">
+          <span>💼 Business & SME</span>
+          <span class="pill-count">5</span>
+        </button>
+        <button class="domain-filter-pill" onclick="filterDomain('utilities')">
+          <span>⚡ Shared Utilities</span>
+          <span class="pill-count">3</span>
+        </button>
+        <button class="domain-filter-pill" onclick="filterDomain('support')">
+          <span>🎧 Care & Tools</span>
+          <span class="pill-count">2</span>
+        </button>
+        <button class="domain-filter-pill" onclick="filterDomain('corporate')">
+          <span>🏛️ Corporate</span>
+          <span class="pill-count">3</span>
+        </button>
+        <button class="domain-filter-pill" onclick="filterDomain('legal')">
+          <span>⚖️ Compliance</span>
+          <span class="pill-count">4</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- =======================================================================
+         VIEW 1: FIGMA VISUAL ARCHITECTURE TREE
+         ======================================================================= -->
+    <section id="view-tree" class="figma-tree-view">
+      <div class="tree-canvas-frame">
+        <!-- Root Node -->
+        <div class="tree-root-cluster">
+          <div class="tree-root-node">
+            <span style="font-size: 18px;">🌐</span>
+            <span>Link3 Digital Platform (App Router Core)</span>
+            <span style="font-size: 11px; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 9999px;">Root L0</span>
+          </div>
+          <div class="tree-root-connector"></div>
+          <div class="tree-horizontal-bus"></div>
+        </div>
+
+        <!-- 6 Domain Columns -->
+        <div class="tree-domains-row" id="tree-flow-columns">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         VIEW 2: FIGMA COMPONENT CARDS (GRID EXPLORER)
+         ======================================================================= -->
+    <section id="view-cards" class="figma-cards-view" style="display: none;">
+      <div id="cards-container">
+        <!-- Populated by JavaScript -->
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         VIEW 3: PERSONA USER JOURNEYS
+         ======================================================================= -->
+    <section id="view-personas" class="figma-persona-view" style="display: none;">
+      <div class="persona-container-card">
+        <div class="persona-tab-row" id="persona-pill-tabs">
+          <button class="persona-tab-pill active" onclick="showPersonaJourney('tanvir')">👨‍💼 Tanvir (Family Tech Lead)</button>
+          <button class="persona-tab-pill" onclick="showPersonaJourney('shakib')">🎮 Shakib (Esports Gamer)</button>
+          <button class="persona-tab-pill" onclick="showPersonaJourney('mahbub')">🏢 Mahbub (Enterprise CTO)</button>
+          <button class="persona-tab-pill" onclick="showPersonaJourney('nusrat')">☕ Nusrat (SME Bistro Owner)</button>
+          <button class="persona-tab-pill" onclick="showPersonaJourney('farhana')">💻 Farhana (Remote Nomad)</button>
+        </div>
+
+        <div id="persona-active-content">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         VIEW 4: LIVE SEGMENTBAR & NAVIGATION SIMULATOR
+         ======================================================================= -->
+    <section id="view-simulator" class="figma-simulator-view" style="display: none;">
+      <div class="sim-board-card">
+        <div class="sim-intro-box">
+          <h3>⚡ Persistent Dual-Intent SegmentBar State Machine</h3>
+          <p>Test how the persistent SegmentBar dynamically transforms navigation menus and CTA hierarchies across Residential vs. Enterprise segments without full page reloads.</p>
+        </div>
+
+        <div class="mock-preview-frame">
+          <!-- Top SegmentBar Component -->
+          <div class="mock-segment-bar">
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <span style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Segment Switcher:</span>
+              <div class="segment-switch-capsule">
+                <button class="segment-btn active" id="sim-btn-res" onclick="simulateSegment('residential')">🏠 Residential</button>
+                <button class="segment-btn" id="sim-btn-biz" onclick="simulateSegment('business')">💼 Enterprise & B2B</button>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 18px; font-size: 12px; color: var(--text-body);">
+              <span style="color: var(--domain-util-text); font-weight: 600; cursor: pointer;" onclick="alert('Network Pulse: BDIX 1.8ms • AWS SG 25.8ms • Riot SG 29.4ms (99.95% SLA)')">
+                🟢 BDIX: 1.8ms (Live)
+              </span>
+              <span style="cursor: pointer;" onclick="openNodeModal('/coverage')">📍 Check Coverage</span>
+              <span style="cursor: pointer; font-weight: 700; color: var(--brand-primary-dark);" onclick="openNodeModal('/pay')">⚡ Quick Pay</span>
+              <span style="cursor: pointer;" onclick="openNodeModal('/support')">Care ↗</span>
+            </div>
+          </div>
+
+          <!-- Mock Header Navigation -->
+          <div class="mock-header-navbar">
+            <div class="mock-logo">
+              <span class="mock-logo-dot"></span>
+              LINK3
+            </div>
+            <ul class="mock-nav-list" id="mock-nav-items">
+              <!-- Populated by JavaScript -->
+            </ul>
+            <button class="mock-primary-cta" id="mock-nav-cta-btn">Check Building Slot →</button>
+          </div>
+        </div>
+
+        <div style="margin-top: 18px; font-size: 12.5px; color: var(--text-muted); display: flex; align-items: center; justify-content: space-between;">
+          <span>Active Context Route: <strong id="sim-context-route" style="color: var(--brand-primary-dark);">/ (Residential Home)</strong></span>
+          <span style="background: var(--surface-elevated); padding: 4px 10px; border-radius: var(--radius-sm); border: 1px solid var(--surface-border);">Mapped Wireframe: WF1 (Dual-Intent SegmentBar)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         VIEW 5: PRODUCTION ROUTE MATRIX TABLE
+         ======================================================================= -->
+    <section id="view-table" class="figma-table-view" style="display: none;">
+      <div class="table-container-card">
+        <table class="production-table">
+          <thead>
+            <tr>
+              <th>Route</th>
+              <th>Next.js App Router File Path</th>
+              <th>Level</th>
+              <th>Domain</th>
+              <th>Wireframe</th>
+              <th>Target Persona</th>
+              <th>Rendering Engine</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="production-table-body">
+            <!-- Populated by JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         VIEW 6: LEGACY 301 REDIRECTS
+         ======================================================================= -->
+    <section id="view-redirects" class="figma-redirects-view" style="display: none;">
+      <div class="table-container-card">
+        <table class="production-table">
+          <thead>
+            <tr>
+              <th>Legacy Incoming Route</th>
+              <th>Target Modern Route</th>
+              <th>HTTP Code</th>
+              <th>Architectural Rationale</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>/packages.html</code></td>
+              <td><strong style="color: var(--brand-primary-dark); font-weight: 800;">/home</strong></td>
+              <td><span style="background: #E0F2FE; color: #0369A1; font-weight: 700; padding: 2px 8px; border-radius: var(--radius-sm);">301 Permanent</span></td>
+              <td>Consolidated into modern transparent Lifestyle Plans with 15% VAT included.</td>
+            </tr>
+            <tr>
+              <td><code>/retail-broadband</code></td>
+              <td><strong style="color: var(--brand-primary-dark); font-weight: 800;">/home</strong></td>
+              <td><span style="background: #E0F2FE; color: #0369A1; font-weight: 700; padding: 2px 8px; border-radius: var(--radius-sm);">301 Permanent</span></td>
+              <td>Standardized consumer broadband taxonomy.</td>
+            </tr>
+            <tr>
+              <td><code>/corporate-internet</code></td>
+              <td><strong style="color: var(--brand-primary-dark); font-weight: 800;">/business/enterprise</strong></td>
+              <td><span style="background: #E0F2FE; color: #0369A1; font-weight: 700; padding: 2px 8px; border-radius: var(--radius-sm);">301 Permanent</span></td>
+              <td>Direct path to dedicated 1:1 DIA portal and clean-pipe DDoS demo.</td>
+            </tr>
+            <tr>
+              <td><code>/bill-pay</code></td>
+              <td><strong style="color: var(--brand-primary-dark); font-weight: 800;">/pay</strong></td>
+              <td><span style="background: #E0F2FE; color: #0369A1; font-weight: 700; padding: 2px 8px; border-radius: var(--radius-sm);">301 Permanent</span></td>
+              <td>1-Click zero-login instant recharge via bKash and cards.</td>
+            </tr>
+            <tr>
+              <td><code>/ftth</code></td>
+              <td><strong style="color: var(--brand-primary-dark); font-weight: 800;">/home/fttr</strong></td>
+              <td><span style="background: #E0F2FE; color: #0369A1; font-weight: 700; padding: 2px 8px; border-radius: var(--radius-sm);">301 Permanent</span></td>
+              <td>Upgraded to interactive 3D FTTR room visualizer.</td>
+            </tr>
+            <tr>
+              <td><code>/payment-methods</code></td>
+              <td><strong style="color: var(--brand-primary-dark); font-weight: 800;">/pay#methods</strong></td>
+              <td><span style="background: #E0F2FE; color: #0369A1; font-weight: 700; padding: 2px 8px; border-radius: var(--radius-sm);">301 Permanent</span></td>
+              <td>Direct deep-link to verified payment gateways.</td>
+            </tr>
+            <tr>
+              <td><code>/complaint</code></td>
+              <td><strong style="color: var(--brand-primary-dark); font-weight: 800;">/support</strong></td>
+              <td><span style="background: #E0F2FE; color: #0369A1; font-weight: 700; padding: 2px 8px; border-radius: var(--radius-sm);">301 Permanent</span></td>
+              <td>Unified WhatsApp-First Diagnostic Care and ticket tracker.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       INSPECTOR DRAWER / MODAL (FIGMA PROPERTIES PANEL)
+       ========================================================================= -->
+  <div class="inspector-modal-backdrop" id="inspector-modal" onclick="closeInspectorOnBackdrop(event)">
+    <div class="inspector-dialog" id="inspector-dialog-content">
+      <!-- Populated dynamically by JavaScript -->
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="figma-footer">
+    <p>
+      Link3 Digital Experience Platform &bull; Phase 5: Wireframes & Information Architecture (<a href="./03_site_map_and_information_architecture.md">05-WIRE-MAP-03</a>) &bull; Built with <strong>Inter</strong> font in 100% Light Mode
+    </p>
+  </footer>
+
+  <!-- Master JavaScript Application -->
+  <script>
+    // Master Dataset of All 24 Production Routes
+    const SITEMAP_DATA = [
+      // 1. RESIDENTIAL DOMAIN
+      {
+        route: '/',
+        path: 'apps/web/src/app/(residential)/page.tsx',
+        level: 'L1',
+        domain: 'residential',
+        title: 'Homepage & Dual-Intent Conversion Hub',
+        intent: 'Immediately resolves address coverage qualification vs. quick bill pay above the fold with zero scrolling.',
+        wireframe: 'WF1, WF2',
+        persona: 'All Personas (Tanvir, Shakib, Farhana)',
+        primaryCta: 'Check Building Slot →',
+        secondaryCta: '⚡ Quick Pay Bill',
+        rendering: 'SSR + ISR (60s)',
+        components: ['DualIntentHero.tsx', 'AddressInput.tsx', 'QuickPayCard.tsx', 'LivePulseTicker.tsx'],
+        seoTitle: 'Link3 Technologies | 100% Pure Optical Fiber Broadband Bangladesh',
+        seoDesc: 'Gigabit fiber delivered room-by-room, 2ms BDIX gaming, and 0% interest Smart TV financing.'
+      },
+      {
+        route: '/home',
+        path: 'apps/web/src/app/(residential)/home/page.tsx',
+        level: 'L2',
+        domain: 'residential',
+        title: 'Lifestyle Broadband Plans (All-In Pricing)',
+        intent: 'Presents 5 transparent tiers (Lite, Home, Prime, Ultra, Max) with 15% VAT included upfront.',
+        wireframe: 'WF3',
+        persona: 'Tanvir Ahmed (Decision Maker)',
+        primaryCta: 'Select Plan & Configure',
+        secondaryCta: 'Compare All Plans',
+        rendering: 'Static (SSG)',
+        components: ['PlanSelectorGrid.tsx', 'BillingCycleToggle.tsx', 'ConcurrencySlider.tsx'],
+        seoTitle: 'High-Speed Home Fiber Internet Plans Dhaka & Bangladesh | Link3',
+        seoDesc: 'Symmetrical optical speeds from 60 Mbps to 1 Gbps. 100% transparent pricing with 15% VAT included.'
+      },
+      {
+        route: '/home/fttr',
+        path: 'apps/web/src/app/(residential)/home/fttr/page.tsx',
+        level: 'L3',
+        domain: 'residential',
+        title: 'Interactive 3D FTTR Apartment Visualizer',
+        intent: 'Explains transparent micro-glass fiber baseboard routing and sub-ONT units room-by-room.',
+        wireframe: 'WF5',
+        persona: 'Tanvir Ahmed (Whole-Home Tech)',
+        primaryCta: 'Book FTTR Home Inspection',
+        secondaryCta: 'Calculate Room Coverage',
+        rendering: 'SSG + Client 3D Canvas',
+        components: ['FTTRVisualizer.tsx', 'RoomSignalDials.tsx', 'ReadinessModal.tsx'],
+        seoTitle: 'FTTR (Fibre-to-the-Room) Bangladesh | Gigabit In Every Room | Link3',
+        seoDesc: 'Zero dead zones. Transparent micro-fiber baseboard routing with dedicated sub-ONTs in every room.'
+      },
+      {
+        route: '/home/gaming',
+        path: 'apps/web/src/app/(residential)/home/gaming/page.tsx',
+        level: 'L3',
+        domain: 'residential',
+        title: 'Gamer Low-Latency Hub & Live Telemetry',
+        intent: 'Showcases live BDIX (1.6ms) & Singapore (25.8ms) server pings and Gaming Booster pack.',
+        wireframe: 'WF6',
+        persona: 'Shakib (Esports Gamer)',
+        primaryCta: 'Activate Gaming Package',
+        secondaryCta: 'Run Live Ping Diagnostics',
+        rendering: 'ISR (30s) + WebSockets',
+        components: ['LatencyMatrix.tsx', 'JitterChart.tsx', 'BoosterAddonCard.tsx'],
+        seoTitle: 'Low-Ping Gaming Internet Bangladesh | 2ms BDIX & 26ms Singapore | Link3',
+        seoDesc: 'Dedicated UDP packet QoS, open NAT, free static IPv4, and pre-cached BDIX game patching.'
+      },
+      {
+        route: '/home/entertainment',
+        path: 'apps/web/src/app/(residential)/home/entertainment/page.tsx',
+        level: 'L3',
+        domain: 'residential',
+        title: 'Deshi & Global OTT Entertainment Hub',
+        intent: 'Single-bill entertainment bundles: Chorki, Hoichoi, Toffee, SonyLIV, Lionsgate.',
+        wireframe: 'Content Module',
+        persona: 'Farhana & Family Streamers',
+        primaryCta: 'Add OTT Pack to Plan',
+        secondaryCta: 'Explore Partner Library',
+        rendering: 'Static (SSG)',
+        components: ['OttCarousel.tsx', 'BandwidthSimulator.tsx', 'ChannelGrid.tsx'],
+        seoTitle: 'OTT Entertainment Bundles | Chorki, Hoichoi & SonyLIV Broadband | Link3',
+        seoDesc: 'Stream 4K movies and live sports on a single unified monthly internet bill.'
+      },
+      {
+        route: '/bundles',
+        path: 'apps/web/src/app/(residential)/bundles/page.tsx',
+        level: 'L2',
+        domain: 'residential',
+        title: '3-Step "Build Your Bundle" Configurator',
+        intent: 'Select Speed Tier + EasyPay 0% TV/Hardware + OTT Packs with live discount calculator.',
+        wireframe: 'WF4',
+        persona: 'Tanvir Ahmed & Smart Shoppers',
+        primaryCta: 'Proceed to Address Check',
+        secondaryCta: 'Customize from Scratch',
+        rendering: 'Client SPA Flow',
+        components: ['BundleConfigurator.tsx', 'StickyBundleSummary.tsx', 'DiscountOdometer.tsx'],
+        seoTitle: 'Build Your Broadband Bundle | Internet + Smart TV + OTT | Link3',
+        seoDesc: 'Customize your fiber speed, add 0% interest Samsung 4K TV, and save up to ৳380 every month.'
+      },
+      {
+        route: '/devices',
+        path: 'apps/web/src/app/(residential)/devices/page.tsx',
+        level: 'L2',
+        domain: 'residential',
+        title: 'EasyPay 0% Hardware Marketplace',
+        intent: 'Hardware installment catalog for Smart TVs, Wi-Fi 6 Mesh nodes, SmartCams, and PS5.',
+        wireframe: 'EasyPay Catalog',
+        persona: 'Hardware Seekers',
+        primaryCta: 'Add to Monthly Bill',
+        secondaryCta: 'View Technical Specs',
+        rendering: 'ISR (300s)',
+        components: ['DeviceGrid.tsx', 'InstallmentCalculator.tsx', 'DeviceTiltCard.tsx'],
+        seoTitle: 'EasyPay 0% Interest Hardware Marketplace | Smart TVs & Mesh | Link3',
+        seoDesc: 'Buy 55" 4K Smart TVs and TP-Link Wi-Fi 6 Mesh kits on 12-24 month 0% interest installments.'
+      },
+
+      // 2. BUSINESS & ENTERPRISE DOMAIN
+      {
+        route: '/business',
+        path: 'apps/web/src/app/(business)/business/page.tsx',
+        level: 'L1',
+        domain: 'business',
+        title: 'B2B Digital Transformation Overview',
+        intent: 'Directs corporate and SME visitors to tailored retail, enterprise, or wholesale tiers.',
+        wireframe: 'B2B Gateway',
+        persona: 'Mahbub Alam (CTO) & Nusrat (SME)',
+        primaryCta: 'Request Corporate Consultation',
+        secondaryCta: 'Explore SME Solutions',
+        rendering: 'Static (SSG)',
+        components: ['B2BTierSwitcher.tsx', 'TopologyMap.tsx', 'ClientProofWall.tsx'],
+        seoTitle: 'Enterprise Telecom & Leased Line Solutions Bangladesh | Link3 Business',
+        seoDesc: 'Mission-critical connectivity, 99.95% financial SLA, SD-WAN, and cloud connectivity for enterprises.'
+      },
+      {
+        route: '/business/sme',
+        path: 'apps/web/src/app/(business)/business/sme/page.tsx',
+        level: 'L2',
+        domain: 'business',
+        title: 'SME Business Shield (4G Failover)',
+        intent: 'Zero-downtime internet with automatic 1.2s switchover to cellular backup during fiber cuts.',
+        wireframe: 'WF7',
+        persona: 'Nusrat Jahan (Restaurant Owner)',
+        primaryCta: 'Get Business Shield',
+        secondaryCta: 'Test Live Failover Demo',
+        rendering: 'SSG + Interactive Demo',
+        components: ['FailoverSimulator.tsx', 'DualWanCard.tsx', 'VatChallanBadge.tsx'],
+        seoTitle: 'SME Business Broadband with 4G Failover Backup | Link3 Business Shield',
+        seoDesc: 'Never lose a POS card payment or online delivery order. Automatic 4G LTE cellular failover.'
+      },
+      {
+        route: '/business/sme/cloudvoice',
+        path: 'apps/web/src/app/(business)/business/sme/cloudvoice/page.tsx',
+        level: 'L3',
+        domain: 'business',
+        title: 'CloudVoice Virtual PBX & IVR Simulator',
+        intent: 'Simulates bilingual IVR auto-attendants and multi-extension call routing without PBX hardware.',
+        wireframe: 'WF8',
+        persona: 'Nusrat Jahan & Office Managers',
+        primaryCta: 'Order CloudVoice System',
+        secondaryCta: 'Test Interactive IVR',
+        rendering: 'Client Audio Sandbox',
+        components: ['DtmfDialer.tsx', 'AudioSynthesizer.tsx', 'ExtensionMap.tsx'],
+        seoTitle: 'Cloud PBX & Virtual IVR Phone Systems Bangladesh | Link3 CloudVoice',
+        seoDesc: 'Replace bulky office PBX boxes. 096xx numbers, automated IVR, mobile extensions, and call recording.'
+      },
+      {
+        route: '/business/enterprise',
+        path: 'apps/web/src/app/(business)/business/enterprise/page.tsx',
+        level: 'L2',
+        domain: 'business',
+        title: 'Dedicated Internet Access (DIA) & DDoS Clean-Pipe',
+        intent: '1:1 symmetrical leased lines, CyberDefend DDoS scrubbing demo, and instant RFP generation.',
+        wireframe: 'WF9',
+        persona: 'Mahbub Alam (Enterprise CTO)',
+        primaryCta: 'Generate Instant RFP Proposal',
+        secondaryCta: 'Speak with Solutions Architect',
+        rendering: 'SSG + Client PDF Gen',
+        components: ['CleanPipeScrubber.tsx', 'SlaConfigurator.tsx', 'RfpGenerator.tsx'],
+        seoTitle: 'Dedicated Internet Access (DIA) & DDoS Clean Pipe Bangladesh | Link3',
+        seoDesc: 'Bank-grade 1:1 dedicated fiber with 99.95% financial SLA and real-time CyberDefend DDoS scrubbing.'
+      },
+      {
+        route: '/business/partners',
+        path: 'apps/web/src/app/(business)/business/partners/page.tsx',
+        level: 'L2',
+        domain: 'business',
+        title: 'Partner, Franchisee & Builder FTTR Portal',
+        intent: 'Programs for ISP resellers, local cable franchisees, and real estate builder FTTR pre-wiring.',
+        wireframe: 'Partner Portal',
+        persona: 'ISP Resellers & Real Estate Developers',
+        primaryCta: 'Apply for Partner Program',
+        secondaryCta: 'Download Builder FTTR Blueprint',
+        rendering: 'Static (SSG)',
+        components: ['PartnerTiers.tsx', 'BuilderBlueprintCard.tsx', 'InquiryForm.tsx'],
+        seoTitle: 'ISP Franchisee, Reseller & Real Estate FTTR Partnership | Link3',
+        seoDesc: 'Partner with Bangladesh’s leading optical provider. High-margin wholesale bandwidth and FTTR builder blueprints.'
+      },
+
+      // 3. SHARED UTILITIES
+      {
+        route: '/coverage',
+        path: 'apps/web/src/app/coverage/page.tsx',
+        level: 'L1',
+        domain: 'utilities',
+        title: 'Interactive Coverage Checker & Qualification Gate',
+        intent: 'Address autocomplete qualifications: FTTR Ready (State A) vs FTTH Mesh (State B) vs Unserved (State C).',
+        wireframe: 'WF11',
+        persona: 'All Prospective Customers',
+        primaryCta: 'Book Installation Slot',
+        secondaryCta: 'Request Fiber Expansion',
+        rendering: 'Dynamic (SSR)',
+        components: ['CoverageMap.tsx', 'AddressAutocomplete.tsx', 'QualificationGate.tsx'],
+        seoTitle: 'Check Fiber Internet Coverage in Dhaka, Chittagong & BD | Link3 Coverage',
+        seoDesc: 'Enter your building address to check 100% optical FTTR and FTTH fiber broadband availability.'
+      },
+      {
+        route: '/network',
+        path: 'apps/web/src/app/network/page.tsx',
+        level: 'L1',
+        domain: 'utilities',
+        title: 'Real-Time Public Network Health & SLA Telemetry',
+        intent: 'Public transparency: BDIX exchange throughput, SMW4/SMW5 subsea cables, and maintenance calendar.',
+        wireframe: 'Network Pulse',
+        persona: 'Shakib (Gamer) & Mahbub (CTO)',
+        primaryCta: 'Subscribe to Status SMS Alerts',
+        secondaryCta: 'Report Network Issue',
+        rendering: 'ISR (15s) + Client Polling',
+        components: ['BDIXThroughputChart.tsx', 'SubseaCableStatus.tsx', 'MaintenanceCalendar.tsx'],
+        seoTitle: 'Live Public Network Status & BDIX Telemetry | Link3 Network Health',
+        seoDesc: 'Real-time telemetry showing national BDIX exchange throughput, subsea cable ping, and gateway health.'
+      },
+      {
+        route: '/pay',
+        path: 'apps/web/src/app/pay/page.tsx',
+        level: 'L1',
+        domain: 'utilities',
+        title: '1-Click Quick Recharge & Bill Pay',
+        intent: 'Instant zero-login bill pay via Subscriber ID or Phone with bKash, Nagad, and Cards.',
+        wireframe: 'Quick Pay Hub',
+        persona: 'Farhana (Freelancer) & All Users',
+        primaryCta: 'Pay Now via bKash',
+        secondaryCta: 'Download Last Tax Receipt',
+        rendering: 'Dynamic (SSR) / HTTPS',
+        components: ['QuickPayForm.tsx', 'VatBreakdownModal.tsx', 'BkashOneClick.tsx'],
+        seoTitle: 'Quick Online Bill Payment & Recharge | bKash, Cards | Link3 Pay',
+        seoDesc: 'Pay your broadband bill in under 15 seconds without logging in. Instant bKash and card payment.'
+      },
+
+      // 4. SUPPORT & CARE DOMAIN
+      {
+        route: '/support',
+        path: 'apps/web/src/app/support/page.tsx',
+        level: 'L1',
+        domain: 'support',
+        title: 'Customer Self-Care & AI Helpdesk',
+        intent: 'Remote optical signal diagnostics, router reboot triggers, ticket tracking, and WhatsApp support.',
+        wireframe: 'WF10',
+        persona: 'Farhana & All Active Users',
+        primaryCta: 'Chat on WhatsApp (< 60s)',
+        secondaryCta: 'Open Support Ticket',
+        rendering: 'Static (SSG) + Portal',
+        components: ['WhatsAppCareWidget.tsx', 'OpticalLineTest.tsx', 'TicketTracker.tsx'],
+        seoTitle: '24/7 Customer Support, Self-Care & Diagnostic Helpdesk | Link3 Care',
+        seoDesc: 'Run automated optical line tests, reboot your router remotely, or chat with verified engineers on WhatsApp.'
+      },
+      {
+        route: '/support/speedtest',
+        path: 'apps/web/src/app/support/speedtest/page.tsx',
+        level: 'L2',
+        domain: 'support',
+        title: 'Official Optical Speed & Ping Test',
+        intent: 'In-browser domestic BDIX (up to 1 Gbps) and Singapore speed test with jitter diagnostics.',
+        wireframe: 'Speed Engine',
+        persona: 'Tech Enthusiasts & Gamers',
+        primaryCta: 'Start Speed Test',
+        secondaryCta: 'Send Diagnostic Log to NOC',
+        rendering: 'Client Speed Engine',
+        components: ['SpeedGauge.tsx', 'BDIXServerPicker.tsx', 'JitterDiagnostic.tsx'],
+        seoTitle: 'Official Link3 Optical Speed Test | Test BDIX & International Ping',
+        seoDesc: 'Accurate Gigabit speed test directly on Link3 high-capacity BDIX peering servers.'
+      },
+
+      // 5. CORPORATE DOMAIN
+      {
+        route: '/about',
+        path: 'apps/web/src/app/(corporate)/about/page.tsx',
+        level: 'L1',
+        domain: 'corporate',
+        title: 'About Link3 Heritage & Nationwide Optical Grid',
+        intent: 'Showcase 25+ years of optical engineering, leadership, and 50,000+ km fiber backbone.',
+        wireframe: 'Heritage Blueprint',
+        persona: 'Corporate Investors & CTOs',
+        primaryCta: 'Explore Network Infrastructure',
+        secondaryCta: 'Download Company Profile',
+        rendering: 'Static (SSG)',
+        components: ['TimelineHistory.tsx', 'BackboneMap.tsx', 'LeadershipGrid.tsx'],
+        seoTitle: 'About Link3 Technologies | Leading Optical Fiber Pioneer Bangladesh',
+        seoDesc: 'Pioneering optical connectivity in Bangladesh since 1999. Connecting businesses and millions of homes.'
+      },
+      {
+        route: '/contact',
+        path: 'apps/web/src/app/(corporate)/contact/page.tsx',
+        level: 'L1',
+        domain: 'corporate',
+        title: 'Branch Locator & 24/7 NOC Contacts',
+        intent: 'Interactive map of branches in Dhaka, CTG, Sylhet, Khulna and 24/7 helpline 16335.',
+        wireframe: 'Branch Hub',
+        persona: 'All Customers',
+        primaryCta: 'Find Nearest Branch',
+        secondaryCta: 'Call 24/7 NOC Helpline',
+        rendering: 'Static (SSG) + Maps',
+        components: ['BranchLocatorMap.tsx', 'NocHotlineCard.tsx', 'EmailRouter.tsx'],
+        seoTitle: 'Contact Link3 Technologies | Branch Locations & 24/7 Helpline 16335',
+        seoDesc: 'Find your nearest Link3 customer experience center or reach our 24/7 Network Operations Center.'
+      },
+      {
+        route: '/careers',
+        path: 'apps/web/src/app/(corporate)/careers/page.tsx',
+        level: 'L1',
+        domain: 'corporate',
+        title: 'Careers at Link3 (Engineering & Operations)',
+        intent: 'Showcase tech culture, employee benefits, and open engineering/NOC positions.',
+        wireframe: 'Talent Portal',
+        persona: 'Job Seekers & Engineers',
+        primaryCta: 'Apply for Open Roles',
+        secondaryCta: 'Join Talent Network',
+        rendering: 'ISR (3600s)',
+        components: ['JobListings.tsx', 'CultureShowcase.tsx', 'ApplicationModal.tsx'],
+        seoTitle: 'Careers at Link3 | Engineering, NOC & Telecom Jobs Bangladesh',
+        seoDesc: 'Build the future of high-speed telecommunications. Explore open positions in Dhaka and nationwide.'
+      },
+
+      // 6. LEGAL & REGULATORY DOMAIN
+      {
+        route: '/legal/btrc-compliance',
+        path: 'apps/web/src/app/(legal)/btrc-compliance/page.tsx',
+        level: 'L2',
+        domain: 'legal',
+        title: 'BTRC Approved Broadband Tariffs & Filings',
+        intent: 'Official BTRC tariff gazette disclosures, nationwide ISP licenses, and mandated QoS metrics.',
+        wireframe: 'Compliance Grid',
+        persona: 'Regulatory Bodies & Savvy Users',
+        primaryCta: 'Download Official BTRC Tariff PDF',
+        secondaryCta: 'File Formal Grievance',
+        rendering: 'Static (SSG)',
+        components: ['TariffGazetteViewer.tsx', 'LicenseVerification.tsx', 'QosBenchmarkTable.tsx'],
+        seoTitle: 'BTRC Approved Broadband Tariffs & Regulatory Compliance | Link3',
+        seoDesc: 'Official tariff schedules approved by the Bangladesh Telecommunication Regulatory Commission.'
+      },
+      {
+        route: '/legal/vat-challan',
+        path: 'apps/web/src/app/(legal)/vat-challan/page.tsx',
+        level: 'L2',
+        domain: 'legal',
+        title: 'Automated NBR VAT Mushak 6.3 Challan Generator',
+        intent: 'Corporate self-serve NBR tax challan lookup by e-TIN / BIN and Invoice ID.',
+        wireframe: 'Audit Utility',
+        persona: 'Mahbub Alam (CTO) & Corporate Finance',
+        primaryCta: 'Generate NBR Mushak 6.3 PDF',
+        secondaryCta: 'Download Fiscal Year Archive',
+        rendering: 'Dynamic (SSR)',
+        components: ['TaxBinLookup.tsx', 'MushakPdfGenerator.tsx', 'FiscalArchiveList.tsx'],
+        seoTitle: 'Automated NBR VAT Mushak 6.3 Tax Challan Lookup | Link3 Corporate',
+        seoDesc: 'Instantly download digitally signed NBR VAT Mushak 6.3 tax challans for corporate compliance.'
+      },
+      {
+        route: '/legal/terms',
+        path: 'apps/web/src/app/(legal)/terms/page.tsx',
+        level: 'L2',
+        domain: 'legal',
+        title: 'Terms of Service & SLA Master Agreement',
+        intent: 'Master Service Agreement (MSA), Fair Usage Policy, and 99.95% SLA outage credit terms.',
+        wireframe: 'Legal CMS',
+        persona: 'Corporate Legal & Subscribers',
+        primaryCta: 'Print Service Terms',
+        secondaryCta: 'View SLA Terms',
+        rendering: 'Static (SSG)',
+        components: ['LegalDocumentViewer.tsx', 'SlaTermsTable.tsx'],
+        seoTitle: 'Terms of Service & SLA Master Agreement | Link3 Technologies',
+        seoDesc: 'Master terms and conditions, acceptable use policies, and SLA commitment guarantees.'
+      },
+      {
+        route: '/legal/privacy',
+        path: 'apps/web/src/app/(legal)/privacy/page.tsx',
+        level: 'L2',
+        domain: 'legal',
+        title: 'Data Privacy & Cyber Security Act Compliance',
+        intent: 'Privacy policies, telemetry data safeguards, cookie consent, and data deletion rights.',
+        wireframe: 'Privacy CMS',
+        persona: 'All Users',
+        primaryCta: 'Manage Cookie Preferences',
+        secondaryCta: 'Contact Privacy Officer',
+        rendering: 'Static (SSG)',
+        components: ['PrivacyContent.tsx', 'CookiePreferencesModal.tsx'],
+        seoTitle: 'Privacy Policy & Data Protection Standards | Link3 Technologies',
+        seoDesc: 'Link3 data protection practices adhering to the Bangladesh Cyber Security Act.'
+      }
+    ];
+
+    // Persona Journeys Data
+    const PERSONA_JOURNEYS = {
+      tanvir: {
+        name: 'Tanvir Ahmed',
+        role: '38, Tech Lead & Father',
+        goal: 'Upgrade family apartment to whole-home gigabit optical internet with a 55" 4K Smart TV on 0% interest.',
+        timeToConvert: '3 minutes 15 seconds (4 steps)',
+        steps: [
+          { step: 1, route: '/', intent: 'Lands on Homepage, sees "Bangladesh\'s Pure Glass Network" & 1.8ms BDIX pulse above the fold.' },
+          { step: 2, route: '/bundles', intent: 'Selects Link3 Home (100M) + adds 55" Samsung 4K TV (+৳850/mo) + Deshi OTT pack (+৳99/mo). Observes -৳280/mo bundle discount.' },
+          { step: 3, route: '/home/fttr', intent: 'Checks 3D apartment cutaway to confirm invisible optical baseboard routing for Kids bedroom.' },
+          { step: 4, route: '/coverage', intent: 'Enters Uttara Sector 4 address. Building is confirmed 🟢 FTTR Optical Ready. Books weekend certified installation slot.' }
+        ]
+      },
+      shakib: {
+        name: 'Shakib',
+        role: '21, Competitive Esports Gamer',
+        goal: 'Achieve lowest possible ping to Singapore Valorant & BDIX servers with dedicated UDP packet priority.',
+        timeToConvert: '1 minute 40 seconds (3 steps)',
+        steps: [
+          { step: 1, route: '/', intent: 'Sees live 1.8ms BDIX pulse ticker in header. Immediately clicks "Gaming Zone".' },
+          { step: 2, route: '/home/gaming', intent: 'Inspects live Singapore Valorant ping (29.4ms) and 0.4ms flat jitter. Toggles Gaming Booster pack (+৳99/mo) with free public static IPv4.' },
+          { step: 3, route: '/coverage', intent: 'Selects Link3 Ultra (500M) + Booster. Enters Mirpur DOHS address. Completes signup with bKash pre-authorization in 60s.' }
+        ]
+      },
+      mahbub: {
+        name: 'Mahbub Alam',
+        role: '46, Enterprise CTO (Commercial Bank)',
+        goal: 'Procure 500 Mbps dedicated leased line (DIA) with 99.95% SLA, dual-ring redundancy, and anti-DDoS protection.',
+        timeToConvert: '4 minutes (3 steps)',
+        steps: [
+          { step: 1, route: '/', intent: 'Clicks [ Enterprise ] on top SegmentBar. Primary navigation instantly transforms to corporate B2B services.' },
+          { step: 2, route: '/business/enterprise', intent: 'Tests interactive CyberDefend clean-pipe scrubber demo (simulates 100 Gbps SYN flood). Configures 500M DIA with dual-ring optical route.' },
+          { step: 3, route: '/business/enterprise', intent: 'Clicks [ Generate Instant RFP PDF Proposal ]. System compiles custom bank-grade SLA proposal and alerts Key Account Manager.' }
+        ]
+      },
+      nusrat: {
+        name: 'Nusrat Jahan',
+        role: '34, SME Restaurant Owner (Dhaka Bistro)',
+        goal: 'Prevent POS card swipe failures during Friday dinner rushes and professionalize delivery phone orders.',
+        timeToConvert: '2 minutes 50 seconds (3 steps)',
+        steps: [
+          { step: 1, route: '/business', intent: 'Arrives via Google search for "SME restaurant internet with backup".' },
+          { step: 2, route: '/business/sme', intent: 'Clicks "Simulate Fiber Cut" on 4G failover simulator. Sees POS transactions switch to 4G LTE in 1.2s without dropping.' },
+          { step: 3, route: '/business/sme/cloudvoice', intent: 'Dials 1 on virtual IVR dial pad. Hears greeting: "Press 1 for Reservations, Press 2 for Foodpanda". Orders complete Business Shield bundle.' }
+        ]
+      },
+      farhana: {
+        name: 'Farhana',
+        role: '27, Remote Freelancer / Nomad',
+        goal: 'Recharge home broadband line instantly from mobile phone before monthly expiry without logging into an account.',
+        timeToConvert: '18 seconds (2 steps)',
+        steps: [
+          { step: 1, route: '/', intent: 'Taps [ ⚡ Quick Pay ] button on sticky mobile header.' },
+          { step: 2, route: '/pay', intent: 'Types 8-digit subscriber ID. System verifies ৳1,500 due balance with 15% VAT itemization. Taps bKash 1-click token pay. Line refreshed instantly.' }
+        ]
+      }
+    };
+
+    // Navigation Data for Live Simulator
+    const NAV_CONFIG = {
+      residential: {
+        links: [
+          { label: 'Home Plans', route: '/home' },
+          { label: 'FTTR Fibre 3D', route: '/home/fttr' },
+          { label: 'Gaming Zone', route: '/home/gaming' },
+          { label: 'Bundles', route: '/bundles' },
+          { label: 'EasyPay Devices', route: '/devices' },
+          { label: 'Care & Speedtest', route: '/support' }
+        ],
+        cta: 'Check Building Slot →',
+        currentRoute: '/ (Residential Home)'
+      },
+      business: {
+        links: [
+          { label: 'B2B Overview', route: '/business' },
+          { label: 'SME 4G Shield', route: '/business/sme' },
+          { label: 'CloudVoice PBX', route: '/business/sme/cloudvoice' },
+          { label: 'Enterprise DIA', route: '/business/enterprise' },
+          { label: 'DDoS Clean-Pipe', route: '/business/enterprise#clean-pipe' },
+          { label: 'Partner Program', route: '/business/partners' }
+        ],
+        cta: 'Request Corporate RFP →',
+        currentRoute: '/business (Enterprise Gateway)'
+      }
+    };
+
+    // Global UI State
+    let currentSegment = 'residential';
+    let activeFilter = 'all';
+    let searchQuery = '';
+
+    // Switch Canvas View Mode
+    function switchCanvasView(viewKey) {
+      const views = ['tree', 'cards', 'personas', 'simulator', 'table', 'redirects'];
+      views.forEach(v => {
+        const sec = document.getElementById(`view-${v}`);
+        const btn = document.getElementById(`tab-btn-${v}`);
+        if (sec) sec.style.display = (v === viewKey) ? 'block' : 'none';
+        if (btn) btn.classList.toggle('active', v === viewKey);
+      });
+    }
+
+    // Render Figma Tree View (Visual Flowchart Columns)
+    function renderTreeView() {
+      const container = document.getElementById('tree-flow-columns');
+      if (!container) return;
+
+      const domainMeta = [
+        { key: 'residential', title: '🏠 Residential', icon: '🏠', count: 7 },
+        { key: 'business', title: '💼 Business & SME', icon: '💼', count: 5 },
+        { key: 'utilities', title: '⚡ Utilities', icon: '⚡', count: 3 },
+        { key: 'support', title: '🎧 Care & Tools', icon: '🎧', count: 2 },
+        { key: 'corporate', title: '🏛️ Corporate', icon: '🏛️', count: 3 },
+        { key: 'legal', title: '⚖️ Compliance', icon: '⚖️', count: 4 }
+      ];
+
+      container.innerHTML = domainMeta.map(dm => {
+        const routes = SITEMAP_DATA.filter(r => r.domain === dm.key);
+        return `
+          <div class="tree-domain-column">
+            <div class="tree-domain-header-box ${dm.key}">
+              <span>${dm.title}</span>
+              <span style="font-size: 11px; font-weight: 800; opacity: 0.85;">${routes.length}</span>
+            </div>
+            <div class="tree-route-pills">
+              ${routes.map(r => `
+                <div class="tree-route-pill-item" onclick="openNodeModal('${r.route}')" title="Click to inspect ${r.route}">
+                  <div class="tree-route-pill-top">
+                    <span class="tree-route-code">${r.route}</span>
+                    <span class="tree-route-level">${r.level}</span>
+                  </div>
+                  <div class="tree-route-name">${r.title.split('(')[0]}</div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Render Component Cards Grid
+    function renderComponentCards() {
+      const container = document.getElementById('cards-container');
+      if (!container) return;
+
+      const domainMeta = [
+        { key: 'residential', title: 'Residential Broadband & Bundles', icon: '🏠', count: 7 },
+        { key: 'business', title: 'Business, SME & Enterprise Solutions', icon: '💼', count: 5 },
+        { key: 'utilities', title: 'Shared Platform Utilities', icon: '⚡', count: 3 },
+        { key: 'support', title: 'Customer Care & Diagnostics', icon: '🎧', count: 2 },
+        { key: 'corporate', title: 'Corporate, Infrastructure & Careers', icon: '🏛️', count: 3 },
+        { key: 'legal', title: 'Regulatory Compliance & Legal Disclosures', icon: '⚖️', count: 4 }
+      ];
+
+      let filteredData = SITEMAP_DATA;
+      if (activeFilter !== 'all') {
+        filteredData = filteredData.filter(d => d.domain === activeFilter);
+      }
+      if (searchQuery.trim() !== '') {
+        const q = searchQuery.toLowerCase();
+        filteredData = filteredData.filter(d =>
+          d.route.toLowerCase().includes(q) ||
+          d.title.toLowerCase().includes(q) ||
+          d.intent.toLowerCase().includes(q) ||
+          d.persona.toLowerCase().includes(q) ||
+          d.components.some(c => c.toLowerCase().includes(q))
+        );
+      }
+
+      if (filteredData.length === 0) {
+        container.innerHTML = `
+          <div style="text-align: center; padding: 60px 20px; background: #FFFFFF; border-radius: var(--radius-lg); border: 1px solid var(--surface-border);">
+            <div style="font-size: 32px; margin-bottom: 12px;">🔍</div>
+            <h3 style="font-size: 18px; font-weight: 700; color: var(--text-title); margin-bottom: 6px;">No routes match your query</h3>
+            <p style="color: var(--text-muted); font-size: 14px;">Try searching for "gaming", "fttr", "sme", or "btrc".</p>
+          </div>
+        `;
+        return;
+      }
+
+      const activeDomains = domainMeta.filter(dm =>
+        filteredData.some(r => r.domain === dm.key)
+      );
+
+      container.innerHTML = activeDomains.map(dm => {
+        const domainRoutes = filteredData.filter(r => r.domain === dm.key);
+        return `
+          <div class="domain-section-group">
+            <div class="domain-group-header">
+              <div class="domain-group-title">
+                <span class="domain-icon-circle" style="background: var(--surface-elevated);">${dm.icon}</span>
+                <span>${dm.title}</span>
+              </div>
+              <span style="font-size: 12px; font-weight: 700; color: var(--text-muted);">${domainRoutes.length} Route${domainRoutes.length > 1 ? 's' : ''}</span>
+            </div>
+
+            <div class="cards-grid">
+              ${domainRoutes.map(node => `
+                <div class="figma-card" onclick="openNodeModal('${node.route}')">
+                  <div>
+                    <div class="figma-card-top">
+                      <div class="route-badge-box">
+                        <span class="route-url-text">${node.route}</span>
+                        <span class="level-badge">${node.level}</span>
+                      </div>
+                      <span class="wf-badge">${node.wireframe}</span>
+                    </div>
+
+                    <h3 class="card-title-text">${node.title}</h3>
+                    <p class="card-intent-text">${node.intent}</p>
+                  </div>
+
+                  <div class="card-meta-chips">
+                    <div class="meta-row">
+                      <span class="persona-chip">👤 ${node.persona.split('(')[0]}</span>
+                      <span class="rendering-chip">${node.rendering}</span>
+                    </div>
+
+                    <div class="cta-preview-row">
+                      <span class="cta-preview-primary">🎯 ${node.primaryCta}</span>
+                      <span class="inspect-btn-text">Inspect ↗</span>
+                    </div>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Render Master Table
+    function renderMasterTable() {
+      const tbody = document.getElementById('production-table-body');
+      if (!tbody) return;
+
+      tbody.innerHTML = SITEMAP_DATA.map(row => `
+        <tr>
+          <td><strong style="color: var(--brand-primary-dark); font-weight: 800;">${row.route}</strong></td>
+          <td><code class="app-router-code">${row.path}</code></td>
+          <td><span class="level-badge">${row.level}</span></td>
+          <td><span style="text-transform: capitalize; font-weight: 600; color: var(--text-title);">${row.domain}</span></td>
+          <td><span class="wf-badge">${row.wireframe}</span></td>
+          <td style="font-size: 12px;">${row.persona}</td>
+          <td><span class="rendering-chip">${row.rendering}</span></td>
+          <td>
+            <button class="tool-btn" style="padding: 3px 8px; font-size: 11px;" onclick="openNodeModal('${row.route}')">Inspect ↗</button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    // Show Persona User Journey Steps
+    function showPersonaJourney(personaKey) {
+      const p = PERSONA_JOURNEYS[personaKey];
+      if (!p) return;
+
+      const strip = document.getElementById('persona-pill-tabs');
+      if (strip) {
+        Array.from(strip.children).forEach(btn => btn.classList.remove('active'));
+        if (window.event && window.event.currentTarget) {
+          window.event.currentTarget.classList.add('active');
+        }
+      }
+
+      const content = document.getElementById('persona-active-content');
+      if (!content) return;
+
+      content.innerHTML = `
+        <div class="persona-card-summary">
+          <div class="summary-header-row">
+            <div class="summary-name">
+              <span>${p.name}</span>
+              <span class="summary-role">(${p.role})</span>
+            </div>
+            <span class="conversion-time-badge">⏱️ Conversion Time: ${p.timeToConvert}</span>
+          </div>
+          <div class="summary-goal">
+            <strong>Primary Goal:</strong> ${p.goal}
+          </div>
+        </div>
+
+        <div class="journey-timeline-list">
+          ${p.steps.map(s => `
+            <div class="journey-step-row">
+              <div class="step-circle">${s.step}</div>
+              <div class="step-content-card">
+                <div class="step-header">
+                  <span class="step-route-url">${s.route}</span>
+                  <button class="tool-btn" style="padding: 2px 8px; font-size: 11px;" onclick="openNodeModal('${s.route}')">Inspect Page Specs ↗</button>
+                </div>
+                <div class="step-intent-text">${s.intent}</div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    // Filter Logic
+    function filterDomain(domain) {
+      activeFilter = domain;
+      const pills = document.querySelectorAll('.domain-filter-pill');
+      pills.forEach(p => p.classList.remove('active'));
+      if (window.event && window.event.currentTarget) {
+        window.event.currentTarget.classList.add('active');
+      }
+      renderComponentCards();
+    }
+
+    function handleSearch(val) {
+      searchQuery = val;
+      renderComponentCards();
+    }
+
+    // Modal Inspector (Figma Properties Drawer)
+    function openNodeModal(route) {
+      const node = SITEMAP_DATA.find(r => r.route === route);
+      if (!node) return;
+
+      const modal = document.getElementById('inspector-modal');
+      const dialog = document.getElementById('inspector-dialog-content');
+
+      dialog.innerHTML = `
+        <button class="close-dialog-btn" onclick="closeInspector()" title="Close Inspector (Esc)">✕</button>
+        
+        <div class="insp-header-section">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
+            <span class="insp-route-tag">${node.route}</span>
+            <span class="level-badge">${node.level}</span>
+            <span class="wf-badge">${node.wireframe}</span>
+          </div>
+          <div class="insp-path-sub">${node.path}</div>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+          <h3 style="font-size: 20px; font-weight: 800; color: var(--text-title); margin-bottom: 8px;">${node.title}</h3>
+          <p style="font-size: 14px; color: var(--text-body); line-height: 1.6;">${node.intent}</p>
+        </div>
+
+        <div class="insp-prop-grid">
+          <div class="insp-prop-box">
+            <div class="insp-prop-label">Primary Target Persona</div>
+            <div class="insp-prop-value">👤 ${node.persona}</div>
+          </div>
+          <div class="insp-prop-box">
+            <div class="insp-prop-label">Rendering Architecture</div>
+            <div class="insp-prop-value"><span class="rendering-chip">${node.rendering}</span></div>
+          </div>
+          <div class="insp-prop-box">
+            <div class="insp-prop-label">Primary Conversion CTA</div>
+            <div class="insp-prop-value" style="color: var(--brand-primary-dark);">🎯 ${node.primaryCta}</div>
+          </div>
+          <div class="insp-prop-box">
+            <div class="insp-prop-label">Secondary Action</div>
+            <div class="insp-prop-value">${node.secondaryCta}</div>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+          <div class="insp-prop-label">Key React Component Tree</div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px;">
+            ${node.components.map(c => `
+              <span style="font-size: 12px; font-weight: 600; background: var(--surface-elevated); border: 1px solid var(--surface-border-strong); padding: 4px 10px; border-radius: var(--radius-sm); color: var(--text-title);">
+                ${c}
+              </span>
+            `).join('')}
+          </div>
+        </div>
+
+        <div class="insp-seo-box">
+          <div class="insp-prop-label" style="color: var(--brand-primary-dark);">SEO Search Engine Preview</div>
+          <div class="insp-seo-title">${node.seoTitle}</div>
+          <div class="insp-seo-desc">${node.seoDesc}</div>
+        </div>
+      `;
+
+      modal.classList.add('open');
+    }
+
+    function closeInspector() {
+      const modal = document.getElementById('inspector-modal');
+      if (modal) modal.classList.remove('open');
+    }
+
+    function closeInspectorOnBackdrop(e) {
+      if (e.target.id === 'inspector-modal') {
+        closeInspector();
+      }
+    }
+
+    // Keyboard support for Modal (Esc key)
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeInspector();
+      }
+    });
+
+    // Copy JSON Sitemap to Clipboard
+    function copyEntireSitemapJson() {
+      navigator.clipboard.writeText(JSON.stringify(SITEMAP_DATA, null, 2)).then(() => {
+        alert('✅ Link3 Full 24-Route Production Sitemap JSON copied to clipboard!');
+      });
+    }
+
+    // Live Simulator Navigation Logic
+    function simulateSegment(segmentKey) {
+      currentSegment = segmentKey;
+      const config = NAV_CONFIG[segmentKey];
+
+      // Update segment switcher buttons
+      document.getElementById('sim-btn-res').classList.toggle('active', segmentKey === 'residential');
+      document.getElementById('sim-btn-biz').classList.toggle('active', segmentKey === 'business');
+
+      // Update context label
+      document.getElementById('sim-context-route').innerText = config.currentRoute;
+
+      // Update primary nav links
+      const navList = document.getElementById('mock-nav-items');
+      navList.innerHTML = config.links.map(l => `
+        <li class="mock-nav-item" onclick="openNodeModal('${l.route}')">
+          ${l.label}
+        </li>
+      `).join('');
+
+      // Update primary CTA
+      document.getElementById('mock-nav-cta-btn').innerText = config.cta;
+    }
+
+    // Initial Application Boot
+    window.addEventListener('DOMContentLoaded', () => {
+      renderTreeView();
+      renderComponentCards();
+      renderMasterTable();
+      showPersonaJourney('tanvir');
+      simulateSegment('residential');
+    });
+  </script>
+</body>
+</html>

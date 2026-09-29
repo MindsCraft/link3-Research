@@ -251,6 +251,17 @@ Phased for Year 2, the API Marketplace allows businesses, software companies, an
 #### 3.4.C — WhatsApp-First Frictionless Care
 *   Direct verification via WhatsApp Business API: Check current balance, reboot optical port remotely, download tax receipts, and report fiber faults with automated ticket creation in under 60 seconds.
 
+#### 3.4.D — The "Never-Down" Resilience Architecture & Rapid Onboarding (Global Tier-1 Lessons)
+*Inspired by Xfinity Storm-Ready Wi-Fi, Vodafone Pro II, T-Mobile Home Internet, and Hyperoptic*
+
+1. **Auto-Failover LTE + Battery Backup (The "Never-Down" Gateway):**
+   - **The Problem:** Bangladesh urban households and SMEs suffer frequent physical fiber cuts from city roadwork and power load-shedding.
+   - **The Solution:** Link3 introduces an integrated backup unit (similar to **Xfinity Storm-Ready Wi-Fi** and **Vodafone 4G Broadband Back-up**): an optical terminal paired with an automatic 4G SIM fallback and a 4-hour rechargeable DC mini-UPS. If the optical signal drops or mains power fails, the router seamlessly switches to 4G without dropping active Zoom calls or POS transactions.
+2. **Link3 NOW — Frictionless Prepaid Broadband (Inspired by Xfinity NOW):**
+   - A dedicated ৳500–৳700/mo no-contract prepaid tier rechargeable directly via bKash/Nagad with zero security deposit, no credit checks, and instant digital self-activation. Tailored specifically for Dhaka/Chittagong university students, bachelor flats, and temporary tenants who avoid 12-month post-paid commitments.
+3. **Rapid 2-Hour Courier Delivery & 15-Minute DIY Activation (Inspired by T-Mobile & DoorDash):**
+   - In pre-wired residential apartment buildings (MDUs), Link3 eliminates the 48-hour technician dispatch waiting time by deploying pre-configured Wi-Fi 6 gateways via on-demand couriers (Pathao / Foodpanda). The subscriber plugs in power and fiber, scans a QR code on WhatsApp, and is online in under 15 minutes.
+
 ---
 
 ## 4. Customer Persona to Strategic Pillar Alignment Matrix

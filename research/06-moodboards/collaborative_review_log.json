@@ -1,0 +1,290 @@
+{
+  "10": {
+    "name": "MyRepublic Indonesia",
+    "country": "Indonesia",
+    "url": "https://myrepublic.co.id",
+    "status": "APPROVED_AND_CAPTURED",
+    "file": "10_myrepublic_id.png",
+    "sizeKb": 3008,
+    "timestamp": "2026-09-23T11:37:29.529Z"
+  },
+  "12": {
+    "name": "Oxygen.id",
+    "country": "Indonesia",
+    "url": "https://oxygen.id",
+    "status": "APPROVED_AND_CAPTURED",
+    "file": "12_oxygen_id.png",
+    "sizeKb": 3438,
+    "timestamp": "2026-09-23T11:38:53.733Z"
+  },
+  "13": {
+    "name": "Converge ICT (FiberX)",
+    "country": "Philippines",
+    "url": "https://www.convergeict.com",
+    "status": "APPROVED_AND_CAPTURED",
+    "file": "13_converge_ph.png",
+    "sizeKb": 3005,
+    "timestamp": "2026-09-23T11:40:16.086Z"
+  },
+  "21": {
+    "name": "FPT Telecom",
+    "country": "Vietnam",
+    "url": "https://fpt.vn",
+    "status": "APPROVED_AND_CAPTURED",
+    "file": "21_fpt_vn.png",
+    "sizeKb": 5548,
+    "timestamp": "2026-09-23T11:46:34.804Z"
+  },
+  "22": {
+    "name": "Viettel Telecom",
+    "country": "Vietnam",
+    "url": "https://vietteltelecom.vn",
+    "status": "APPROVED_AND_CAPTURED",
+    "file": "22_viettel_vn.png",
+    "sizeKb": 996,
+    "timestamp": "2026-09-23T11:49:17.646Z"
+  },
+  "24": {
+    "name": "AIS Fibre3",
+    "country": "Thailand",
+    "url": "https://ais.th/fibre",
+    "status": "APPROVED_AND_CAPTURED",
+    "file": "24_aisfibre_th.png",
+    "sizeKb": 3368,
+    "timestamp": "2026-09-23T11:50:08.481Z"
+  },
+  "26": {
+    "name": "Google Fiber",
+    "country": "USA",
+    "url": "https://fiber.google.com",
+    "status": "APPROVED_AND_CAPTURED",
+    "file": "26_googlefiber_us.png",
+    "sizeKb": 3354,
+    "timestamp": "2026-09-23T11:50:46.096Z"
+  },
+  "27": {
+    "name": "AT&T Fiber",
+    "country": "USA",
+    "url": "https://www.att.com/internet/fiber/",
+    "status": "APPROVED_AND_CAPTURED",
+    "file": "27_attfiber_us.png",
+    "sizeKb": 2080,
+    "timestamp": "2026-09-23T11:54:52.215Z"
+  },
+  "28": {
+    "name": "Verizon Fios",
+    "country": "USA",
+    "url": "https://www.verizon.com/home/fios/",
+    "status": "APPROVED_AND_CAPTURED",
+    "file": "28_verizonfios_us.png",
+    "sizeKb": 1394,
+    "timestamp": "2026-09-23T11:56:58.768Z"
+  },
+  "30": {
+    "name": "Ting Internet",
+    "country": "USA",
+    "url": "https://ting.com/internet",
+    "status": "APPROVED_AND_CAPTURED",
+    "file": "30_ting_us.png",
+    "sizeKb": 2153,
+    "timestamp": "2026-09-23T12:01:57.177Z"
+  },
+  "31": {
+    "name": "New EE Broadband",
+    "country": "UK",
+    "url": "https://ee.co.uk/broadband",
+    "status": "APPROVED_AND_CAPTURED",
+    "file": "31_ee_uk.png",
+    "sizeKb": 1848,
+    "timestamp": "2026-09-23T12:05:50.943Z"
+  },
+  "32": {
+    "name": "Community Fibre London",
+    "country": "UK",
+    "url": "https://communityfibre.co.uk",
+    "status": "APPROVED_AND_CAPTURED",
+    "file": "32_communityfibre_uk.png",
+    "sizeKb": 242,
+    "timestamp": "2026-09-23T12:09:45.514Z"
+  },
+  "34": {
+    "name": "Virgin Media O2",
+    "country": "UK",
+    "url": "https://www.virginmedia.com/broadband",
+    "status": "APPROVED_AND_CAPTURED",
+    "file": "34_virginmedia_uk.png",
+    "sizeKb": 1866,
+    "timestamp": "2026-09-23T12:11:42.561Z"
+  },
+  "36": {
+    "name": "Free (Freebox Ultra)",
+    "country": "France",
+    "url": "https://www.free.fr",
+    "status": "APPROVED_AND_CAPTURED",
+    "file": "36_freebox_fr.png",
+    "sizeKb": 2952,
+    "timestamp": "2026-09-23T12:20:53.804Z"
+  },
+  "37": {
+    "name": "Orange France",
+    "country": "France",
+    "url": "https://boutique.orange.fr/internet",
+    "status": "APPROVED_AND_CAPTURED",
+    "file": "37_orange_fr.png",
+    "sizeKb": 1234,
+    "timestamp": "2026-09-23T12:23:29.145Z"
+  },
+  "38": {
+    "name": "TIME dotCom",
+    "country": "Malaysia",
+    "url": "https://www.time.com.my",
+    "status": "APPROVED_AND_CAPTURED",
+    "file": "38_timedotcom_my.png",
+    "sizeKb": 461,
+    "timestamp": "2026-09-23T12:23:47.989Z"
+  },
+  "40": {
+    "name": "Unifi",
+    "country": "Malaysia",
+    "url": "https://unifi.com.my",
+    "status": "APPROVED_AND_CAPTURED",
+    "file": "40_unifi_my.png",
+    "sizeKb": 2895,
+    "timestamp": "2026-09-23T12:28:03.331Z"
+  },
+  "41": {
+    "name": "Maxis (Maxis Fibre)",
+    "country": "Malaysia",
+    "url": "https://www.maxis.com.my",
+    "status": "APPROVED_AND_CAPTURED",
+    "file": "41_maxis_my.png",
+    "sizeKb": 1065,
+    "timestamp": "2026-09-23T12:32:15.544Z"
+  },
+  "43": {
+    "name": "StarHub",
+    "country": "Singapore",
+    "url": "https://starhub.com/personal/broadband.html",
+    "status": "APPROVED_AND_CAPTURED",
+    "file": "43_starhub_sg.png",
+    "sizeKb": 1004,
+    "timestamp": "2026-09-23T12:33:40.390Z"
+  },
+  "44": {
+    "name": "MyRepublic Singapore",
+    "country": "Singapore",
+    "url": "https://myrepublic.net/sg/broadband",
+    "status": "APPROVED_AND_CAPTURED",
+    "file": "44_myrepublic_sg.png",
+    "sizeKb": 1740,
+    "timestamp": "2026-09-23T12:51:19.807Z"
+  },
+  "46": {
+    "name": "Swisscom",
+    "country": "Switzerland",
+    "url": "https://www.swisscom.ch",
+    "status": "APPROVED_AND_CAPTURED",
+    "file": "46_swisscom_ch.png",
+    "sizeKb": 4150,
+    "timestamp": "2026-09-23T12:58:07.431Z"
+  },
+  "47": {
+    "name": "KPN",
+    "country": "Netherlands",
+    "url": "https://www.kpn.com",
+    "status": "APPROVED_AND_CAPTURED",
+    "file": "47_kpn_nl.png",
+    "sizeKb": 1301,
+    "timestamp": "2026-09-23T13:00:47.501Z"
+  },
+  "48": {
+    "name": "Deutsche Telekom",
+    "country": "Germany",
+    "url": "https://www.telekom.de",
+    "status": "APPROVED_AND_CAPTURED",
+    "file": "48_deutschetelekom_de.png",
+    "sizeKb": 1618,
+    "timestamp": "2026-09-23T13:02:21.065Z"
+  },
+  "01": {
+    "name": "Reliance Jio (JioFiber)",
+    "country": "India",
+    "url": "https://www.jio.com/fiber",
+    "status": "APPROVED_AND_CAPTURED",
+    "file": "01_jiofiber_in.png",
+    "sizeKb": 4306,
+    "timestamp": "2026-09-23T11:25:23.631Z"
+  },
+  "02": {
+    "name": "Airtel (Airtel Xstream)",
+    "country": "India",
+    "url": "https://www.airtel.in/broadband",
+    "status": "APPROVED_AND_CAPTURED",
+    "file": "02_airtelblack_in.png",
+    "sizeKb": 1117,
+    "timestamp": "2026-09-23T11:30:49.907Z"
+  },
+  "03": {
+    "name": "ACT Fibernet",
+    "country": "India",
+    "url": "https://www.actcorp.in",
+    "status": "APPROVED_AND_CAPTURED",
+    "file": "03_actfibernet_in.png",
+    "sizeKb": 1762,
+    "timestamp": "2026-09-23T11:31:49.121Z"
+  },
+  "04": {
+    "name": "Tata Play Fiber",
+    "country": "India",
+    "url": "https://www.tataplayfiber.com",
+    "status": "APPROVED_AND_CAPTURED",
+    "file": "04_tataplayfiber_in.png",
+    "sizeKb": 2593,
+    "timestamp": "2026-09-23T11:33:08.253Z"
+  },
+  "05": {
+    "name": "Excitel Broadband",
+    "country": "India",
+    "url": "https://excitel.com",
+    "status": "APPROVED_AND_CAPTURED",
+    "file": "05_excitel_in.png",
+    "sizeKb": 3270,
+    "timestamp": "2026-09-23T11:33:25.829Z"
+  },
+  "06": {
+    "name": "Hathway Broadband",
+    "country": "India",
+    "url": "https://www.hathway.com",
+    "status": "APPROVED_AND_CAPTURED",
+    "file": "06_hathway_in.png",
+    "sizeKb": 2981,
+    "timestamp": "2026-09-23T11:33:41.881Z"
+  },
+  "07": {
+    "name": "Alliance Broadband",
+    "country": "India",
+    "url": "https://alliancebroadband.co.in",
+    "status": "APPROVED_AND_CAPTURED",
+    "file": "07_alliance_in.png",
+    "sizeKb": 3232,
+    "timestamp": "2026-09-23T11:34:11.254Z"
+  },
+  "08": {
+    "name": "Telkomsel IndiHome",
+    "country": "Indonesia",
+    "url": "https://indihome.co.id",
+    "status": "APPROVED_AND_CAPTURED",
+    "file": "08_indihome_id.png",
+    "sizeKb": 4679,
+    "timestamp": "2026-09-23T11:35:21.517Z"
+  },
+  "09": {
+    "name": "Biznet Networks",
+    "country": "Indonesia",
+    "url": "https://www.biznetnetworks.com",
+    "status": "APPROVED_AND_CAPTURED",
+    "file": "09_biznet_id.png",
+    "sizeKb": 6917,
+    "timestamp": "2026-09-23T11:36:27.498Z"
+  }
+}
