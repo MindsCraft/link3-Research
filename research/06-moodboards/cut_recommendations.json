@@ -1,0 +1,242 @@
+{
+  "01": {
+    "name": "Reliance JioFiber",
+    "slug": "01_jiofiber_in",
+    "raw_y": 2994,
+    "note": "Optimal whitespace gap (std=0.0)"
+  },
+  "02": {
+    "name": "Airtel Xstream",
+    "slug": "02_airtelblack_in",
+    "raw_y": 1929,
+    "note": "Optimal whitespace gap (std=0.0)"
+  },
+  "03": {
+    "name": "ACT Fibernet",
+    "slug": "03_actfibernet_in",
+    "raw_y": 2153,
+    "note": "Optimal whitespace gap (std=0.0)"
+  },
+  "04": {
+    "name": "Tata Play Fiber",
+    "slug": "04_tataplayfiber_in",
+    "raw_y": 2097,
+    "note": "Optimal whitespace gap (std=1.1)"
+  },
+  "05": {
+    "name": "Excitel Broadband",
+    "slug": "05_excitel_in",
+    "raw_y": 2081,
+    "note": "Optimal whitespace gap (std=3.5)"
+  },
+  "06": {
+    "name": "Hathway Broadband",
+    "slug": "06_hathway_in",
+    "raw_y": 1965,
+    "note": "Optimal whitespace gap (std=0.0)"
+  },
+  "07": {
+    "name": "Alliance Broadband",
+    "slug": "07_alliance_in",
+    "raw_y": 2083,
+    "note": "Optimal whitespace gap (std=1.7)"
+  },
+  "08": {
+    "name": "Telkomsel IndiHome",
+    "slug": "08_indihome_id",
+    "raw_y": 2222,
+    "note": "Optimal whitespace gap (std=0.0)"
+  },
+  "09": {
+    "name": "Biznet Networks",
+    "slug": "09_biznet_id",
+    "raw_y": 2866,
+    "note": "End of Our Company stats section before dark value props"
+  },
+  "10": {
+    "name": "MyRepublic ID",
+    "slug": "10_myrepublic_id",
+    "raw_y": 2041,
+    "note": "Optimal whitespace gap (std=0.0)"
+  },
+  "12": {
+    "name": "Oxygen.id",
+    "slug": "12_oxygen_id",
+    "raw_y": 2229,
+    "note": "Optimal whitespace gap (std=0.0)"
+  },
+  "13": {
+    "name": "Converge ICT (FiberX)",
+    "slug": "13_converge_ph",
+    "raw_y": 2149,
+    "note": "Optimal whitespace gap (std=4.8)"
+  },
+  "15": {
+    "name": "Globe At Home",
+    "slug": "15_globe_ph",
+    "raw_y": 1644,
+    "note": "Optimal whitespace gap (std=0.0)"
+  },
+  "16": {
+    "name": "RISE Fiber",
+    "slug": "16_rise_ph",
+    "raw_y": 1520,
+    "note": "Optimal whitespace gap (std=0.0)"
+  },
+  "21": {
+    "name": "FPT Telecom",
+    "slug": "21_fpt_vn",
+    "raw_y": 1885,
+    "note": "Optimal whitespace gap (std=0.0)"
+  },
+  "22": {
+    "name": "Viettel Telecom",
+    "slug": "22_viettel_vn",
+    "raw_y": 1308,
+    "note": "Full page (1308px - Hero + quick package grid)"
+  },
+  "24": {
+    "name": "AIS Fibre3",
+    "slug": "24_aisfibre_th",
+    "raw_y": 2088,
+    "note": "Optimal whitespace gap (std=0.9)"
+  },
+  "38": {
+    "name": "TIME dotCom",
+    "slug": "38_timedotcom_my",
+    "raw_y": 1635,
+    "note": "Optimal whitespace gap (std=0.0)"
+  },
+  "40": {
+    "name": "Unifi",
+    "slug": "40_unifi_my",
+    "raw_y": 2073,
+    "note": "Optimal whitespace gap (std=0.0)"
+  },
+  "41": {
+    "name": "Maxis (Maxis Fibre)",
+    "slug": "41_maxis_my",
+    "raw_y": 1643,
+    "note": "Optimal whitespace gap (std=0.0)"
+  },
+  "43": {
+    "name": "StarHub",
+    "slug": "43_starhub_sg",
+    "raw_y": 2365,
+    "note": "Optimal whitespace gap (std=0.0)"
+  },
+  "44": {
+    "name": "MyRepublic SG",
+    "slug": "44_myrepublic_sg",
+    "raw_y": 2081,
+    "note": "Optimal whitespace gap (std=0.0)"
+  },
+  "26": {
+    "name": "Google Fiber",
+    "slug": "26_googlefiber_us",
+    "raw_y": 2089,
+    "note": "Optimal whitespace gap (std=0.2)"
+  },
+  "27": {
+    "name": "AT&T Fiber",
+    "slug": "27_attfiber_us",
+    "raw_y": 2177,
+    "note": "Optimal whitespace gap (std=3.2)"
+  },
+  "28": {
+    "name": "Verizon Fios",
+    "slug": "28_verizonfios_us",
+    "raw_y": 2073,
+    "note": "Optimal whitespace gap (std=0.0)"
+  },
+  "30": {
+    "name": "Ting Internet",
+    "slug": "30_ting_us",
+    "raw_y": 2101,
+    "note": "Optimal whitespace gap (std=0.7)"
+  },
+  "49": {
+    "name": "Xfinity (Comcast)",
+    "slug": "49_xfinity_us",
+    "raw_y": 1784,
+    "note": "Optimal whitespace gap (std=0.0)"
+  },
+  "54": {
+    "name": "Sonic",
+    "slug": "54_sonic_us",
+    "raw_y": 1800,
+    "note": "Optimal whitespace gap (std=0.0)"
+  },
+  "62": {
+    "name": "Quantum Fiber",
+    "slug": "62_quantumfiber_us",
+    "raw_y": 1812,
+    "note": "Optimal whitespace gap (std=0.0)"
+  },
+  "63": {
+    "name": "T-Mobile Home Internet",
+    "slug": "63_tmobile_us",
+    "raw_y": 1608,
+    "note": "Optimal whitespace gap (std=0.0)"
+  },
+  "31": {
+    "name": "New EE Broadband",
+    "slug": "31_ee_uk",
+    "raw_y": 1737,
+    "note": "Optimal whitespace gap (std=0.0)"
+  },
+  "32": {
+    "name": "Community Fibre London",
+    "slug": "32_communityfibre_uk",
+    "raw_y": 3244,
+    "note": "Optimal whitespace gap (std=0.0)"
+  },
+  "34": {
+    "name": "Virgin Media O2",
+    "slug": "34_virginmedia_uk",
+    "raw_y": 2069,
+    "note": "Optimal whitespace gap (std=0.0)"
+  },
+  "36": {
+    "name": "Free (Freebox Ultra)",
+    "slug": "36_freebox_fr",
+    "raw_y": 2085,
+    "note": "Optimal whitespace gap (std=0.9)"
+  },
+  "37": {
+    "name": "Orange France",
+    "slug": "37_orange_fr",
+    "raw_y": 2493,
+    "note": "Optimal whitespace gap (std=0.0)"
+  },
+  "46": {
+    "name": "Swisscom",
+    "slug": "46_swisscom_ch",
+    "raw_y": 1960,
+    "note": "Optimal whitespace gap (std=4.7)"
+  },
+  "47": {
+    "name": "KPN",
+    "slug": "47_kpn_nl",
+    "raw_y": 1905,
+    "note": "Optimal whitespace gap (std=0.0)"
+  },
+  "48": {
+    "name": "Deutsche Telekom",
+    "slug": "48_deutschetelekom_de",
+    "raw_y": 1962,
+    "note": "Optimal whitespace gap (std=0.0)"
+  },
+  "53": {
+    "name": "Hyperoptic",
+    "slug": "53_hyperoptic_uk",
+    "raw_y": 4750,
+    "note": "Optimal whitespace gap (std=0.0)"
+  },
+  "57": {
+    "name": "Vodafone UK Broadband",
+    "slug": "57_vodafone_uk",
+    "raw_y": 1579,
+    "note": "Optimal whitespace gap (std=0.0)"
+  }
+}

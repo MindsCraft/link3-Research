@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Review Cut Boundary Slices</title>
+  <style>
+    body { font-family: sans-serif; background: #f8fafc; padding: 20px; }
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .item { background: #fff; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; }
+    .item h3 { font-size: 14px; margin-bottom: 8px; }
+    .item img { width: 100%; border: 1px solid #e2e8f0; display: block; }
+  </style>
+</head>
+<body>
+  <h1>40 Boundary Slices (Red line = Cut Y)</h1>
+  <div class="grid" id="grid"></div>
+  <script>
+    fetch('cut_recommendations.json')
+      .then(r => r.json())
+      .then(cuts => {
+        const grid = document.getElementById('grid');
+        Object.entries(cuts).forEach(([id, info]) => {
+          const div = document.createElement('div');
+          div.className = 'item';
+          div.innerHTML = `<h3>[${id}] ${info.name} (Cut Y: ${info.raw_y}px)</h3><img src="boundary_slices/${info.slug}_slice.png">`;
+          grid.appendChild(div);
+        });
+      });
+  </script>
+</body>
+</html>
