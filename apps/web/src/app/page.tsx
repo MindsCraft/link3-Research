@@ -1,6 +1,5 @@
 import React from 'react';
 import { JioHeroSlider } from '@/components/home/JioHeroSlider';
-import { HeroCarousel } from '@/components/home/HeroCarousel';
 import { CoverageCheckerWidget } from '@/components/home/CoverageCheckerWidget';
 import { PlansSection } from '@/components/home/PlansSection';
 import { LeadCaptureSection } from '@/components/home/LeadCaptureSection';
@@ -14,9 +13,6 @@ export default function HomePage() {
     <>
       {/* 0. Jio-Style Hero Slider Experiment */}
       <JioHeroSlider />
-
-      {/* 1. Campaign Hero Carousel */}
-      <HeroCarousel />
 
       {/* 2. Coverage Address Checker Widget */}
       <CoverageCheckerWidget />

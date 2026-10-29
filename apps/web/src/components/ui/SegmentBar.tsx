@@ -15,7 +15,12 @@ export function SegmentBar() {
         {/* Segment Switcher Tabs */}
         <div className="flex items-center gap-1 segment-bar-tabs">
           {siteSegments.map((seg) => {
-            const isSelected = seg.id === 'home' ? pathname === '/' : false;
+            const isSelected =
+              seg.id === 'home'
+                ? pathname === '/'
+                : seg.id === 'business'
+                ? pathname === '/business' || pathname?.startsWith('/business/')
+                : false;
             return (
               <Link
                 key={seg.id}

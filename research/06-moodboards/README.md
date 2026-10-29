@@ -20,14 +20,17 @@ The visual direction directly synthesizes best practices from the world's most i
 
 ---
 
-## 📑 Documents in This Directory
+## 📑 Documents & Deliverables in This Directory
 
-| File | Document Code | Focus Area | Status |
+| File / Folder | Document Code | Focus Area | Status |
 | :--- | :--- | :--- | :--- |
-| [02_competitor_visual_moodboard.html](./02_competitor_visual_moodboard.html) | `06-MOOD-COMP-02-HTML` | **34 Competitor Full-Page Visual Mood Board & Interactive Gallery:** Comprehensive visual masonry catalog of all 34 verified competitors (17 Emerging Market Leaders + 17 Global Innovators) with automated modal and cookie dismissal, category filter pills, speed tiers, strategic takeaways, and full-resolution lightbox inspector. | ✅ **Completed (100% Light Mode)** |
+| [02_competitor_visual_moodboard.html](./02_competitor_visual_moodboard.html) | `06-MOOD-COMP-02-HTML` | **34 Competitor Full-Page Visual Mood Board & Interactive Gallery:** Comprehensive visual catalog of 34 benchmark competitors (17 Emerging Market Leaders + 17 Global Innovators) with category filter pills, speed tiers, key takeaways, and full-resolution lightbox inspector. | ✅ **Completed (100% Light Mode)** |
+| [03_hero_and_next_sections_gallery.html](./03_hero_and_next_sections_gallery.html) | `06-MOOD-HERO-03-HTML` | **40 Competitor Hero & Next Section Showcase:** High-precision extract catalog comparing top navigation, hero banners, and immediately following value-proposition blocks across 40 global and regional broadband leaders. | ✅ **Completed (100% Light Mode)** |
+| [hero_next_manifest.json](./hero_next_manifest.json) | `06-MOOD-MANIFEST-JSON` | **Hero & Next Section Metadata & Crop Manifest:** Comprehensive dataset containing dimensional metrics, crop parameters, operator highlights, and URLs for all 40 competitors. | ✅ **Completed** |
 | [screenshot_audit_report.json](./screenshot_audit_report.json) | `06-MOOD-AUDIT-JSON` | **Competitor Web Accessibility & Screenshot Audit Log:** Complete data report detailing HTTP status, full-page pixel heights, file sizes, and accessibility flags (34/34 verified & approved). | ✅ **Completed (34/34 Approved)** |
-| [screenshots/](./screenshots/) | `06-MOOD-SCREENS` | **100% Full-Page Desktop Screenshot Archive:** High-resolution 1440px width full-page PNG captures from header to footer with all cookie banners and dialog backdrops scrubbed. | ✅ **Completed (34 Curated PNGs)** |
-| [interactive_capture_studio.js](./interactive_capture_studio.js) | `06-MOOD-STUDIO-JS` | **Interactive Desktop Studio Engine:** Live visible desktop browser runner with co-pilot keyboard controls. | ✅ **Completed** |
+| [hero_and_next_sections/](./hero_and_next_sections/) | `06-MOOD-HERO-CROPS` | **Curated Hero Section Crops Archive:** 40 cropped PNG images capturing the hero section and subsequent content block for all benchmark competitors. | ✅ **Completed (40 Curated PNGs)** |
+| [screenshots/](./screenshots/) | `06-MOOD-SCREENS` | **100% Full-Page Desktop Screenshot Archive:** High-resolution 1440px+ width full-page PNG captures from header to footer with cookie banners and dialog backdrops dismissed. | ✅ **Completed (34 Curated PNGs)** |
+
 
 ---
 

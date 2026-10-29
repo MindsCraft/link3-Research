@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "pnpm --filter web dev",
     "dev:web": "pnpm --filter web dev",
-    "dev:cms": "pnpm --filter cms dev",
-    "build": "pnpm --filter @link3/contracts build && pnpm --filter cms build && pnpm --filter web build",
+    "build": "pnpm --filter @link3/contracts build && pnpm --filter web build",
     "lint": "pnpm -r lint",
     "typecheck": "pnpm -r typecheck"
   },

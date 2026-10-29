@@ -77,9 +77,9 @@ export function Footer() {
               More From {siteConfig.brandName}
             </h5>
             <Link href="/#plans" className="text-muted">Home Fibre</Link>
-            <Link href="/#segments" className="text-muted">Link3 Business</Link>
-            <Link href="/#segments" className="text-muted">Link3 Enterprise</Link>
-            <Link href="/#segments" className="text-muted">Link3 Wholesale</Link>
+            <Link href="/business" className="text-muted">Link3 Business</Link>
+            <Link href="/business#enterprise" className="text-muted">Link3 Enterprise</Link>
+            <Link href="/business#wholesale" className="text-muted">Link3 Wholesale</Link>
             <Link href="/#plans" className="text-muted">Devices &amp; Mesh WiFi</Link>
             <Link href="/#plans" className="text-muted">Fibre-To-The-Room (FTTR)</Link>
           </div>

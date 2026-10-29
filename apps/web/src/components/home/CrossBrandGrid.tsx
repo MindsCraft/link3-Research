@@ -20,7 +20,7 @@ const segments: SisterSegment[] = [
     headerClass: 'sister-header-business',
     subtitle: 'Businesses Grow With Link3',
     desc: 'High-speed Internet plans built for scalability, SLA reliability and seamless SME operations.',
-    href: '/#contact',
+    href: '/business',
   },
   {
     id: 'enterprise',

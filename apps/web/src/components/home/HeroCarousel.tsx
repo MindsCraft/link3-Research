@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 
-interface BlogSlide {
+export interface BlogSlide {
   id: string;
   category: string;
   title: string;
@@ -18,7 +18,7 @@ interface BlogSlide {
   mediaCard: React.ReactNode;
 }
 
-const slides: BlogSlide[] = [
+export const defaultSlides: BlogSlide[] = [
   {
     id: 'slide-2gbps',
     category: 'Fibre Innovation',
@@ -151,7 +151,8 @@ const slides: BlogSlide[] = [
   },
 ];
 
-export function HeroCarousel() {
+export function HeroCarousel({ slides: propSlides }: { slides?: BlogSlide[] } = {}) {
+  const slides = propSlides && propSlides.length > 0 ? propSlides : defaultSlides;
   const [activeIndex, setActiveIndex] = useState(0);
 
   const canPrev = activeIndex > 0;

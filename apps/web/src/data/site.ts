@@ -15,7 +15,7 @@ export interface NavLink {
 
 export const siteSegments: SegmentItem[] = [
   { id: 'home', label: 'Home', href: '/' },
-  { id: 'business', label: 'Business', href: '/#segments' },
+  { id: 'business', label: 'Business', href: '/business' },
   { id: 'wholesale', label: 'Wholesale', href: '/#segments' },
   { id: 'enterprise', label: 'Enterprise', href: '/#segments' },
   { id: 'energy', label: 'Energy / Cloud', href: '/#segments' },
