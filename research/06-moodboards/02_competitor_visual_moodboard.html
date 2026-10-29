@@ -15,7 +15,7 @@
        EDITORIAL LIGHT-MODE DESIGN SYSTEM (ZERO SHADOWS, ZERO BORDERS, SPACIOUS)
        ========================================================================= */
     :root {
-      --bg-page: #F8FAFC;
+      --bg-page: #f6faff;
       --bg-surface: #FFFFFF;
       --bg-media: #EEF2F6;
       --bg-pill: #F1F5F9;
@@ -34,14 +34,16 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      border: none !important;
-      outline: none !important;
-      box-shadow: none !important;
+    }
+
+    button {
+      border: none;
+      outline: none;
     }
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background-color: var(--bg-page);
+      background-color: #f6faff;
       color: var(--text-main);
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
@@ -55,14 +57,15 @@
       padding: 0 48px;
     }
 
-    /* Top Navigation Bar: Clean, Minimal, Glass-Floating */
+    /* Top Navigation Bar: Clean, White Glass Header */
     header {
-      background-color: rgba(248, 250, 252, 0.94);
+      background-color: rgba(255, 255, 255, 0.96);
       backdrop-filter: blur(12px);
       position: sticky;
       top: 0;
       z-index: 100;
       padding: 20px 0;
+      border-bottom: 1px solid #E2E8F0;
     }
 
     .header-bar {
@@ -171,153 +174,178 @@
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(460px, 1fr));
-      gap: 56px 40px;
+      gap: 36px 32px;
     }
 
-    /* Completely Borderless Card */
+    /* Segmented Benchmark Card (from 03 Hero & Next Sections Gallery) */
     .card {
-      background: transparent;
+      background: #FFFFFF;
+      border: none;
+      border-radius: 12px;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
+      box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.05), 0 2px 4px -2px rgba(15, 23, 42, 0.03);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
       cursor: pointer;
-      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .card:hover {
       transform: translateY(-4px);
+      box-shadow: 0 20px 30px -10px rgba(15, 23, 42, 0.12);
     }
 
-    /* Spacious Media Preview Container */
-    .media-box {
+    /* Segment 1: Header Topbar */
+    .card-topbar {
+      padding: 14px 18px;
+      border-bottom: 1px solid #E2E8F0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #FFFFFF;
+    }
+
+    .card-operator-info {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .card-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: -0.2px;
+    }
+
+    .card-country {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .card-speed-badge {
+      font-size: 11px;
+      font-weight: 700;
+      background: #F1F5F9;
+      color: var(--text-secondary);
+      padding: 3px 8px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    /* Segment 2: Visual Canvas / Preview Box with Smooth Pan */
+    .card-preview-box {
       position: relative;
       height: 380px;
-      background-color: var(--bg-media);
+      background: var(--bg-media);
       overflow: hidden;
-      border-radius: 6px;
+      cursor: pointer;
     }
 
-    .media-scroll {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      transition: transform 6.5s linear;
-    }
-
-    .media-scroll img {
+    .card-preview-img {
       width: 100%;
       height: auto;
       display: block;
-      object-fit: cover;
-      object-position: top;
+      transition: transform 6.5s linear;
     }
 
-    .card:hover .media-scroll {
+    .card-preview-box:hover .card-preview-img {
       transform: translateY(calc(-100% + 380px));
     }
 
-    .media-badge {
-      position: absolute;
-      top: 14px;
-      left: 14px;
-      background-color: rgba(255, 255, 255, 0.95);
-      padding: 5px 12px;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--text-main);
-      border-radius: 4px;
-      z-index: 2;
-    }
-
-    .media-speed {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      background-color: rgba(15, 23, 42, 0.9);
-      color: #FFFFFF;
-      padding: 5px 12px;
-      font-size: 11px;
-      font-weight: 700;
-      border-radius: 4px;
-      z-index: 2;
-    }
-
-    .media-hint {
+    .preview-lens-hint {
       position: absolute;
       bottom: 12px;
       right: 12px;
-      background-color: rgba(255, 255, 255, 0.92);
+      background: rgba(15, 23, 42, 0.85);
+      color: #FFFFFF;
       font-size: 11px;
-      font-weight: 600;
-      color: var(--text-muted);
+      font-weight: 700;
       padding: 4px 10px;
-      border-radius: 4px;
+      border-radius: 6px;
+      backdrop-filter: blur(8px);
       pointer-events: none;
+      transition: opacity 0.2s ease;
       z-index: 2;
-      opacity: 0.85;
     }
 
-    /* Clean, Editorial Card Typography */
-    .card-content {
-      padding: 20px 4px 4px 4px;
+    /* Segment 3: Bottom Details Area */
+    .card-details {
+      padding: 16px 18px;
+      background: #FFFFFF;
+      border-top: 1px solid #E2E8F0;
       display: flex;
       flex-direction: column;
-      gap: 6px;
-    }
-
-    .card-top {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
       gap: 12px;
-    }
-
-    .card-name {
-      font-size: 18px;
-      font-weight: 800;
-      letter-spacing: -0.3px;
-      color: var(--text-main);
-      text-decoration: none;
-      transition: color 0.15s ease;
-    }
-
-    .card:hover .card-name {
-      color: var(--brand-blue);
+      flex: 1;
     }
 
     .card-highlight {
       font-size: 13px;
-      color: var(--text-muted);
+      color: var(--text-secondary);
       line-height: 1.5;
-      margin-top: 2px;
     }
 
-    .card-action-bar {
+    .card-highlight strong {
+      color: var(--text-main);
+      font-weight: 700;
+    }
+
+    /* Segment 4: Footer with Meta and Action Buttons */
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+      padding-top: 12px;
+      border-top: 1px dashed #E2E8F0;
+      font-size: 12px;
+    }
+
+    .card-meta-dim {
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 11px;
+    }
+
+    .card-actions {
       display: flex;
       align-items: center;
-      gap: 16px;
-      margin-top: 10px;
+      gap: 8px;
     }
 
-    .action-link {
-      font-size: 12px;
-      font-weight: 700;
+    .btn-action {
+      border: 1px solid #E2E8F0;
+      background: #F8FAFC;
       color: var(--text-secondary);
-      text-decoration: none;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 6px;
       cursor: pointer;
+      text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      transition: color 0.15s ease;
+      transition: all 0.15s ease;
     }
 
-    .action-link:hover {
+    .btn-action:hover {
+      background: #FFFFFF;
       color: var(--brand-blue);
+      border-color: var(--brand-blue);
     }
 
-    .action-link.primary {
-      color: var(--brand-blue);
+    .btn-action.primary {
+      background: var(--brand-blue);
+      color: #FFFFFF;
+      border-color: var(--brand-blue);
+    }
+
+    .btn-action.primary:hover {
+      background: var(--brand-blue-hover);
     }
 
     /* =========================================================================
@@ -707,7 +735,7 @@
         grid-template-columns: 1fr;
         gap: 40px;
       }
-      .media-box {
+      .card-preview-box {
         height: 320px;
       }
       .modal-header-center {
@@ -732,16 +760,16 @@
           All <span class="count">40</span>
         </button>
         <button class="nav-btn" data-region="south-asia">
-          🇮🇳 South Asia <span class="count">7</span>
+          South Asia <span class="count">7</span>
         </button>
         <button class="nav-btn" data-region="southeast-asia">
-          🌏 Southeast Asia <span class="count">15</span>
+          Southeast Asia <span class="count">15</span>
         </button>
         <button class="nav-btn" data-region="north-america">
-          🇺🇸 North America <span class="count">8</span>
+          North America <span class="count">8</span>
         </button>
         <button class="nav-btn" data-region="europe">
-          🇪🇺 Europe <span class="count">10</span>
+          Europe <span class="count">10</span>
         </button>
       </nav>
     </div>
@@ -750,10 +778,10 @@
   <!-- Main Spacious Content -->
   <main class="container">
 
-    <!-- South Asia (India) -->
+    <!-- South Asia -->
     <section class="region-section" data-section="south-asia">
       <div class="region-header">
-        <h2 class="region-title">🇮🇳 South Asia (India)</h2>
+        <h2 class="region-title">South Asia</h2>
         <span class="region-meta">7 High-Density Operators</span>
       </div>
       <div class="grid" id="grid-south-asia"></div>
@@ -762,7 +790,7 @@
     <!-- Southeast Asia -->
     <section class="region-section" data-section="southeast-asia">
       <div class="region-header">
-        <h2 class="region-title">🌏 Southeast Asia (ID, PH, VN, TH, MY, SG)</h2>
+        <h2 class="region-title">Southeast Asia</h2>
         <span class="region-meta">15 Regional Champions</span>
       </div>
       <div class="grid" id="grid-southeast-asia"></div>
@@ -771,7 +799,7 @@
     <!-- North America -->
     <section class="region-section" data-section="north-america">
       <div class="region-header">
-        <h2 class="region-title">🇺🇸 North America (USA)</h2>
+        <h2 class="region-title">North America</h2>
         <span class="region-meta">8 World-Class Leaders</span>
       </div>
       <div class="grid" id="grid-north-america"></div>
@@ -780,7 +808,7 @@
     <!-- Europe -->
     <section class="region-section" data-section="europe">
       <div class="region-header">
-        <h2 class="region-title">🇪🇺 Europe (UK, FR, CH, NL, DE)</h2>
+        <h2 class="region-title">Europe</h2>
         <span class="region-meta">10 Top Innovators</span>
       </div>
       <div class="grid" id="grid-europe"></div>
@@ -1367,26 +1395,30 @@
 
         grid.innerHTML = items.map(c => `
           <article class="card" onclick="openModal('${c.id}')">
-            <!-- Media Box with Auto-Scroll on Hover -->
-            <div class="media-box">
-              <span class="media-badge">${c.flag} ${c.country}</span>
-              <span class="media-speed">${c.speed}</span>
-              <div class="media-scroll">
-                <img src="screenshots/${c.slug}.png" alt="${c.name}" loading="lazy">
+            <!-- Segment 1: Header Topbar -->
+            <div class="card-topbar">
+              <div class="card-operator-info">
+                <span class="card-title">${c.name}</span>
+                <span class="card-country">${c.country}</span>
               </div>
-              <div class="media-hint">Hover to scroll &bull; Click to inspect</div>
+              <span class="card-speed-badge">${c.speed}</span>
             </div>
 
-            <!-- Content -->
-            <div class="card-content">
-              <div class="card-top">
-                <span class="card-name">${c.name}</span>
-              </div>
-              <p class="card-highlight">${c.highlight}</p>
+            <!-- Segment 2: Preview Canvas with Hover-Pan -->
+            <div class="card-preview-box">
+              <img class="card-preview-img" src="screenshots/${c.slug}.png" alt="${c.name}" loading="lazy">
+            </div>
 
-              <div class="card-action-bar">
-                <span class="action-link primary">Inspect Full Page ↗</span>
-                <a href="${c.url}" target="_blank" rel="noopener" class="action-link" onclick="event.stopPropagation()">Visit Live Site ↗</a>
+            <!-- Segment 3: Bottom Details Area -->
+            <div class="card-details">
+              <div class="card-highlight">
+                <strong>Focus:</strong> ${c.highlight}
+              </div>
+              <div class="card-footer">
+                <span class="card-meta-dim">${c.regionName} &bull; Full Page</span>
+                <div class="card-actions">
+                  <a class="btn-action" href="${c.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Live ↗</a>
+                </div>
               </div>
             </div>
           </article>
@@ -1449,7 +1481,7 @@
 
     function loadModal() {
       const c = competitors[currentIdx];
-      modalTitle.innerHTML = `${c.flag} ${c.name} <span style="font-weight:600; color:var(--text-muted); font-size:13px;">(${c.country})</span>`;
+      modalTitle.innerHTML = `${c.name} <span style="font-weight:600; color:var(--text-muted); font-size:13px;">(${c.country})</span>`;
       modalSpeed.textContent = c.speed;
       
       const imgSrc = 'screenshots/' + c.slug + '.png';
